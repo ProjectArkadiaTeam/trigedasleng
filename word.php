@@ -33,7 +33,6 @@ $note = $info['note'];
             <ul class="citations">
                 <li><a href="$link">$text</a></li>
             </ul>
-            <a href="editword?q=<?=$trig?>">Edit Information</a>
         </div>
     </div>
 </div>

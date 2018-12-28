@@ -53,8 +53,7 @@ $episode_names = [
     "0411" => "0411: The Other Side",
     "0412" => "0412: The Chosen",
     "0413" => "0413: Praimfaya",
-    "other" => "OTHER",
-
+    "other" => "Other Translations"
 ];
 
 ?>
@@ -63,7 +62,7 @@ $episode_names = [
         <div class="translations">
             <h1>Translations</h1>
             <?php foreach ($episode_names as $number => $name):
-                $sql = "SELECT * FROM `dict_translations` WHERE `episode`=".$number;
+                $sql = "SELECT * FROM `dict_translations` WHERE `episode`='".$number."'";
                 if (!$result = $db->query($sql)) {
                     // Oh no! The query failed.
                     echo "Sorry, the website is experiencing problems.";
@@ -108,4 +107,4 @@ $episode_names = [
     </div>
 </div>
 
-<?php include($_SERVER['DOCUMENT_ROOT'].'/includes/footer.inc.php') ?>
+<?php include('includes/footer.inc.php') ?>

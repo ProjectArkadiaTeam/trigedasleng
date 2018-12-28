@@ -12,8 +12,8 @@ Trigedasleng is descended from a heavily-accented dialect of American English. I
 Trigedasleng is not a creole, but a descendant of American English alone, and while it may share similarities with AAVE (African American Vernacular English, which is also derived from American English), those similarities are not intentional, and Trigedasleng does not derive from AAVE.
 
 # Credit & Attribution
-* Jensen (Lead developer of Trigedasleng.info) [@the__jensen](http://twitter.com/the__jensen) 
-* David J. Peterson (language creator) [@dedalvs](http://twitter.com/devalvs)
+* Jensen (Lead developer of Trigedasleng.info) [Tumblr](http://smallerontheoutside.tumblr.com/) 
+* David J. Peterson (language creator) [@dedalvs](http://twitter.com/dedalvs)
 * The CW (show rights) [@the100cw](http://twitter.com/the100cw)
 * Sloan (Developer for Trigedasleng.info) [@sloanreynolds](http://twitter.com/sloanreynolds)
 

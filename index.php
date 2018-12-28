@@ -10,16 +10,16 @@ include("includes/header.inc.php");
 <div id="content">
     <div id="inner">
         <div class="home">
-            <div class="column left">
-                <h3>Resources:</h3>
+            <div class="column side">
+                <h3>Recently Added</h3>
                 <ul>
                     <?php
-                    echo '<li><a href="">$Resource#1</a></li>'
+                    echo '<li><a href=""></a></li>'
                     //TODO Link slakkru, tumblr etc
                     ?>
                 </ul>
             </div>
-            <div class="column right">
+            <div class="column center">
 
                 <!--About-->
                 <div class="daily">
@@ -47,6 +47,17 @@ include("includes/header.inc.php");
                     echo '<p>You have something to trade?</p>';
                     ?>
                 </div>
+            </div>
+            <div class="column side">
+                <h3>Resources:</h3>
+                <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Trigedasleng">Trigedasleng on Wikipedia</a></li>
+                    <li><a href="https://dedalvs.tumblr.com/tagged/Trigedasleng">Dedalvs Tumblr</a></li>
+                    <li><a href="http://dedalvs.com/work/the-100/trigedasleng_master_dialogue.pdf">Transcripts of Trig lines in the show</a></li>
+                    <li><a href="http://www.memrise.com/course/957902/trigedasleng/">Memrise course</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=JCoxlcHn7SQ&list=PLrk1St_BRZTFrhOYsz2KRS_fZ9ZzTavrq">Slakkru's Learn Trigedasleng videos </a></li>
+                    <li><a href="http://slakgedakru.tumblr.com/">Slakgedakru</a></li>
+                </ul>
             </div>
         </div>
     </div>

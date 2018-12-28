@@ -143,8 +143,8 @@ ul, ol {
     display:inline-block;
     color:white;
     font:normal bold 22px 'Lora',Georgia,serif;
-    text-transform:lowercase;
-    width:140px;
+    /*text-transform:lowercase;*/
+    width:200px;
     margin:10px;
     vertical-align:top;
 }
@@ -165,6 +165,17 @@ ul, ol {
     text-align: center;
 }
 
+#smalltitle {
+    margin: 0 0;
+    font: normal bold 15px 'Lora',Georgia,serif;
+    color: lightgray;
+}
+
+#largetitle {
+    margin: 0 0;
+    font: normal bold 22px 'Lora',Georgia,serif;
+}
+
 .alphabet-selector {
     background: #ccc;
     padding: 5px 0px;
@@ -181,14 +192,14 @@ ul, ol {
 }
 
 .menu-head {
-    display:inline-block;
-    color:white;
-    font:bold 18px 'Noto Sans',Arial,sans-serif;
+    display: inline-block;
+    color: white;
+    font: bold 18px 'Noto Sans',Arial,sans-serif;
     text-transform: uppercase;
     letter-spacing: .1em;
-    width:160px;
-    margin:10px;
-    margin-top:40px;
+    width: 160px;
+    margin: 19px;
+    margin-top: 40px;
     vertical-align: top;
 }
 
@@ -266,6 +277,7 @@ ul, ol {
 #navigation {
 
 }
+
 
 #content {
     width:100%;
@@ -477,14 +489,14 @@ td.help {
 
 }
 
-.home .column.left {
+.home .column.side {
     width:20%;
-    margin:10px 5px 10px auto;
+    margin:10px auto 10px auto;
 }
 
-.home .column.right {
-    width:70%;
-    margin:10px auto 5px 10px;
+.home .column.center {
+    width:50%;
+    margin:10px auto 5px auto;
 }
 
 .home .column.right a {

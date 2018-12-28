@@ -1,5 +1,8 @@
 <div id="header">
-    <div class="title">Trigedasleng Dictionary</div>
+    <div class="title">
+        <p id="smalltitle">The Unofficial</p>
+        <p id="largetitle">Trigedasleng Dictionary</p>
+    </div>
     <div class="menu">
         <div class="menu-head" onclick="">Menu</div>
         <ul class="dropdown">

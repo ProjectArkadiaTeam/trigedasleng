@@ -23,7 +23,7 @@ require_once("includes/header.inc.php");
 
                 <!--About-->
                 <div class="daily">
-                    <center><h3>About this website</h3></center>
+	                <h3>About this website</h3>
                     <p>This website is an attempt at recreating what was Trigedasleng.info after it went dark in december 2018.
                     All credits for design and content goes to the original creators of Trigedasleng.info.
                     </p>
@@ -31,7 +31,7 @@ require_once("includes/header.inc.php");
 
                 <!--Word of the day-->
                 <div class="daily">
-                    <center><h3>Word of the Day</h3></center>
+	                <h3>Word of the Day</h3>
                     <?php
                     echo '<p><a href="#">gada in</a> (verb) have, own</p>'
                     //TODO Get random word of the day
@@ -40,7 +40,7 @@ require_once("includes/header.inc.php");
 
                 <!--Translation of the day-->
                 <div class="daily">
-                    <center><h3>Translation of the Day</h3></center>
+	                <h3>Translation of the Day</h3>
                     <?php
                     //TODO Get random translation of the day
                     echo '<p><a href="#">Yu gada som in na kof op?</a></p>';

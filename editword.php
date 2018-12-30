@@ -2,10 +2,10 @@
 require_once("includes/common.inc.php");
 
 //HTML Head
-include("includes/head.inc.php");
+require_once("includes/head.inc.php");
 
 //Website Header
-include("includes/header.inc.php");
+require_once("includes/header.inc.php");
 
 //Get the word to edit from url
 $word = mysqli_real_escape_string($db, $_GET['q']);
@@ -45,4 +45,4 @@ if (!$result = $db->query($sql)) {
 <!--    </div>-->
 <!--</div>-->
 
-<?php include('includes/footer.inc.php') ?>
+<?php require_once('includes/footer.inc.php') ?>

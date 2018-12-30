@@ -2,10 +2,10 @@
 require_once("includes/common.inc.php");
 
 //HTML Head
-include("includes/head.inc.php");
+require_once("includes/head.inc.php");
 
 //Website Header
-include("includes/header.inc.php");
+require_once("includes/header.inc.php");
 ?>
 <div id="content">
     <div id="inner">
@@ -62,5 +62,5 @@ include("includes/header.inc.php");
         </div>
     </div>
 </div>
-<?php include("includes/footer.inc.php");
+<?php require_once("includes/footer.inc.php");
 

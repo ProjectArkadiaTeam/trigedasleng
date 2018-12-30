@@ -1,7 +1,7 @@
 <?php
 
 define("DEBUG_MODE", true);
-define("MYSQL_HOST", "");
-define("MYSQL_USER", "");
-define("MYSQL_PASS", "");
-define("MYSQL_DB", "");
+define("MYSQL_HOST", "localhost");
+define("MYSQL_USER", "user");
+define("MYSQL_PASS", "pass");
+define("MYSQL_DB", "trigedasleng");

@@ -1,257 +1,241 @@
-/* colors
-    deep blue       #44627c
-    lighter gray    #eee
-    light gray      #ccc
-    light blue      #8cb2db
-    gray            #aaa
-    black           #000
-    brown           #513c2c
-*/
-
-/* native tag formatting */
-
 :root {
-    height:100%;
-    width:100%;
+	/*
+	Colors
+	 */
+	--color-black:        #000;
+	--color-brown:        #513C2C;
+	--color-gray:         #AAA;
+	--color-light-gray:   #CCC;
+	--color-lighter-gray: #EEE;
+	--color-light-blue:   #8CB2DB;
+	--color-deep-blue:    #44627C;
 }
 
 a, a:visited {
-    color:#232323;
-    text-decoration:none;
-    border-bottom:.1em dotted #232323;
+	color: #232323;
+	text-decoration: none;
+	border-bottom: .1em dotted #232323;
 }
 
 a:hover {
-    background-color:#ccc;
+	background-color: var(--color-light-gray);
 }
 
 audio {
-    margin-left: 10px;
-    font-size:.6em;
+	margin-left: 10px;
+	font-size: .6em;
 }
 
 button#play-button {
-    margin:0px 10px;
+	margin: 0 10px;
 }
 
 body {
-    background:#eee;
-    margin:0px;
-    padding:0;
-    border:0;
-    height:100%;
-    width:100%;
+	background: var(--color-lighter-gray);
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 100%;
+	width: 100%;
 }
 
-em {}
-
 h1 {
-    font:28px 'Lora',Georgia,serif;
-    color:#232323;
+	font: 28px 'Lora', Georgia, serif;
+	color: #232323;
 }
 
 h2 {
-    font:24px 'Lora',Georgia,serif;
-    font-weight:bold;
+	font: 24px 'Lora', Georgia, serif;
+	font-weight: bold;
 }
 
 h3 {
-    font:20px 'Lora',Georgia,serif;
+	font: 20px 'Lora', Georgia, serif;
 }
 
 h4 {
-    font:18px 'Lora',Georgia,serif;
-    font-weight:normal;
-    color:#232323;
+	font: 18px 'Lora', Georgia, serif;
+	font-weight: normal;
+	color: #232323;
 }
 
 iframe {
-    max-height: 400px;
-    width:100%;
-    overflow:scroll;
-    resize:both;
+	max-height: 400px;
+	width: 100%;
+	overflow: scroll;
+	resize: both;
 }
 
 p {
-    font-family:'Noto Sans',Arial,sans-serif;
-    letter-spacing:.03em;
+	font-family: 'Noto Sans', Arial, sans-serif;
+	letter-spacing: .03em;
 }
-
-red {
-    color:red;
-}
-
-strong {}
 
 .small {
-    font-size: .75em;
+	font-size: .75em;
 }
 
 .narrow {
-    width:40%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
 
 table.gloss {
-    font-family:Courier,monospace;
+	font-family: Courier, monospace;
 }
-table.gloss tr {}
 
 table.gloss tr.tgs_text, table.gloss tr.en_text {
-    font-family:'Noto Sans',Arial,sans-serif;
+	font-family: 'Noto Sans', Arial, sans-serif;
 }
 
 table.gloss tr.tgs, table.gloss tr.tgs_gloss {
-    font-style:italic;
+	font-style: italic;
 }
 
 table.gloss tr.ety, table.gloss tr.ety_gloss {
-    color:#aaa;
+	color: var(--color-gray);
 }
 
-table.gloss tr.leipzig, table.gloss tr.leipzig_gloss {}
-
 table.gloss td {
-    padding-right:2em;
+	padding-right: 2em;
 }
 
 table.grammar td, table.grammar th {
-    padding-right:2em;
+	padding-right: 2em;
 }
 
 ul, ol {
-    font-family:'Noto Sans',Arial,sans-serif;
-    letter-spacing:.03em;
+	font-family: 'Noto Sans', Arial, sans-serif;
+	letter-spacing: .03em;
 }
 
 /* default id/class/etc formatting */
 
 #header {
-    background: #232323;
-    margin: 0;
-    border-bottom: 1px solid white;
-    height: 80px;
-    width: 100%;
-    position: fixed;
-    top: 0px;
-    z-index: 1;
+	background: #232323;
+	margin: 0;
+	border-bottom: 1px solid white;
+	height: 80px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 1;
 }
 
 #header .title {
-    display:inline-block;
-    color:white;
-    font:normal bold 22px 'Lora',Georgia,serif;
-    /*text-transform:lowercase;*/
-    width:200px;
-    margin:10px;
-    vertical-align:top;
+	display: inline-block;
+	color: white;
+	font: normal bold 22px 'Lora', Georgia, serif;
+	/*text-transform:lowercase;*/
+	width: 200px;
+	margin: 10px;
+	vertical-align: top;
 }
 
 #header .title a, #header .title a:visited {
-    color:white;
+	color: white;
 }
 
 #header .title a:hover {
-    background:none;
+	background: none;
 }
 
 #header .menu {
-    display:inline-block;
-    vertical-align:top;
-    position:relative;
-    z-index:2;
-    text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	z-index: 2;
+	text-align: center;
 }
 
 #smalltitle {
-    margin: 0 0;
-    font: normal bold 15px 'Lora',Georgia,serif;
-    color: lightgray;
+	margin: 0 0;
+	font: normal bold 15px 'Lora', Georgia, serif;
+	color: lightgray;
 }
 
 #largetitle {
-    margin: 0 0;
-    font: normal bold 22px 'Lora',Georgia,serif;
+	margin: 0 0;
+	font: normal bold 22px 'Lora', Georgia, serif;
 }
 
 .alphabet-selector {
-    background: #ccc;
-    padding: 5px 0px;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    margin-top: 80px;
-    height: 20px;
-    top: 0px;
+	background: var(--color-light-gray);
+	padding: 5px 0;
+	text-align: center;
+	position: fixed;
+	width: 100%;
+	margin-top: 80px;
+	height: 20px;
+	top: 0;
 }
 
 #abc {
-    padding: 0px 7px;
+	padding: 0 7px;
 }
 
 .menu-head {
-    display: inline-block;
-    color: white;
-    font: bold 18px 'Noto Sans',Arial,sans-serif;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    width: 160px;
-    margin: 19px;
-    margin-top: 40px;
-    vertical-align: top;
+	display: inline-block;
+	color: white;
+	font: bold 18px 'Noto Sans', Arial, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	width: 160px;
+	margin: 40px 19px 19px;
+	vertical-align: top;
 }
 
 .dropdown {
-    display:none;
+	display: none;
 }
 
 .menu:hover .dropdown {
-    display:block;
+	display: block;
 }
 
 #header .menu ul.dropdown {
-    list-style: none;
-    padding:0;
-    margin:0;
-    border:0;
-    background:#232323;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background: #232323;
 }
 
 #header .menu ul.dropdown li, #header .menu ul.dropdown li a, #header .menu ul.dropdown li a:visited {
-    padding:10px;
-    font:bold 14px 'Noto Sans',Arial,sans-serif;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    text-decoration:none;
-    color:white;
-    border-color:white;
+	padding: 10px;
+	font: bold 14px 'Noto Sans', Arial, sans-serif;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: white;
+	border-color: white;
 }
 
 #header .menu ul.dropdown li:hover {
-    background:#ccc;
+	background: var(--color-light-gray);
 }
 
 #header .search {
-    display:inline-block;
-    vertical-align:middle;
-    margin:15px 20px;
-    float:right;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 15px 20px;
+	float: right;
 }
 
 #header .search form {
 }
 
 #header .search form input {
-    font:14px 'Noto Sans',Arial,sans-serif;
-    margin:0;
-    padding:5px 10px;
-    background:#eee;
-    letter-spacing: .05em;
-    border:0 solid black;
-    height:40px;
-    width:400px;
+	font: 14px 'Noto Sans', Arial, sans-serif;
+	margin: 0;
+	padding: 5px 10px;
+	background: var(--color-lighter-gray);
+	letter-spacing: .05em;
+	border: 0 solid black;
+	height: 40px;
+	width: 400px;
 }
 
 #header .search form input.q {
@@ -260,7 +244,7 @@ ul, ol {
 /*#header .search form input.submit {
     margin:0 0 0 -4px;
     padding:5px 13px 5px 7px;
-    background:#eee;
+    background:var(--color-lighter-gray);
     border:0 solid black;
     height:50px;
     font-style:bold;
@@ -271,7 +255,7 @@ ul, ol {
 }*/
 
 /*#header .search form input.submit:hover {
-    background:#ccc;
+    background:var(--color-light-gray);
 }*/
 
 #navigation {
@@ -280,79 +264,81 @@ ul, ol {
 
 
 #content {
-    width:100%;
-    min-height:100%;
-    margin-top: 80px;
+	width: 100%;
+	min-height: 100%;
+	margin-top: 80px;
 }
 
 .column {
-    display:inline-block;
-    background:#ddd;
-    padding:10px;
-    vertical-align: top;
-    height:100%;
+	display: inline-block;
+	background: #ddd;
+	padding: 10px;
+	vertical-align: top;
+	height: 100%;
 }
 
 #inner {
-    width:90%;
-    margin:0 auto;
-    /*height:100%;*/
+	width: 90%;
+	margin: 0 auto;
+	/*height:100%;*/
 }
 
 .flags {
-    font:12px 'Noto Sans',Arial,sans-serif;
-    letter-spacing: normal;
+	font: 12px 'Noto Sans', Arial, sans-serif;
+	letter-spacing: normal;
 }
 
 .help {
-    font:11px 'Noto Sans',Arial,sans-serif;
-    color:#aaa;
+	font: 11px 'Noto Sans', Arial, sans-serif;
+	color: var(--color-gray);
 }
 
 td.help {
-    width:80px;
+	width: 80px;
 }
 
 #footer {
-    text-align: center;
-    font:12px 'Noto Sans',Arial,sans-serif;
-    text-transform: uppercase;
-    padding:10px 0;
-    width:100%;
-    background:#232323;
-    color:white;
-    margin-top: 80px;
+	text-align: center;
+	font: 12px 'Noto Sans', Arial, sans-serif;
+	text-transform: uppercase;
+	padding: 10px 0;
+	width: 100%;
+	background: #232323;
+	color: white;
+	margin-top: 80px;
 }
+
 #footer a, #footer a:visited {
-    color:white;
-    border-color:white;
-    margin:0 8px;
+	color: white;
+	border-color: white;
+	margin: 0 8px;
 }
 
 /* page-specific overrides */
 .admin-edit, .admin-edit a, .admin-edit a:hover, .admin-edit a:visited {
-    font:12px/12px 'Noto Sans',Arial,sans-serif;
-    color:red;
-    padding:5px 8px;
-    border:1px solid red;
+	font: 12px/12px 'Noto Sans', Arial, sans-serif;
+	color: red;
+	padding: 5px 8px;
+	border: 1px solid red;
 }
 
 .admin-edit {
-    margin-top:10px;
-    border:none;
+	margin-top: 10px;
+	border: none;
 }
 
 .citations {
 
 }
+
 .citations p, .citation p {
-    font:14px/21px 'Noto Sans',Arial,sans-serif;
-    text-indent:-3em;
-    margin:0 0 7px 3em;
+	font: 14px/21px 'Noto Sans', Arial, sans-serif;
+	text-indent: -3em;
+	margin: 0 0 7px 3em;
 }
 
 .citation {
-    margin-left:10px;
+	margin-left: 10px;
 }
 
 .citedby {
@@ -360,129 +346,124 @@ td.help {
 }
 
 .dictionary {
-    margin-top:120px;
+	margin-top: 120px;
 }
 
 .dictionary h1, .dictionary h2 {
-    text-align: center;
+	text-align: center;
 }
 
 .dictionary h3 {
-    font-family:'Noto Sans',Arial,sans-serif;
-    margin:0;
+	font-family: 'Noto Sans', Arial, sans-serif;
+	margin: 0;
 }
 
 .dictionary p {
-    margin:0;
-    font-size:16px;
+	margin: 0;
+	font-size: 16px;
 }
 
 .dictionary .etymology {
-    font-size:14px;
+	font-size: 14px;
 }
 
 .dictionary .entry {
-    display:inline-block;
-    vertical-align: top;
-    width:15%;
-    margin:10px 2%;
-    border:0;
-    padding:0;
+	display: inline-block;
+	vertical-align: top;
+	width: 15%;
+	margin: 10px 2%;
+	border: 0;
+	padding: 0;
 }
 
 .dictionary.entry {
-    width:50%;
-    margin:0 auto;
+	width: 50%;
+	margin: 0 auto;
 }
 
 .dictionary.entry > * {
-    margin-bottom:8px;
+	margin-bottom: 8px;
 }
 
 .dictionary.entry h1 {
-    text-align: left;
+	text-align: left;
 }
 
 .dict-filter {
-    font-family: 'Noto Sans',Arial,sans-serif;
-    font-size:14px;
+	font-family: 'Noto Sans', Arial, sans-serif;
+	font-size: 14px;
 }
 
 .entry {
 }
 
 .entry .citations {
-    margin-top:12px;
+	margin-top: 12px;
 }
 
 .entry ul.citations {
-    margin-top:5px;
+	margin-top: 5px;
 }
 
 .entry .dictionary {
-    width:50%;
+	width: 50%;
 }
 
 .entry .flags {
-    font-size:12px;
+	font-size: 12px;
 }
 
 .error {
-    width:70%;
-    margin:0 auto;
+	width: 70%;
+	margin: 0 auto;
 }
 
-.faq {}
-.faq .entry {}
-
-#filter {}
-
 #filter section {
-    display:inline-block;
-    vertical-align: top;
-    width:20%;
-    padding:0;
-    border:0;
-    margin:0 2%;
-    font-family: 'Noto Sans',Arial,sans-serif;
+	display: inline-block;
+	vertical-align: top;
+	width: 20%;
+	padding: 0;
+	border: 0;
+	margin: 0 2%;
+	font-family: 'Noto Sans', Arial, sans-serif;
 }
 
 #filter ul {
-    font-size:14px;
-    list-style: none;
-    padding:0;
-    margin:0;
+	font-size: 14px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
-#filter ul li {}
 
 #filter select {
-    width:100%;
-    font-family: 'Noto Sans',Arial,sans-serif;
+	width: 100%;
+	font-family: 'Noto Sans', Arial, sans-serif;
 }
 
 .flag-list {
 
 }
+
 .flag-entry {
 
 }
 
-.grammar {}
 .grammar .entry {
-    margin-top:30px;
+	margin-top: 30px;
 }
+
 .grammar .entry h2 {
-    margin:0;
+	margin: 0;
 }
-.grammar .entry p {}
+
 .grammar table {
-    font:14px 'Noto Sans',Arial,sans-serif;
-    letter-spacing: .02em;
-    padding-right:8px;
+	font: 14px 'Noto Sans', Arial, sans-serif;
+	letter-spacing: .02em;
+	padding-right: 8px;
 }
 
 .grammar th {
-    text-align: left
+	text-align: left
 }
 
 .home {
@@ -490,190 +471,180 @@ td.help {
 }
 
 .home .column.side {
-    width:20%;
-    margin:10px auto 10px auto;
+	width: 20%;
+	margin: 10px auto 10px auto;
 }
 
 .home .column.center {
-    width:50%;
-    margin:10px auto 5px auto;
+	width: 50%;
+	margin: 10px auto 5px auto;
 }
 
 .home .column.right a {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .thanks {
-    text-align: center;
+	text-align: center;
 }
 
 .translations {
 }
 
 .translations .entry {
-    margin:15px;
+	margin: 15px;
 }
 
 .translations .tgs_text, .translations .en_text {
-    font-family:'Noto Sans',Arial,sans-serif;
-    letter-spacing: .05em;
+	font-family: 'Noto Sans', Arial, sans-serif;
+	letter-spacing: .05em;
 }
 
 /* mobile overrides */
 @media only screen and (max-device-width: 640px) {
 
-    p, li {
-        font-size:2em;
-    }
+	p, li {
+		font-size: 2em;
+	}
 
-    h1, h2,h3 {
-        font-weight: bold;
-        font-size:3em;
-    }
+	h1, h2, h3 {
+		font-weight: bold;
+		font-size: 3em;
+	}
 
-    #inner {
-        padding:10px;
-    }
+	#inner {
+		padding: 10px;
+	}
 
-    #header {
-        height:160px;
-    }
+	#header {
+		height: 160px;
+	}
 
-    .alphabet-selector{
-        margin-top: 160px;
-        height: 50px;
-        font-size: 2em;
-    }
+	.alphabet-selector {
+		margin-top: 160px;
+		height: 50px;
+		font-size: 2em;
+	}
 
-    #abc {
-        padding: 0px 7px;
-    }
+	#abc {
+		padding: 0 7px;
+	}
 
-    #header .title {
-        font-size:50px;
-        width:300px;
-        margin-left:20px;
-    }
+	#header .title {
+		font-size: 50px;
+		width: 300px;
+		margin-left: 20px;
+	}
 
-    #header .menu ul.dropdown li {
-        font-size:28px;
-        font-weight: bold;
-    }
+	#header .menu ul.dropdown li {
+		font-size: 28px;
+		font-weight: bold;
+	}
 
-    #header .search form input {
-        float:right;
-        width:150px;
-    }
+	#header .search form input {
+		float: right;
+		width: 150px;
+	}
 
-    .home .column, .home .column.left,.home .column.right {
-        display:block;
-        width:100%;
-        margin:8px 0 15px;
-    }
+	.home .column, .home .column.left, .home .column.right {
+		display: block;
+		width: 100%;
+		margin: 8px 0 15px;
+	}
 
-    .citations p {
-        font-size:2em;
-        line-height: 1.5em
-    }
+	.citations p {
+		font-size: 2em;
+		line-height: 1.5em
+	}
 
-    .grammar table {
-        font-size: 2em;
-    }
+	.grammar table {
+		font-size: 2em;
+	}
 
-    .dictionary {
+	.dictionary {
 
-    }
-    .dictionary .entry {
-        width:45%;
-    }
+	}
 
-    .dictionary p, .dictionary .etymology {
-        font-size:2em;
-    }
+	.dictionary .entry {
+		width: 45%;
+	}
 
-    .translations {
+	.dictionary p, .dictionary .etymology {
+		font-size: 2em;
+	}
 
-    }
+	.translations {
 
-    .translations table {
-        font-size: 2em;
-    }
+	}
 
-    .translation.entry {
-        width:100%;
-        overflow-x:scroll;
-    }
+	.translations table {
+		font-size: 2em;
+	}
 
-    .translation.entry table.gloss {
-        font-size:2em;
-    }
+	.translation.entry {
+		width: 100%;
+		overflow-x: scroll;
+	}
 
-    #filter {
-    }
-    #filter section {
-        display:block;
-        width:100%;
-    }
+	.translation.entry table.gloss {
+		font-size: 2em;
+	}
 
-    #filter ul {
-        font-size:1.5em;
-    }
+	#filter {
+	}
 
-    #filter ul input, button#toggle {
-        -ms-transform:scale(2);
-        -moz-transform:scale(2);
-        -webkit-transform:scale(2);
-        -o-transform:scale(2);
-        transform:scale(2);
-        margin:20px 40px;
-        vertical-align: middle;
-    }
+	#filter section {
+		display: block;
+		width: 100%;
+	}
 
-    #footer {
-        font-size:2.5em;
-        font-weight:bold;
-        padding:30px 10px;
-        margin-top: 160px;
-    }
+	#filter ul {
+		font-size: 1.5em;
+	}
 
-    #content {
-        margin-top: 160px;
-    }
+	#filter ul input, button#toggle {
+		-ms-transform: scale(2);
+		-moz-transform: scale(2);
+		-webkit-transform: scale(2);
+		-o-transform: scale(2);
+		transform: scale(2);
+		margin: 20px 40px;
+		vertical-align: middle;
+	}
+
+	#footer {
+		font-size: 2.5em;
+		font-weight: bold;
+		padding: 30px 10px;
+		margin-top: 160px;
+	}
+
+	#content {
+		margin-top: 160px;
+	}
 }
 
 /* TUTORIAL */
 
-.tutorial-index {}
-
 ul.chapter-list {
-    text-align:left;
+	text-align: left;
 }
 
 ul.chapter-list li {
-    list-style-type:none;
+	list-style-type: none;
 }
-
-.glossary {}
 
 .glossary-index {
-    list-style-type:none;
+	list-style-type: none;
 }
-
-.glossary-entry {}
-
-.practice-chapter {}
 
 .practice-problem {
 }
 
 .question {
-    font-weight:bold;
+	font-weight: bold;
 }
 
 .answer {
-    margin-left:4em;
+	margin-left: 4em;
 }
-
-.tutorial-chapter {}
-
-.glossary-terms {}

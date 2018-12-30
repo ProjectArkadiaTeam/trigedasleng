@@ -3,7 +3,7 @@
 session_start();
 
 //Not tracked by version control, create your own
-@require_once('config.inc.php');
+require_once('config.inc.php');
 
 if(DEBUG_MODE){
     error_reporting(E_ALL | E_STRICT);

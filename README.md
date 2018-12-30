@@ -17,4 +17,27 @@ Trigedasleng is not a creole, but a descendant of American English alone, and wh
 * The CW (show rights) [@the100cw](http://twitter.com/the100cw)
 * Sloan (Developer for Trigedasleng.info) [@sloanreynolds](http://twitter.com/sloanreynolds)
 
+# Getting started
+
+## Requirements
+- Apache 2.4.x
+- PHP 7.0+
+- MariaDB 10.x / MySQL 5.6
+
+## Setup
+
+### Enable MySQLi
+
+```bash
+sudo phpenmod mysqli
+sudo systemctl restart apache2
+```
+
+### Create a new database
+```sql
+CREATE DATABASE trigedasleng CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+### Define configuration
+Copy [config.inc.example.php](includes/config.inc.example.php) into `config.inc.php` and fill declarations with your own values.
 

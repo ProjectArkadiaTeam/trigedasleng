@@ -1,46 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.7.3
--- https://www.phpmyadmin.net/
---
--- Host: projectasaroot.mysql.db
--- Generation Time: Dec 28, 2018 at 10:50 PM
--- Server version: 5.6.39-log
--- PHP Version: 7.0.32
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `projectasaroot`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dict_translations`
---
-
-CREATE TABLE `dict_translations` (
-  `id` int(11) NOT NULL,
-  `trigedasleng` text NOT NULL,
-  `translation` text NOT NULL,
-  `etymology` text NOT NULL,
-  `leipzig` text NOT NULL,
-  `episode` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `dict_translations`
---
-
 INSERT INTO `dict_translations` (`id`, `trigedasleng`, `translation`, `etymology`, `leipzig`, `episode`) VALUES
 (1, 'Ai laik Okteivia kom Skaikru en ai gaf gouthru klin.', 'I am Octavia of the Sky People and I wish to commit suicide.', 'I like Octavia come Sky-crew and I gotta-have go-through clean', '1SG be Octavia from Sky-people and I want suicide SAT', '0201'),
 (2, '...gouthru klir.', '...safe passage.', 'go-through clear', 'passage safe', '0201'),
@@ -1015,26 +972,6 @@ INSERT INTO `dict_translations` (`id`, `trigedasleng`, `translation`, `etymology
 (969, 'Reshop, snogon. Ai hod yu in. Hofli yu na rid yu op os, you.', 'Goodnight, love. I love you. I hope you sleep well.', 'rest-up snog-one I hold you in hopefully you gonna ? you up awesome yo', 'goodnight loved-one 1SG love 2SG SAT may 2SG FUT sleep 2SG SAT well EMPH', 'other'),
 (970, 'Kom folau, ai na gyon op.', 'From the ashes, I will rise.', 'come fallout I gonna go-on up', 'from ash 1SG FUT rise SAT', 'other');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `dict_words`
---
-
-CREATE TABLE `dict_words` (
-  `word` text NOT NULL,
-  `translation` text NOT NULL,
-  `etymology` text NOT NULL,
-  `link` text NOT NULL,
-  `citations` text NOT NULL,
-  `example` text NOT NULL,
-  `note` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `dict_words`
---
-
 INSERT INTO `dict_words` (`word`, `translation`, `etymology`, `link`, `citations`, `example`, `note`) VALUES
 ('aftaim', 'noun: future', 'from: after-time', '#', '', '', ''),
 ('ai', 'pronoun: I, me', 'from: I', '#', '', '<p><i>ai laik fisa</i>Â Â I am a healer</p>', ''),
@@ -1893,27 +1830,3 @@ INSERT INTO `dict_words` (`word`, `translation`, `etymology`, `link`, `citations
 ('yumi', 'pronoun: you and I, you and me', 'from: you-me', '#', '', '', ''),
 ('zodon', 'noun: fate', 'from: ?-one', '#', '', '', ''),
 ('zog raun', 'verb: strike or attack as a group, ambush', 'from: Zerg around', '#', '', '', '');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `dict_translations`
---
-ALTER TABLE `dict_translations`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `dict_translations`
---
-ALTER TABLE `dict_translations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=971;COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

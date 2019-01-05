@@ -6,6 +6,9 @@ require_once("includes/head.inc.php");
 
 //Website Header
 require_once("includes/header.inc.php");
+
+//Website Sidebar
+require_once("includes/sidebar.inc.php");
 ?>
 <!--Char selector to quick jump to section-->
 <div class="alphabet-selector">
@@ -15,7 +18,7 @@ require_once("includes/header.inc.php");
     }
     ?>
 </div>
-<div class="dictionary">
+<div class="dictionary" id="content" style="margin-top: 120px;">
     <h1>Dictionary</h1>
     <?php foreach (range('a', 'z') as $char):
         $sql = "SELECT * FROM `dict_words` WHERE `word` LIKE '$char%'";
@@ -38,5 +41,29 @@ require_once("includes/header.inc.php");
         <?php endwhile; ?>
     <?php endforeach; ?>
 </div>
+
+<!--Fix for header link overshooting -->
+<script>
+    (function($, window) {
+        var adjustAnchor = function() {
+
+            var $anchor = $(':target'),
+                fixedElementHeight = 120;
+
+            if ($anchor.length > 0) {
+                $('html, body')
+                    .stop()
+                    .animate({
+                        scrollTop: $anchor.offset().top - fixedElementHeight
+                    }, 0);
+            }
+        };
+
+        $(window).on('hashchange load', function() {
+            adjustAnchor();
+        });
+
+    })(jQuery, window);
+</script>
 <?php require_once('includes/footer.inc.php') ?>
 

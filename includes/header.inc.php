@@ -15,7 +15,7 @@
     </div>
     <div class="search">
         <form action="search" method="get">
-            <input type="text" placeholder="NOT WORKING" name="q">
+            <input type="text" placeholder="SEARCH" name="q">
         </form>
     </div>
 </div>

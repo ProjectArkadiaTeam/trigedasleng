@@ -2,10 +2,10 @@
 require_once("includes/common.inc.php");
 
 //HTML Head
-include("includes/head.inc.php");
+require_once("includes/head.inc.php");
 
 //Website Header
-include("includes/header.inc.php");
+require_once("includes/header.inc.php");
 ?>
 <!--Char selector to quick jump to section-->
 <div class="alphabet-selector">
@@ -38,5 +38,5 @@ include("includes/header.inc.php");
         <?php endwhile; ?>
     <?php endforeach; ?>
 </div>
-<?php include('includes/footer.inc.php') ?>
+<?php require_once('includes/footer.inc.php') ?>
 

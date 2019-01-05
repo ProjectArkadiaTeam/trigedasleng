@@ -2,10 +2,10 @@
 require_once("includes/common.inc.php");
 
 //HTML Head
-include("includes/head.inc.php");
+require_once("includes/head.inc.php");
 
 //Website Header
-include("includes/header.inc.php");
+require_once("includes/header.inc.php");
 ?>
 <div id="content">
     <div id="inner">
@@ -508,4 +508,4 @@ include("includes/header.inc.php");
 
     </div>
 </div>
-<?php include($_SERVER['DOCUMENT_ROOT'].'/includes/footer.inc.php') ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/includes/footer.inc.php') ?>

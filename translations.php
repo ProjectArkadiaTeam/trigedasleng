@@ -7,6 +7,8 @@ require_once("includes/head.inc.php");
 //Website Header
 require_once("includes/header.inc.php");
 
+//Website Sidebar
+require_once("includes/sidebar.inc.php");
 $episode_names = [
     "0201" => "0201: The 48",
     "0202" => "0202: Inclement Weather",

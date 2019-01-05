@@ -6,6 +6,9 @@ require_once("includes/head.inc.php");
 
 //Website Header
 require_once("includes/header.inc.php");
+
+//Website Sidebar
+require_once("includes/sidebar.inc.php");
 ?>
 <div id="content">
     <div id="inner">
@@ -508,4 +511,4 @@ require_once("includes/header.inc.php");
 
     </div>
 </div>
-<?php require_once($_SERVER['DOCUMENT_ROOT'].'/includes/footer.inc.php') ?>
+<?php require_once('includes/footer.inc.php') ?>

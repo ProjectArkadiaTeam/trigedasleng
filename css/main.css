@@ -170,7 +170,8 @@ ul, ol {
 	padding: 5px 0;
 	text-align: center;
 	position: fixed;
-	width: 100%;
+	width: 85%;
+	margin-left: calc(15%);
 	margin-top: 80px;
 	height: 20px;
 	top: 0;
@@ -268,9 +269,10 @@ ul, ol {
 
 
 #content {
-	width: 100%;
 	min-height: 100%;
 	margin-top: 80px;
+	width: 85%;
+	float: right;
 }
 
 .column {
@@ -309,7 +311,7 @@ td.help {
 	width: 100%;
 	background: #232323;
 	color: white;
-	margin-top: 80px;
+	float: right;
 }
 
 #footer a, #footer a:visited {
@@ -350,7 +352,7 @@ td.help {
 }
 
 .dictionary {
-	margin-top: 120px;
+	/*margin-top: 120px !important;*/
 }
 
 .dictionary h1, .dictionary h2 {
@@ -502,6 +504,34 @@ td.help {
 .translations .tgs_text, .translations .en_text {
 	font-family: 'Noto Sans', Arial, sans-serif;
 	letter-spacing: .05em;
+}
+
+/* The sidebar menu */
+.sidenav {
+	margin-top: 80px;
+	height: 100%;
+	width: 15%;
+	position: fixed;
+	z-index: 1;
+	background-color: #232323;
+	overflow-x: hidden;
+	padding-top: 20px;
+	float: left;
+}
+
+/* The navigation menu links */
+.sidenav a {
+	font: bold 18px 'Noto Sans', Arial, sans-serif;
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 22px;
+	color: white;
+	display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+	color: #f1f1f1;
 }
 
 /* mobile overrides */

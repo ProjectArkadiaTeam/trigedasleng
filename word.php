@@ -7,6 +7,9 @@ require_once("includes/head.inc.php");
 //Website Header
 require_once("includes/header.inc.php");
 
+//Website Sidebar
+require_once("includes/sidebar.inc.php");
+
 $word = mysqli_real_escape_string($db, $_GET['q']);
 $sql = "SELECT * FROM `dict_words` WHERE `word`='". $word ."'";
 $result = $db->query($sql);

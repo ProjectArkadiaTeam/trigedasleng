@@ -6,6 +6,9 @@ require_once("includes/head.inc.php");
 
 //Website Header
 require_once("includes/header.inc.php");
+
+//Website Sidebar
+require_once("includes/sidebar.inc.php");
 ?>
 <div id="content">
     <div id="inner">

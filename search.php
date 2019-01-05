@@ -27,7 +27,7 @@ $translation_result = $db->query($translation_query);
             <div class="dictionary">
             <?php while($info = mysqli_fetch_assoc($words_result)): ?>
             <div class="entry">
-                <h3><b><a href="<?=$link?>"><?=$info['word']?></a></b></h3>
+                <h3><b><a href="<?='word?q='.$info['word']?>"><?=$info['word']?></a></b></h3>
                 <p class="definition"><?=$info['translation']?></p>
                 <p class="etymology"><?=$info['etymology']?></p>
             </div>

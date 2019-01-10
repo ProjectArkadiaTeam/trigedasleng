@@ -147,7 +147,7 @@ ul, ol {
 }
 
 #header .menu {
-	display: inline-block;
+	display: none;
 	vertical-align: top;
 	position: relative;
 	z-index: 2;
@@ -570,6 +570,10 @@ td.help {
 		margin-left: 20px;
 	}
 
+	#header .menu {
+		display: inline-block;
+	}
+
 	#header .menu ul.dropdown li {
 		font-size: 28px;
 		font-weight: bold;
@@ -655,6 +659,11 @@ td.help {
 
 	#content {
 		margin-top: 160px;
+	}
+
+	/* The sidebar menu */
+	.sidenav {
+		display: none;
 	}
 }
 

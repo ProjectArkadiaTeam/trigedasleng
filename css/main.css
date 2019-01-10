@@ -534,6 +534,218 @@ td.help {
 	color: #f1f1f1;
 }
 
+
+/* Login Box */
+#login-signup {
+	float: right;
+	vertical-align: middle;
+	margin: 15px 20px;
+	display: inline-block;
+}
+
+#login-signup ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: relative;
+	float: right;
+	background: var(--color-lighter-gray);
+}
+
+#login-signup li {
+	float: left;
+}
+
+#login-signup #login {
+	border-right: 1px solid #ddd;
+	box-shadow: 1px 0 0 var(--color-lighter-gray);
+}
+
+#login-signup #login-trigger,
+#login-signup #signup a {
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	font-weight: bold;
+	padding: 0 8px;
+	text-decoration: none;
+	border-bottom: none;
+	color: #444;
+	text-shadow: 0 1px 0 var(--color-lighter-gray);
+}
+
+#login-signup #login-trigger:hover,
+#login-signup #login .active,
+#login-signup #signup a:hover {
+	background: var(--color-lighter-gray);
+}
+
+#login-signup #login-content {
+	display: none;
+	position: absolute;
+	top: 40px;
+	right: 0;
+	z-index: 999;
+	background: var(--color-lighter-gray);
+	padding: 15px;
+	box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+}
+
+#login-signup li #login-content {
+	right: 0;
+	width: 270px;
+}
+
+/*--------------------*/
+
+#inputs input {
+	background: #f1f1f1;
+	padding: 6px 5px;
+	margin: 0 0 5px 0;
+	width: 238px;
+	border: 1px solid #ccc;
+	box-shadow: 0 1px 1px #ccc inset;
+}
+
+#inputs input:focus {
+	background-color: var(--color-lighter-gray);
+	border-color: #e8c291;
+	outline: none;
+	box-shadow: 0 0 0 1px #e8c291 inset;
+}
+
+/*--------------------*/
+
+#login #actions {
+	margin: 10px 0 0 0;
+}
+
+#login #loginbtn {
+	background-color: #d14545;
+	background-image: linear-gradient(top, #e97171, #d14545);
+	text-shadow: 0 1px 0 rgba(0,0,0,.5);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	border: 1px solid #7e1515;
+	float: left;
+	height: 30px;
+	padding: 0;
+	width: 100px;
+	cursor: pointer;
+	font: bold 14px Arial, Helvetica;
+	color: var(--color-lighter-gray);
+}
+
+#login #loginbtn:hover,
+#login #loginbtn:focus {
+	background-color: #e97171;
+	background-image: linear-gradient(top, #d14545, #e97171);
+}
+
+#login #loginbtn:active {
+	outline: none;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+}
+
+#login #loginbtn::-moz-focus-inner {
+	border: none;
+}
+
+#login label {
+	float: left;
+	line-height: 30px;
+}
+
+#login label input {
+	position: relative;
+	top: 2px;
+	right: 2px;
+}
+
+fieldset {
+	display: block;
+	margin-left: 2px;
+	margin-right: 2px;
+	padding: 0.35em 0.75em 0.625em;
+	border: none;
+}
+
+/* Signup */
+/* Full-width input fields */
+input[type=username], input[type=email], input[type=password] {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+	/*background-color: #ddd;*/
+	outline: none;
+}
+
+hr {
+	border: 1px solid #f1f1f1;
+	margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	opacity: 0.9;
+}
+
+button:hover {
+	opacity:1;
+}
+
+/* Add padding to container elements */
+.container {
+	padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.signup-form {
+	display: inline-block;
+	background: #ddd;
+	padding: 10px;
+	vertical-align: top;
+}
+
+#inner-signup-form {
+	width: 40%;
+	margin: 30px auto;
+}
+
+#signupbtn {
+	background-color: #d14545;
+	background-image: linear-gradient(top, #e97171, #d14545);
+	text-shadow: 0 1px 0 rgba(0,0,0,.5);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	border: 1px solid #7e1515;
+	float: left;
+	height: 30px;
+	padding: 0;
+	width: 50%;
+	cursor: pointer;
+	font: bold 14px Arial, Helvetica;
+	color: var(--color-lighter-gray);
+}
+
+
 /* mobile overrides */
 @media only screen and (max-device-width: 640px) {
 

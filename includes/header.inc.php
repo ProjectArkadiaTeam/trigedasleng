@@ -1,12 +1,12 @@
 <div id="header">
     <div class="title">
-        <p id="smalltitle">The Unofficial</p>
-        <p id="largetitle">Trigedasleng Dictionary</p>
+        <h2 id="smalltitle">The Unofficial</h2>
+        <h1 id="largetitle">Trigedasleng Dictionary</h1>
     </div>
     <div class="menu">
         <div class="menu-head" onclick="">Menu</div>
         <ul class="dropdown">
-            <a href="index"><li>Home</li></a>
+            <a href="./"><li>Home</li></a>
             <a href="dictionary"><li>Dictionary</li></a>
             <a href="gramma"><li>Gramma</li></a>
             <a href="translations"><li>Translations</li></a>

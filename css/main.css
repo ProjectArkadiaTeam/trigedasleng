@@ -163,6 +163,7 @@ ul, ol {
 #largetitle {
 	margin: 0 0;
 	font: normal bold 22px 'Lora', Georgia, serif;
+	color: white;
 }
 
 .alphabet-selector {

@@ -9,6 +9,18 @@ require_once("includes/header.inc.php");
 
 //Website Sidebar
 require_once("includes/sidebar.inc.php");
+
+
+//Filter Stuff
+$filter = $_GET['filter'];
+$filterTerms = explode(' ', $filter);
+$filterTermBits = array();
+foreach ($filterTerms as $term) {
+    $term = trim($term);
+    if (!empty($term)) {
+        $filterTermBits[] = "`filter` LIKE '%$term%'";
+    }
+}
 ?>
 <!--Char selector to quick jump to section-->
 <div class="alphabet-selector">
@@ -21,8 +33,11 @@ require_once("includes/sidebar.inc.php");
 <div class="dictionary" id="content" style="margin-top: 120px;">
     <h1>Dictionary</h1>
     <?php foreach (range('a', 'z') as $char):
-        $sql = "SELECT * FROM `dict_words` WHERE `word` LIKE '$char%'";
+        $sql = "SELECT * FROM `dict_words` WHERE `word` LIKE '".$char."%' AND ".implode(' AND ', $filterTermBits)." ";
         if (!$result = $db->query($sql)) {
+            if(DEBUG_MODE){
+                echo 'Failed To Connect To Database: '.mysqli_connect_errno().': '.mysqli_connect_error();
+            }
             echo 'Sorry, the website is experiencing problems.';
             exit;
         }

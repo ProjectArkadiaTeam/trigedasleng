@@ -507,6 +507,10 @@ td.help {
 	letter-spacing: .05em;
 }
 
+.line {
+	border-bottom: 2px dotted gray;
+}
+
 /* The sidebar menu */
 .sidenav {
 	margin-top: 80px;

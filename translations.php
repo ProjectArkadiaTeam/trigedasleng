@@ -78,6 +78,7 @@ $episode_names = [
                     $translation = $trig['translation'];
                     $etymology = explode(" ", $trig['etymology']);
                     $leipzig = explode(" ", $trig['leipzig']);
+                    $audio = $trig['audio'];
                     ?>
                     <div class="entry unflagged">
                         <table class="gloss">
@@ -102,7 +103,13 @@ $episode_names = [
                                 </tr>
                             </tbody>
                         </table>
+                        <?php if($audio != ""):?>
+                            <audio controls="">
+                                <source src="<?=$audio?>" type="audio/mpeg">
+                            </audio>
+                        <?php endif;?>
                     </div>
+                    <div class="line"></div>
                 <?php endwhile; ?>
             <?php endforeach; ?>
         </div>

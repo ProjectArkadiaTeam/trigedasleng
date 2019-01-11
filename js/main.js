@@ -13,7 +13,7 @@ $(document).ready(function(){
         event.preventDefault();
         $.ajax({
             type: "POST",
-            url: 'backend/auth.php',
+            url: 'backend/auth',
             data: {
                 username: $("#username").val(),
                 password: $("#password").val(),
@@ -36,7 +36,7 @@ $(document).ready(function(){
         event.preventDefault();
         $.ajax({
             type: "POST",
-            url: 'backend/auth.php',
+            url: 'backend/auth',
             data: {
                 username: $("#signup-username").val(),
                 password: $("#signup-password").val(),
@@ -46,7 +46,7 @@ $(document).ready(function(){
             success: function(data)
             {
                 if (data === 'Success') {
-                    window.location.set("index.php");
+                    window.location.reload();
                 }
                 else {
                     alert(data);
@@ -60,14 +60,14 @@ function signOut(){
     event.preventDefault();
     $.ajax({
         type: "POST",
-        url: 'backend/auth.php',
+        url: 'backend/auth',
         data: {
             action: 'signout'
         },
         success: function(data)
         {
             if (data === 'Success') {
-                window.location.set("index.php");
+                window.location.reload();
             }
             else {
                 alert(data);

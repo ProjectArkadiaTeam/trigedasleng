@@ -3,7 +3,7 @@ require_once("../includes/common.inc.php");
 
 if ($_POST['action'] == 'signout') {
     session_destroy();
-    header("Location: https://trigedasleng.net/");
+    echo 'Success';
 }
 
 if ($_POST['action'] == 'signup') {

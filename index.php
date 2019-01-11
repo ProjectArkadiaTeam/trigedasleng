@@ -18,7 +18,6 @@ require_once("includes/sidebar.inc.php");
                 <ul>
                     <?php
                     echo '<li><a href=""></a></li>'
-                    //TODO Link slakkru, tumblr etc
                     ?>
                 </ul>
             </div>

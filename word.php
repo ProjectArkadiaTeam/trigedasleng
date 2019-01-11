@@ -44,6 +44,7 @@ $note = $info['note'];
                 $translation = $info['translation'];
                 $etymology = explode(" ", $info['etymology']);
                 $leipzig = explode(" ", $info['leipzig']);
+                $audio = $info['audio'];
                 ?>
                 <div class="entry unflagged">
                     <table class="gloss">
@@ -68,6 +69,11 @@ $note = $info['note'];
                         </tr>
                         </tbody>
                     </table>
+                    <?php if($audio != ""):?>
+                        <audio controls="">
+                            <source src="<?=$audio?>" type="audio/mpeg">
+                        </audio>
+                    <?php endif;?>
                 </div>
                 </br>
             <?php endwhile; ?>

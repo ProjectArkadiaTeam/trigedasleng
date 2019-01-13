@@ -52,7 +52,7 @@ require_once("includes/sidebar.inc.php");
             </div>
             <div class="column side">
                 <h3>Resources:</h3>
-                <ul>
+                <ul id="resources">
                     <li><a href="https://en.wikipedia.org/wiki/Trigedasleng">Trigedasleng on Wikipedia</a></li>
                     <li><a href="https://dedalvs.tumblr.com/tagged/Trigedasleng">Dedalvs Tumblr</a></li>
                     <li><a href="http://dedalvs.com/work/the-100/trigedasleng_master_dialogue.pdf">Transcripts of Trig lines in the show</a></li>

@@ -201,12 +201,17 @@ ul, ol {
 	display: block;
 }
 
+.menu:hover #login-signup {
+	display: none;
+}
+
 #header .menu ul.dropdown {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	border: 0;
 	background: #232323;
+	width: 180px;
 }
 
 #header .menu ul.dropdown li, #header .menu ul.dropdown li a, #header .menu ul.dropdown li a:visited {
@@ -491,6 +496,10 @@ td.help {
 	font-weight: bold;
 }
 
+#resources .li{
+	margin-bottom:5px;
+}
+
 .thanks {
 	text-align: center;
 }
@@ -764,7 +773,8 @@ button:hover {
 	}
 
 	#inner {
-		padding: 10px;
+		padding: 0px;
+		width: 100%;
 	}
 
 	#header {
@@ -772,13 +782,22 @@ button:hover {
 	}
 
 	.alphabet-selector {
-		margin-top: 160px;
-		height: 50px;
-		font-size: 2em;
+		margin-top: 130px;
+		height: 100%;
+		font-size: 1.3em;
+		word-break: break-word;
+		font-weight: bold;
+		line-height: 1.35em;
+		width: 8%;
+		margin-left:0px;
 	}
 
 	#abc {
 		padding: 0 7px;
+	}
+
+	#header {
+		height:130px;
 	}
 
 	#header .title {
@@ -792,13 +811,40 @@ button:hover {
 	}
 
 	#header .menu ul.dropdown li {
-		font-size: 28px;
 		font-weight: bold;
+		overflow-wrap: break-word;
+	}
+
+	.menu:hover #login-signup {
+		display: none;
+	}
+
+	#header .search {
+		margin: 15px 10px;
 	}
 
 	#header .search form input {
 		float: right;
 		width: 150px;
+	}
+
+	.menu-head {
+		margin: 25px 0px 19px 0px;
+		width:180px;
+	}
+
+	.home {
+	}
+
+	.home .column.side {
+		width: 100%;
+		margin: 8px 0 15px;
+		box-sizing: border-box;
+	}
+
+	.home .column.center {
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.home .column, .home .column.left, .home .column.right {
@@ -817,7 +863,7 @@ button:hover {
 	}
 
 	.dictionary {
-
+		width: 92% !important;
 	}
 
 	.dictionary .entry {
@@ -826,6 +872,10 @@ button:hover {
 
 	.dictionary p, .dictionary .etymology {
 		font-size: 2em;
+	}
+
+	.grammar {
+		margin-left: 10px;
 	}
 
 	.translations {
@@ -868,18 +918,54 @@ button:hover {
 	}
 
 	#footer {
-		font-size: 2.5em;
+		font-size: .8em;
 		font-weight: bold;
-		padding: 30px 10px;
-		margin-top: 160px;
+		padding: 15px 10px;
+		margin-top: 20px;
 	}
 
 	#content {
 		margin-top: 160px;
+		width: 100%;
+		font-size: .5em;
+		overflow: scroll;
 	}
 
 	/* The sidebar menu */
 	.sidenav {
+		display: none;
+	}
+
+	/* Login */
+
+	#login-signup {
+		display: block;
+		margin: 15px 0px;
+		position: fixed;
+		top: 0px;
+		right: 10px;
+	}
+
+	#login-signup ul {
+		font-size: .8em;
+	}
+
+	#login-signup label {
+		font-size: .7em;
+	}
+
+	#login-signup #login {
+		height: 40px;
+	}
+
+	#login-signup #login-trigger,
+	#login-signup #signup a {
+		display: inherit;
+		line-height: 40px;
+		font-size: .6em;
+	}
+
+	#signup {
 		display: none;
 	}
 }

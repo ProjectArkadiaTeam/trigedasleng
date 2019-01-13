@@ -104,7 +104,7 @@ $episode_names = [
                             </tbody>
                         </table>
                         <?php if($audio != ""):?>
-                            <audio controls="">
+                            <audio controls="" preload="none">
                                 <source src="<?=$audio?>" type="audio/mpeg">
                             </audio>
                         <?php endif;?>

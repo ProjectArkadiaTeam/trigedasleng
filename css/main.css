@@ -759,6 +759,76 @@ button:hover {
 	color: var(--color-lighter-gray);
 }
 
+/*Requests*/
+
+.sort-buttons {
+	list-style-type: none;
+	float: right;
+	margin-top: 20px;
+	line-height: 30px;
+}
+
+.sort-buttons li {
+	background-color: #d14545;
+	border: 1px solid #7e1515;
+	float: right;
+	height: 30px;
+	padding: 0;
+	width: 100px;
+	cursor: pointer;
+	font: bold 14px Arial, Helvetica;
+	color: var(--color-lighter-gray);
+	line-height: 30px;
+	text-align: center;
+}
+
+.topbar {
+	height: 70px;
+	width: 100%;
+}
+
+.topbar h2 {
+	float: right;
+	margin-top: 20px;
+	height: 30px;
+	float: left;
+}
+
+.request-list{
+	margin-top: 30px;
+}
+
+.request-entry {
+	height: 100px;
+	width: 100%;
+	border-bottom: var(--color-light-gray) dotted;
+}
+
+.request-quickstats {
+	width: 200px;
+	height: 100%;
+	display: inline-block;
+}
+
+.request-summary {
+	display: inline-block;
+}
+
+.votes,
+.answers {
+	width: 80px;
+	height: 80px;
+	text-align: center;
+	display: inline-block;
+	border: var(--color-gray) solid 2px;
+	border-radius: 15px;
+}
+
+.summary-count {
+	display: block;
+	margin-top: 15px;
+	font-size: 2em;
+}
 
 /* mobile overrides */
 @media only screen and (max-device-width: 640px) {
@@ -904,7 +974,7 @@ button:hover {
 	}
 
 	#filter ul {
-		font-size: 1.5em;
+		font-size: 1em;
 	}
 
 	#filter ul input, button#toggle {
@@ -915,6 +985,7 @@ button:hover {
 		transform: scale(2);
 		margin: 20px 40px;
 		vertical-align: middle;
+		font-size: .5em;
 	}
 
 	#footer {

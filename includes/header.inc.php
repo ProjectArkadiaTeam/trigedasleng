@@ -7,8 +7,8 @@
         <div class="menu-head" onclick="">Menu</div>
         <ul class="dropdown">
             <a href="./"><li>Home</li></a>
-            <a href="dictionary?filter=cannon"><li>Cannon Dictionary</li></a>
-            <a href="dictionary?filter=slagkru"><li>Slagkru Dictionary</li></a>
+            <a href="dictionary?filter=canon"><li>Canon Dictionary</li></a>
+            <a href="dictionary?filter=slakgedasleng"><li>Slakkru Dictionary</li></a>
             <a href="gramma"><li>Gramma</li></a>
             <a href="translations"><li>Translations</li></a>
 

@@ -7,6 +7,8 @@ require_once('config.inc.php');
 
 if(DEBUG_MODE){
     error_reporting(E_ALL | E_STRICT);
+} else {
+    error_reporting(0);
 }
 
 $db = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASS,MYSQL_DB);

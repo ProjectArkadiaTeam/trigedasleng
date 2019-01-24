@@ -30,6 +30,9 @@ $translation_result = $db->query($translation_query);
                 <h3><b><a href="<?='word?q='.$info['word']?>"><?=$info['word']?></a></b></h3>
                 <p class="definition"><?=$info['translation']?></p>
                 <p class="etymology"><?=$info['etymology']?></p>
+                <?php if (\strpos($info['filter'], 'noncanon') !== false): ?>
+                    <i class="noncanon-warning">!!Not a canon word</i>
+                <?php endif; ?>
             </div>
             <?php endwhile; ?>
             </div>

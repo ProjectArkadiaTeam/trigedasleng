@@ -430,6 +430,11 @@ td.help {
 	margin: 0 auto;
 }
 
+.noncanon-warning {
+	color: darkred;
+	font-size: .8em;
+}
+
 #filter section {
 	display: inline-block;
 	vertical-align: top;

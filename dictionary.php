@@ -18,7 +18,7 @@ $filterTermBits = array();
 foreach ($filterTerms as $term) {
     $term = trim($term);
     if (!empty($term)) {
-        $filterTermBits[] = "`filter` LIKE '%$term%'";
+        $filterTermBits[] = "`filter` RLIKE '[[:<:]]".$term."[[:>:]]'";
     }
 }
 ?>

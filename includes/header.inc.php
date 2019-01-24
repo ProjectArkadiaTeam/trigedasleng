@@ -7,10 +7,11 @@
         <div class="menu-head" onclick="">Menu</div>
         <ul class="dropdown">
             <a href="./"><li>Home</li></a>
-            <a href="dictionary?filter=canon"><li>Canon Dictionary</li></a>
-            <a href="dictionary?filter=slakgedasleng"><li>Slakkru Dictionary</li></a>
-            <a href="gramma"><li>Gramma</li></a>
-            <a href="translations"><li>Translations</li></a>
+            <a href="./dictionary?filter=canon"><li>Canon Dictionary</li></a>
+            <a href="./dictionary?filter=slakgedasleng"><li>Slakkru Dictionary</li></a>
+            <a href="./dictionary?filter=noncanon"><li>Noncanon Dictionary</li></a>
+            <a href="./gramma"><li>Gramma</li></a>
+            <a href="./translations"><li>Translations</li></a>
 
         </ul>
     </div>

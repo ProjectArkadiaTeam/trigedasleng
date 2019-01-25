@@ -55,6 +55,19 @@ $episode_names = [
     "0411" => "S4E11: The Other Side",
     "0412" => "S4E12: The Chosen",
     "0413" => "S4E13: Praimfaya",
+    "0501" => "S5E01: Eden",
+    "0502" => "S5E02: Red Queen",
+    "0503" => "S5E03: Sleeping Giants",
+    "0504" => "S5E04: Pandora's Box",
+    "0505" => "S5E05: Shifting Sands",
+    "0506" => "S5E06: Exit Wounds",
+    "0507" => "S5E07: Acceptable Losses",
+    "0508" => "S5E08: How We Get to Peace",
+    "0509" => "S5E09: Sic Semper Tyrannis",
+    "0510" => "S5E10: The Warriors Will",
+    "0511" => "S5E11: The Dark Year",
+    "0512" => "S5E12: Damocles – Part One",
+    "0513" => "S5E13: Damocles – Part Two",
     "other" => "Other Translations"
 ];
 

@@ -10,7 +10,7 @@
             <a href="./dictionary?filter=canon"><li>Canon Dictionary</li></a>
             <a href="./dictionary?filter=slakgedasleng"><li>Slakkru Dictionary</li></a>
             <a href="./dictionary?filter=noncanon"><li>Noncanon Dictionary</li></a>
-            <a href="./gramma"><li>Gramma</li></a>
+            <a href="./grammar"><li>Grammar</li></a>
             <a href="./translations"><li>Translations</li></a>
 
         </ul>

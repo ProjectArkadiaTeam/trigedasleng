@@ -4,5 +4,5 @@
     <a href="./dictionary?filter=slakgedasleng">Slakkru Dictionary</a>
     <a href="./dictionary?filter=noncanon">Noncanon Dictionary</a>
     <a href="./translations">Translations</a>
-    <a href="./gramma">Gramma</a>
+    <a href="./grammar">Grammar</a>
 </div>

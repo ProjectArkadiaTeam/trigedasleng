@@ -22,7 +22,7 @@
             //TODO: Error reporting
         }
     }
-    
+
     function search($db, $query){
         $query = mysqli_real_escape_string($db, $query);
         $words_query = "SELECT * FROM `dict_words` WHERE (`word` LIKE '%".$query."%') OR (`translation` LIKE '%".$query."%')";

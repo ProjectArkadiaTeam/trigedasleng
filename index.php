@@ -9,6 +9,18 @@ require_once("includes/header.inc.php");
 
 //Website Sidebar
 require_once("includes/sidebar.inc.php");
+
+$random_word = $db->query("SELECT * FROM `dict_words` ORDER BY RAND() LIMIT 1")->fetch_assoc();
+$random_translation = $db->query("SELECT * FROM `dict_translations` ORDER BY RAND() LIMIT 1")->fetch_assoc();
+$recent_words = $db->query("SELECT * FROM `dict_words` ORDER BY id DESC LIMIT 10");
+
+//Translation
+$link = 'translation?q='.$random_translation['trigedasleng'];
+$trigedasleng = explode(" ", $random_translation['trigedasleng']);
+$translation = $random_translation['translation'];
+$etymology = explode(" ", $random_translation['etymology']);
+$leipzig = explode(" ", $random_translation['leipzig']);
+$audio = $random_translation['audio'];
 ?>
 <div id="content">
     <div id="inner">
@@ -16,9 +28,9 @@ require_once("includes/sidebar.inc.php");
             <div class="column side">
                 <h3>Recently Added</h3>
                 <ul>
-                    <?php
-                    echo '<li><a href=""></a></li>'
-                    ?>
+                    <?php while ($word = $recent_words->fetch_assoc()):?>
+                    <li><a href="<?='word?q='.$word['word']?>"><?=$word['word']?></a></li>
+                    <?php endwhile;?>
                 </ul>
             </div>
             <div class="column center">
@@ -26,28 +38,54 @@ require_once("includes/sidebar.inc.php");
                 <!--About-->
                 <div class="daily">
 	                <h3>About this website</h3>
-                    <p>This website is an attempt at recreating what was Trigedasleng.info after it went dark in december 2018.
-                    All credits for design and content goes to the original creators of Trigedasleng.info.
+                    <p>
+                        This website is an attempt at recreating what was Trigedasleng.info after it went dark in december 2018.
                     </p>
                 </div>
 
                 <!--Word of the day-->
                 <div class="daily">
-	                <h3>Word of the Day</h3>
-                    <?php
-                    echo '<p><a href="#">gada in</a> (verb) have, own</p>'
-                    //TODO Get random word of the day
-                    ?>
+	                <h3>Random Word</h3>
+                    <div class="dictionary entry" style="width:100%">
+                        <h4><b><a href="#"><?=$random_word['word']?></a></b></h4>
+                        <p class="definition"><?=$random_word['translation']?></p>
+                        <p class="etymology"><?=$random_word['etymology']?></p>
+                    </div>
                 </div>
 
                 <!--Translation of the day-->
                 <div class="daily">
-	                <h3>Translation of the Day</h3>
-                    <?php
-                    //TODO Get random translation of the day
-                    echo '<p><a href="#">Yu gada som in na kof op?</a></p>';
-                    echo '<p>You have something to trade?</p>';
-                    ?>
+	                <h3>Random Translation</h3>
+                    <p><a href="#"><?=$random_translation['']?></a></p>
+                    <div class="translations entry unflagged">
+                        <table class="gloss">
+                            <tbody><tr class="tgs_text"><td colspan="10"><a href="#"><?=strip_tags($trig['trigedasleng'])?></a></td></tr>
+                            <tr class="tgs" style="display: table-row;">
+                                <?php foreach($trigedasleng as $word): ?>
+                                    <td><?=$word?></td>
+                                <?php endforeach;?>
+                            </tr>
+                            <tr class="ety" style="display: table-row;">
+                                <?php foreach($etymology as $word): ?>
+                                    <td><?=$word?></td>
+                                <?php endforeach;?>
+                            </tr>
+                            <tr class="leipzig" style="display: table-row;">
+                                <?php foreach($leipzig as $word): ?>
+                                    <td><?=$word?></td>
+                                <?php endforeach;?>
+                            </tr>
+                            <tr class="en_text">
+                                <td colspan="10"><?=$translation?></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <?php if($audio != ""):?>
+                            <audio controls="" preload="none">
+                                <source src="<?=$audio?>" type="audio/mpeg">
+                            </audio>
+                        <?php endif;?>
+                    </div>
                 </div>
             </div>
             <div class="column side">

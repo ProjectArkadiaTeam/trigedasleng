@@ -501,6 +501,10 @@ td.help {
 	font-weight: bold;
 }
 
+.home .column.side>ul>li {
+	padding: 5px;
+}
+
 #resources .li{
 	margin-bottom:5px;
 }

@@ -32,29 +32,32 @@ foreach ($filterTerms as $term) {
 </div>
 <div class="dictionary" id="content" style="margin-top: 120px;">
     <h1>Dictionary</h1>
-    <?php foreach (range('a', 'z') as $char):
-        $sql = "SELECT * FROM `dict_words` WHERE `word` LIKE '".$char."%' AND ".implode(' AND ', $filterTermBits)." ";
-        if (!$result = $db->query($sql)) {
-            if(DEBUG_MODE){
-                echo 'Failed To Connect To Database: '.mysqli_connect_errno().': '.mysqli_connect_error();
-            }
-            echo 'Sorry, the website is experiencing problems.';
-            exit;
+    <?php
+    $sql = "SELECT * FROM `dict_words` WHERE ".implode(' AND ', $filterTermBits)." ORDER BY `word`";
+    $current_char = 'a';
+
+    if (!$result = $db->query($sql)) {
+        if(DEBUG_MODE){
+            echo 'Failed To Connect To Database: '.mysqli_connect_errno().': '.mysqli_connect_error();
+        }
+        echo 'Sorry, the website is experiencing problems.';
+        exit;
+    }
+    echo '<h2 id="' . strtoupper($current_char) . '">' . strtoupper($current_char) . '</h2>';
+    while ($word = $result->fetch_assoc()):
+        $link = 'word?q='.$word['word'];        //Link to more information page
+        $translation = $word['translation'];    //The word in gonasleng
+        $etymology = $word['etymology'];        //Etymology of the word
+        if(strtolower($word['word'])[0] != $current_char){
+            $current_char = strtolower($word['word'])[0];
+            echo '<h2 id="' . strtoupper($current_char) . '">' . strtoupper($current_char) . '</h2>';
         }
         ?>
-        <h2 id="<?=strtoupper($char)?>"><?=strtoupper($char)?></h2>
-        <?php while ($word = $result->fetch_assoc()):
-            $link = 'word?q='.$word['word'];        //Link to more information page
-            $translation = $word['translation'];    //The word in gonasleng
-            $etymology = $word['etymology'];        //Etymology of the word
-        ?>
-
-            <div class="entry">
-            <h3><b><a href="<?=$link?>"><?=$word['word']?></a></b></h3>
-            <p class="definition"><?=$translation?></p>
-            <p class="etymology"><?=$etymology?></p></div>
-        <?php endwhile; ?>
-    <?php endforeach; ?>
+        <div class="entry">
+        <h3><b><a href="<?=$link?>"><?=strtolower($word['word'])?></a></b></h3>
+        <p class="definition"><?=$translation?></p>
+        <p class="etymology"><?=$etymology?></p></div>
+    <?php endwhile; ?>
 </div>
 
 <!--Fix for header link overshooting -->

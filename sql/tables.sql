@@ -6,6 +6,8 @@ CREATE TABLE dict_translations (
   leipzig      TEXT,
   episode      TEXT NOT NULL,
   audio        TEXT
+  speaker      TEXT NOT NULL,
+  source       TEXT NOT NULL,
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4

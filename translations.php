@@ -68,6 +68,19 @@ $episode_names = [
     "0511" => "S5E11: The Dark Year",
     "0512" => "S5E12: Damocles – Part One",
     "0513" => "S5E13: Damocles – Part Two",
+    "0601" => "S6E01: Sanctum",
+    "0602" => "S6E02: Red Sun Rising",
+    "0603" => "S6E03: The Children of Gabriel",
+    "0604" => "S6E04: The Face Behind the Glass",
+    "0605" => "S6E05: The Gospel of Josephine",
+    "0606" => "S6E06: Memento Mori",
+    "0607" => "S6E07: Episode 7",
+    "0608" => "S6E08: Episode 8",
+    "0609" => "S6E09: Episode 9",
+    "0610" => "S6E10: Episode 10",
+    "0611" => "S6E11: Episode 11",
+    "0612" => "S6E12: Episode 12",
+    "0613" => "S6E13: Episode 13",
     "other" => "Other Translations"
 ];
 

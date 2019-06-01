@@ -20,13 +20,16 @@ $info = $result->fetch_assoc();
 $translation_query = "SELECT * FROM `dict_translations` WHERE (`trigedasleng` LIKE '%".$word."%') LIMIT 3";
 $translation_result = $db->query($translation_query);
 
+//Sources
+$source_query = "SELECT * FROM `dict_sources` WHERE `id`='$info[citations]'";
+$source_result = $db->query($source_query);
+$source_info = $source_result->fetch_assoc();
 
 $trig = $info['word'];
 $translation = $info['translation'];
 $etymology = $info['etymology'];
 $example = $info['example'];
 $note = $info['note'];
-$source = $info['citations'];
 
 ?>
 
@@ -80,9 +83,9 @@ $source = $info['citations'];
             </div>
             <p class="notes"><?=$note?></p>
 
-            <h3 class="citations">Sources:</h3>
+            <h3 class="citations">Source:</h3>
             <ul class="citations">
-                <li><a href="<?=$source?>"><?=$source?></a></li>
+                <li><a href="<?=$source_info['url']?>"><?=$source_info['title']?></a></li>
             </ul>
 <!--            <div class="comment-form-container">-->
 <!--                <form id="frm-comment">-->

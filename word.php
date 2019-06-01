@@ -30,19 +30,105 @@ $translation = $info['translation'];
 $etymology = $info['etymology'];
 $example = $info['example'];
 $note = $info['note'];
+$filter = $info['filter'];
+$id = $info['id'];
+
+$status = "";
+
+//Edit word
+if(isset($_POST['action']) && $_POST['action']=="editword"){
+    $trig = mysqli_real_escape_string($db,$_REQUEST['trig']);
+    $translation = mysqli_real_escape_string($db,$_REQUEST['translation']);
+    $etymology = mysqli_real_escape_string($db,$_REQUEST['etymology']);
+    $dictionary = mysqli_real_escape_string($db,$_REQUEST['dictionary']);
+    $source = mysqli_real_escape_string($db,$_REQUEST['source']);
+    $id = mysqli_real_escape_string($db,$_REQUEST['id']);
+
+    $query = "UPDATE `dict_words` SET 
+        `word`='$trig', 
+        `translation`='$translation', 
+        `etymology`='$etymology', 
+        `citations`='$source', 
+        `filter`='$dictionary' 
+        WHERE `id`='$id'";
+
+
+    if (!$result = $db->query($query)) {
+        // Oh no! The query failed.
+        echo "Sorry, the website is experiencing problems.";
+
+        //Only show debug stuff if we are running in debug mode
+        if(DEBUG_MODE) {
+            echo "Error: Our query failed to execute and here is why: \n";
+            echo "Query: " . $sql . "\n";
+            echo "Errno: " . $db->errno . "\n";
+            echo "Error: " . $db->error . "\n";
+        }
+        exit;
+    }
+    $status = "Updated word successfully!";
+    header("Location: ?q=$trig");
+}
 
 ?>
 
+<?php
+$isAdmin = isset($_SESSION['admin']) && $_SESSION['admin'] == "1";
+if(!isset($_GET['action']) || !$isAdmin)
+{
+    defaultPage();
+    exit;
+}
+
+if($_GET['action'] == "edit" && $isAdmin){
+    editPage();
+    exit;
+}
+?>
+<?php function editPage() {
+    global $trig, $translation, $etymology, $source_info, $status, $filter, $id
+?>
+    <div id="content">
+        <div id="inner">
+            <div id="admin-form">
+                <h1>Edit <?=$trig?></h1>
+                <form name="form" method="post" action="">
+                    <input type="hidden" name="action" value="editword" />
+                    <input type="hidden" name="id" value="<?=$id?>" />
+                    <strong>Word</strong><br>
+                    <input type="text" name="trig" placeholder="Enter Word (in trig)" value="<?=$trig?>" required /><br>
+                    <strong>Translation</strong><br>
+                    <input type="text" name="translation" placeholder="Enter Translation" value="<?=$translation?>" required /><br>
+                    <strong>Etymology</strong><br>
+                    <input type="text" name="etymology" placeholder="Enter Etymology" value="<?=$etymology?>"/><br>
+                    <strong>Dictionary</strong><br>
+                    <input type="text" name="dictionary" placeholder="Enter Dictionaries" value="<?=$filter?>"/><br>
+                    <strong>Source? (use #id from <a href="./sources">Sources</a>)</strong><br>
+                    <input type="text" name="source" placeholder="Enter #ID" value="<?=$source_info['id']?>" /><br>
+                    <p><input name="submit" type="submit" value="Submit" /></p>
+                </form>
+                <p style="color:#FF0000;"><?php echo $status; ?></p>
+            </div>
+        </div>
+    </div>
+<?php }?>
+
+<?php function defaultPage() {
+global $trig, $translation, $etymology, $note, $translation_result, $source_info, $isAdmin
+?>
 <div id="content">
     <div id="inner">
 <!--        <div class="dictionary entry">-->
-            <h1><?=$trig?></h1>
+            <h1><?=$trig?>
+                <?php if($isAdmin): ?>
+                    <a style="border-bottom: none;" href="?q=<?=$trig?>&action=edit"><i class="far fa-edit"></i></a>
+                <?php endif;?>
+            </h1>
             <p class="definition"><?=$translation?></p>
             <p class="etymology"><?=$etymology?></p>
             <p class="example"><strong>Examples:</strong></p>
             <div class="translations">
             <?php while($info = mysqli_fetch_assoc($translation_result)):
-                $link = 'translation?q='.$info['trigedasleng'];
                 $trigedasleng = explode(" ", $info['trigedasleng']);
                 $translation = $info['translation'];
                 $etymology = explode(" ", $info['etymology']);
@@ -108,4 +194,5 @@ $note = $info['note'];
     </div>
 </div>
 <!--<script src="./js/comments.js"></script>-->
+<?php }?>
 <?php require_once('includes/footer.inc.php') ?>

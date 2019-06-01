@@ -16,6 +16,7 @@
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="./css/main.css?v=13513.10" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/583b09e947.js"></script>
     <script src="./js/main.js"></script>
 </head>
 <body>

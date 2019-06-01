@@ -56,10 +56,10 @@ $audio = $random_translation['audio'];
                 <!--Translation of the day-->
                 <div class="daily">
 	                <h3>Random Translation</h3>
-                    <p><a href="#"><?=$random_translation['']?></a></p>
+<!--                    <p><a href="#">--><?//=$random_translation['trigedasleng']?><!--</a></p>-->
                     <div class="translations entry unflagged">
                         <table class="gloss">
-                            <tbody><tr class="tgs_text"><td colspan="10"><a href="#"><?=strip_tags($trig['trigedasleng'])?></a></td></tr>
+                            <tbody><tr class="tgs_text"><td colspan="10"><a href="#"><?=strip_tags($random_translation['trigedasleng'])?></a></td></tr>
                             <tr class="tgs" style="display: table-row;">
                                 <?php foreach($trigedasleng as $word): ?>
                                     <td><?=$word?></td>

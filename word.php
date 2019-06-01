@@ -26,7 +26,7 @@ $translation = $info['translation'];
 $etymology = $info['etymology'];
 $example = $info['example'];
 $note = $info['note'];
-
+$source = $info['citations'];
 
 ?>
 
@@ -80,11 +80,29 @@ $note = $info['note'];
             </div>
             <p class="notes"><?=$note?></p>
 
-            <h3 class="citations">Citations:</h3>
+            <h3 class="citations">Sources:</h3>
             <ul class="citations">
-                <li><a href="$link">$text</a></li>
+                <li><a href="<?=$source?>"><?=$source?></a></li>
             </ul>
+<!--            <div class="comment-form-container">-->
+<!--                <form id="frm-comment">-->
+<!--                    <div class="input-row">-->
+<!--                        <input type="hidden" name="comment_id" id="commentId" placeholder="Name" />-->
+<!--                        <input class="input-field" type="text" name="name" id="name" placeholder="Name" />-->
+<!--                    </div>-->
+<!--                    <div class="input-row">-->
+<!--                <textarea class="input-field" type="text" name="comment" id="comment" placeholder="Add a Comment">  </textarea>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <input type="button" class="btn-submit" id="submitButton" value="Publish" />-->
+<!--                        <div id="comment-message">Comments Added Successfully!</div>-->
+<!--                    </div>-->
+<!---->
+<!--                </form>-->
+<!--            </div>-->
+            <div id="output"></div>
 <!--        </div>-->
     </div>
 </div>
+<!--<script src="./js/comments.js"></script>-->
 <?php require_once('includes/footer.inc.php') ?>

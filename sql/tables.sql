@@ -5,9 +5,9 @@ CREATE TABLE dict_translations (
   etymology    TEXT,
   leipzig      TEXT,
   episode      TEXT NOT NULL,
-  audio        TEXT
+  audio        TEXT,
   speaker      TEXT NOT NULL,
-  source       TEXT NOT NULL,
+  source       TEXT NOT NULL
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
@@ -33,7 +33,8 @@ CREATE TABLE dict_users (
   username     TEXT     NOT NULL,
   password     TEXT     NOT NULL,
   email        TEXT     NOT NULL,
-  signup_date  DATETIME NOT NULL
+  signup_date  DATETIME NOT NULL,
+  admin		   INT
 ) 
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4

@@ -839,6 +839,85 @@ button:hover {
 	font-size: 2em;
 }
 
+/*Comments*/
+.comment-form-container {
+	background: #F0F0F0;
+	border: #e0dfdf 1px solid;
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.input-row {
+	margin-bottom: 20px;
+}
+
+.input-field {
+	width: 100%;
+	border-radius: 2px;
+	padding: 10px;
+	border: #e0dfdf 1px solid;
+}
+
+.btn-submit {
+	padding: 10px 20px;
+	background: #333;
+	border: #1d1d1d 1px solid;
+	color: #f0f0f0;
+	font-size: 0.9em;
+	width: 100px;
+	border-radius: 2px;
+	cursor:pointer;
+}
+
+.comment-row {
+	border-bottom: #e0dfdf 1px solid;
+	margin-bottom: 15px;
+	padding: 15px;
+}
+
+.outer-comment {
+	background: #F0F0F0;
+	padding: 20px;
+	border: #dedddd 1px solid;
+}
+
+span.commet-row-label {
+	font-style: italic;
+}
+
+span.posted-by {
+	color: #09F;
+}
+
+.comment-info {
+	font-size: 0.8em;
+}
+.comment-text {
+	margin: 10px 0px;
+}
+.btn-reply {
+	font-size: 0.8em;
+	text-decoration: underline;
+	color: #888787;
+	cursor:pointer;
+}
+#comment-message {
+	margin-left: 20px;
+	color: #189a18;
+	display: none;
+}
+
+#admin-form form input, select {
+	font: 14px 'Noto Sans', Arial, sans-serif;
+	margin: 0 0 10px 0;
+	padding: 5px 10px;
+	background: white;
+	letter-spacing: .05em;
+	border: 0 solid black;
+	height: 40px;
+	width: 400px;
+}
+
 /* mobile overrides */
 @media only screen and (max-device-width: 640px) {
 

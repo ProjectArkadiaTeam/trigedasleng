@@ -61,6 +61,7 @@ if ($_POST['action'] == 'login') {
                 $user_info = mysqli_fetch_assoc($result);
                 if (password_verify($password, $user_info['password'])) {
                     $_SESSION["username"] = $_POST["username"];
+                    $_SESSION["admin"] = $user_info["admin"];
                     echo 'Success';
                 }
             } else {

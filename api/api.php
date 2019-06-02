@@ -46,7 +46,7 @@
             $data['translations'][] = $translation;
         }
 
-        echo json_encode($data, JSON_PRETTY_PRINT);
+        echo json_encode(utf8ize($data), JSON_PRETTY_PRINT);
     }
 
     function getDictionary($db) {
@@ -73,5 +73,16 @@
             $data[] = $word;
         }
 
-        echo json_encode($data, JSON_PRETTY_PRINT);
+        echo json_encode(utf8ize($data), JSON_PRETTY_PRINT);
+    }
+
+    function utf8ize($data) {
+        if (is_array($data)) {
+            foreach ($data as $key => $value) {
+                $data[$key] = utf8ize($value);
+            }
+        } else if (is_string ($data)) {
+            return utf8_encode($data);
+        }
+        return $data;
     }

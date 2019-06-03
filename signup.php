@@ -41,8 +41,6 @@ if(isset($_SESSION["username"])) {
                         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
                     </label>
 
-                    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
                     <div class="clearfix">
                         <input type="submit" id="signupbtn" value="Sign Up"/>
                     </div>

@@ -1,3 +1,8 @@
+DROP TABLE IF EXISTS dict_translations;
+DROP TABLE IF EXISTS dict_words;
+DROP TABLE IF EXISTS dict_users;
+DROP TABLE IF EXISTS dict_sources;
+
 CREATE TABLE dict_translations (
   id           INT  NOT NULL PRIMARY KEY AUTO_INCREMENT,
   trigedasleng TEXT NOT NULL,

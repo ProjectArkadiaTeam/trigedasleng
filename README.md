@@ -14,8 +14,8 @@ Trigedasleng is not a creole, but a descendant of American English alone, and wh
 # Credit & Attribution
 * Jensen (Lead developer of Trigedasleng.info) [Tumblr](http://smallerontheoutside.tumblr.com/) 
 * David J. Peterson (language creator) [@dedalvs](http://twitter.com/dedalvs)
-* The CW (show rights) [@the100cw](http://twitter.com/the100cw)
-* Sloan (Developer for Trigedasleng.info) [@sloanreynolds](http://twitter.com/sloanreynolds)
+* The CW (show rights) [@cwthe100](http://twitter.com/cwthe100)
+* Sloan (Developer for Trigedasleng.info)
 
 # Getting started
 

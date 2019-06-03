@@ -34,8 +34,19 @@ CREATE TABLE dict_users (
   password     TEXT     NOT NULL,
   email        TEXT     NOT NULL,
   signup_date  DATETIME NOT NULL,
-  admin		   INT
+  admin		     INT
 ) 
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
-  COLLATE utf8mb4_unicode_ci; 
+  COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `dict_sources` (
+  id           INT      NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  title        TEXT     NOT NULL,
+  author       TEXT     NOT NULL,
+  date         DATE     NOT NULL,
+  url          TEXT     NOT NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE utf8mb4_unicode_ci;

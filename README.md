@@ -30,6 +30,7 @@ Trigedasleng is not a creole, but a descendant of American English alone, and wh
 
 ```bash
 sudo phpenmod mysqli
+sudo a2enmod rewrite
 sudo systemctl restart apache2
 ```
 

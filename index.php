@@ -47,7 +47,7 @@ $audio = $random_translation['audio'];
                 <div class="daily">
 	                <h3>Random Word</h3>
                     <div class="dictionary entry" style="width:100%">
-                        <h4><b><a href="#"><?=$random_word['word']?></a></b></h4>
+                        <h4><b><a href="<?='word?q='.$random_word['word']?>"><?=$random_word['word']?></a></b></h4>
                         <p class="definition"><?=$random_word['translation']?></p>
                         <p class="etymology"><?=$random_word['etymology']?></p>
                     </div>

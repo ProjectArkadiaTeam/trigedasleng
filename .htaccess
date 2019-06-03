@@ -3,7 +3,7 @@ RewriteEngine On
 
 # Remove php extension
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^([^.]+)$ $1.php [NC,L]
 
 # Disable WWW
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]

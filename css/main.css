@@ -246,6 +246,7 @@ ul, ol {
 }
 
 #header .search form {
+	margin-bottom: 0;
 }
 
 #header .search form input {
@@ -258,6 +259,7 @@ ul, ol {
 	height: 40px;
 	width: 400px;
 }
+
 
 #header .search form input.q {
 }
@@ -928,6 +930,25 @@ span.posted-by {
 	width: 400px;
 }
 
+.result{
+	position: absolute;
+	z-index: 999;
+	background: #f2f2f2;
+	width:400px;
+}
+
+/* Formatting result items */
+.result p{
+	margin: 0;
+	padding: 7px 10px;
+	border: 1px solid #CCCCCC;
+	border-top: none;
+	cursor: pointer;
+}
+.result p:hover{
+	background: #f2f2f2;
+}
+
 /* mobile overrides */
 @media only screen and (max-device-width: 640px) {
 
@@ -1136,6 +1157,15 @@ span.posted-by {
 
 	#signup {
 		display: none;
+	}
+
+	.result {
+		top: 100%;
+		width:150px;
+	}
+
+	.result p {
+		font: 14px 'Noto Sans', Arial, sans-serif;
 	}
 }
 

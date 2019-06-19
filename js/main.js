@@ -67,6 +67,26 @@ $(document).ready(function(){
             }
         });
     });
+
+    $('.search input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).parent().siblings(".result");
+        if(inputVal.length){
+            $.get("/api/api.php", {action: 'liveSearch', query: inputVal})
+                .done(function (data) {
+                    resultDropdown.html(data);
+            }).fail(function (jqXHR, textStatus, errorThrown) { alert(errorThrown); });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
 });
 
 function filter(className, obj) {

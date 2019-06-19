@@ -76,6 +76,39 @@
         echo json_encode(utf8ize($data), JSON_PRETTY_PRINT);
     }
 
+    function liveSearch($db) {
+        if(!isset($_GET['query']) || empty($_GET['query'])) {
+            exit();
+        }
+
+        // We want html output
+        header('Content-Type: text/html');
+
+        $query = mysqli_real_escape_string($db, $_GET['query']);
+        $words_query = "SELECT * FROM `dict_words` WHERE (`word` LIKE '".$query."%') OR (`translation` LIKE '".$query."%')";
+        $translation_query = "SELECT * FROM `dict_translations` WHERE (`trigedasleng` LIKE '".$query."%') OR (`translation` LIKE '".$query."%')";
+        $words_result = $db->query($words_query);
+        $translation_result = $db->query($translation_query);
+
+        // Check number of rows in the result set
+        if(mysqli_num_rows($words_result) + mysqli_num_rows($translation_result) > 0){
+            $count = 0;
+
+            // Fetch result rows as an associative array
+            while($row = mysqli_fetch_array($words_result, MYSQLI_ASSOC)){
+                echo "<p>" . $row["word"] . "</p>";
+                if($count++ > 10) exit();
+            }
+            while($row = mysqli_fetch_array($translation_result, MYSQLI_ASSOC)){
+                echo "<p>" . $row["trigedasleng"] . "</p>";
+                if($count++ > 10) exit();
+            }
+        } else{
+            echo "<p>No matches found for $query</p>";
+        }
+        exit();
+    }
+
     function utf8ize($data) {
         if (is_array($data)) {
             foreach ($data as $key => $value) {

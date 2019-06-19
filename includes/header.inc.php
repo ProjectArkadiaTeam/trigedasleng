@@ -16,9 +16,10 @@
         </ul>
     </div>
     <div class="search">
-        <form action="search" method="get">
+        <form action="search" method="get" autocomplete="off">
             <input type="text" placeholder="SEARCH" name="q">
         </form>
+        <div class="result"></div>
     </div>
 
     <?php if (!isset($_SESSION["username"])):?>

@@ -50,22 +50,20 @@
     }
 
     function getDictionary($db) {
-        if(!isset($_GET['filter']) || empty($_GET['filter'])) {
-            echo "Dictionary filter is required!";
-            exit();
-        }
-
-        $filter = mysqli_real_escape_string($db, $_GET['filter']);
-        $filterTerms = explode(' ', $filter);
-        $filterTermBits = array();
-        foreach ($filterTerms as $term) {
-            $term = trim($term);
-            if (!empty($term)) {
-                $filterTermBits[] = "`filter` RLIKE '[[:<:]]".$term."[[:>:]]'";
+        if(isset($_GET['filter']) && $_GET['filter'] != 'all') {
+            $filter = mysqli_real_escape_string($db, $_GET['filter']);
+            $filterTerms = explode(' ', $filter);
+            $filterTermBits = array();
+            foreach ($filterTerms as $term) {
+                $term = trim($term);
+                if (!empty($term)) {
+                    $filterTermBits[] = "`filter` RLIKE '[[:<:]]".$term."[[:>:]]'";
+                }
             }
+            $sql = "SELECT * FROM `dict_words` WHERE ".implode(' AND ', $filterTermBits)." ";
+        } else {
+            $sql = "SELECT * FROM `dict_words`";
         }
-
-        $sql = "SELECT * FROM `dict_words` WHERE ".implode(' AND ', $filterTermBits)." ";
         $result = $db->query($sql);
 
         $data = array();

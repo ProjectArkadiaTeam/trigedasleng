@@ -1,6 +1,5 @@
 DROP TABLE IF EXISTS dict_translations;
 DROP TABLE IF EXISTS dict_words;
-DROP TABLE IF EXISTS dict_users;
 DROP TABLE IF EXISTS dict_sources;
 
 CREATE TABLE dict_translations (
@@ -33,6 +32,17 @@ CREATE TABLE dict_words (
   DEFAULT CHARSET = utf8mb4
   COLLATE utf8mb4_unicode_ci;
   
+CREATE TABLE `dict_sources` (
+  id           INT      NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  title        TEXT     NOT NULL,
+  author       TEXT     NOT NULL,
+  date         DATE     NOT NULL,
+  url          TEXT     NOT NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
 CREATE TABLE dict_users (
   id           INT      NOT NULL PRIMARY KEY AUTO_INCREMENT,
   username     TEXT     NOT NULL,
@@ -41,17 +51,6 @@ CREATE TABLE dict_users (
   signup_date  DATETIME NOT NULL,
   admin		     INT
 ) 
-  ENGINE = InnoDB
-  DEFAULT CHARSET = utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-
-CREATE TABLE `dict_sources` (
-  id           INT      NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  title        TEXT     NOT NULL,
-  author       TEXT     NOT NULL,
-  date         DATE     NOT NULL,
-  url          TEXT     NOT NULL
-)
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE utf8mb4_unicode_ci;

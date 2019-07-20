@@ -1,6 +1,4 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -429,7 +427,8 @@ INSERT INTO `dict_sources` (`id`, `title`, `author`, `date`, `url`) VALUES
 (427, 'Trigedasleng Dialogue, Episode 406', 'Peterson, David J.', '2017-03-16', 'https://dedalvs.tumblr.com/post/158480873683/trigedasleng-dialogue-episode-406'),
 (428, 'Trigedasleng Dialogue, Episode 507 of The 100', 'Peterson, David J.', '2018-07-14', 'https://dedalvs.tumblr.com/post/175894869201/trigedasleng-dialogue-episode-507-of-the-100'),
 (429, 'Trigedasleng Dialogue, Episode 410', 'Peterson, David J.', '2017-05-04', 'https://dedalvs.tumblr.com/post/160306542337/trigedasleng-dialogue-episode-410'),
-(430, 'I was wondering what the word for \"rock\" or \"stone\" might be in Trigedasleng?', 'Peterson, David J.', '2016-10-31', 'https://dedalvs.tumblr.com/post/152564737541/hi-i-was-wondering-what-the-word-for-rock-or');
+(430, 'I was wondering what the word for \"rock\" or \"stone\" might be in Trigedasleng?', 'Peterson, David J.', '2016-10-31', 'https://dedalvs.tumblr.com/post/152564737541/hi-i-was-wondering-what-the-word-for-rock-or'),
+(431, 'Conlang Dialogue: The 100, Episode 606', 'Peterson, David J.', '2019-06-12', 'https://archiveofourown.org/works/19186828');
 
 INSERT INTO `dict_translations` (`id`, `trigedasleng`, `translation`, `etymology`, `leipzig`, `episode`, `audio`, `speaker`, `source`) VALUES
 (1, 'Ai laik Okteivia kom Skaikru en ai gaf gouthru klin.', 'I am Octavia of the Sky People and I wish to commit suicide.', 'I like Octavia come Sky-crew and I gotta-have go-through clean', '1SG be Octavia from Sky-people and I want suicide SAT', '0201', 'audio/s2/OCTAVIA_201_1.mp3', 'Octavia', '373'),
@@ -701,9 +700,9 @@ INSERT INTO `dict_translations` (`id`, `trigedasleng`, `translation`, `etymology
 (268, 'Mebi. Dison laik kofgeda, you. Hanch en\'s fleim yu au?', 'Maybe. This is a trading post. What\'s it worth to you?', 'maybe this-one like cough-gather yo how-much them-stay flame you out', 'maybe this be trading-post EMPH how-much 3SG-be be-worth 2SG SAT', '0301', 'audio/s3/NIYLAH_301_24.mp3', '', '275'),
 (269, 'Hashta oyo sonraun?', 'How about your lives?', 'hashtag all-you-all sun-around', 'about PL-2PL life', '0301', '', '', '275'),
 (270, 'Os kofon.', 'Good trade.', 'awesome cough-one', 'good trade', '0301', '', '', '275'),
-(271, 'Em don kof raun gon biskova en swison.', 'She traded for fur and a blade.', 'them done cough around gone beast-cover and swiss-one', '3SG PAST trade SAT for fur and blade', '0301', 'audio/s3/NIYLAH_301_27.mp3', '', '275');
+(271, 'Em don kof raun gon biskova en swison.', 'She traded for fur and a blade.', 'them done cough around gone beast-cover and swiss-one', '3SG PAST trade SAT for fur and blade', '0301', 'audio/s3/NIYLAH_301_27.mp3', '', '275'),
+(272, 'Hod op! Osir ste kom Heda!', 'Stop! We\'re with the Commander!', 'hold up us-here stay come header', 'wait SAT 1PL.EXCL be with commander', '0301', '', '', '275');
 INSERT INTO `dict_translations` (`id`, `trigedasleng`, `translation`, `etymology`, `leipzig`, `episode`, `audio`, `speaker`, `source`) VALUES
-(272, 'Hod op! Osir ste kom Heda!', 'Stop! We\'re with the Commander!', 'hold up us-here stay come header', 'wait SAT 1PL.EXCL be with commander', '0301', '', '', '275'),
 (273, 'Ai get in chit yu ste fig raun.', 'I know what you\'re thinking.', 'I get in ? you stay figure around', '1SG know SAT what 2SG PROG think SAT', '0301', 'audio/s3/LINCOLN_301_33.mp3', '', '275'),
 (274, 'Sha, ba\'m eintheing gon yu.', 'Yeah, but you don\'t care.', 'yeah but-them ain\'t-thing gone you', 'yes but-3SG anything to 2SG', '0301', 'audio/s3/OCTAVIA_301_34.mp3', '', '275'),
 (275, 'Chon yu bilaik?', 'Who are you?', 'which-one you be-like', 'who 2SG be', '0301', 'audio/s3/LEAD_GROUNDER_301_1.mp3', '', '275'),
@@ -1518,7 +1517,30 @@ INSERT INTO `dict_translations` (`id`, `trigedasleng`, `translation`, `etymology
 (1081, 'Wof em teik em nila reya? O, em\'ilaik, ge jok op kom fayaslais?', 'What if she skins her knee? Or, I don\'t know, gets a paper cut?', '', '', '0605', '', 'Gaia', 'https://archiveofourown.org/works/19013002'),
 (1082, 'Ai hod yu in, Klok.', 'I love you, Clarke.', '', '', '0605', '', 'Madi', 'https://archiveofourown.org/works/19013002'),
 (1083, 'Flish em of. Ai gaf in chich yu op soulou. Kom nau.', 'Get rid of her. I need to talk to you alone. Now.', '', '', '0605', '', 'Bellamy', 'https://archiveofourown.org/works/19013002'),
-(1084, 'Ai sin in feis-de kom keryon ai don rip klin ona flashpa, nou ona fleta.', 'I see the faces of the people I\'ve killed when I dream, not in the mirror.', '', '', '0605', '', 'Bellamy', 'https://archiveofourown.org/works/19013002');
+(1084, 'Ai sin in feis-de kom keryon ai don rip klin ona flashpa, nou ona fleta.', 'I see the faces of the people I\'ve killed when I dream, not in the mirror.', '', '', '0605', '', 'Bellamy', 'https://archiveofourown.org/works/19013002'),
+(1085, 'Badan yu Heda op o wan op!', 'Heed your Commander, or die!', '', '', '0606', '', '', ''),
+(1086, 'Bida airein nou na kep yu klin!', 'Tears will not save you!', '', '', '0606', '', '', ''),
+(1087, 'Nat ai drein yu jus daun!', 'Tonight I drink your blood!', '', '', '0606', '', '', ''),
+(1088, 'Vosenshou.', 'The Separation Ritual.', '', '', '0606', '', '', ''),
+(1089, 'Nou fiya ai op nodotaim nowe!', 'Don\'t ever lay hands on me again!', '', '', '0606', '', '', ''),
+(1090, 'Yu nou ste kamp raun hir, you. Wof emo don sin in yu jus?', 'Youâ€™re not supposed to be here. What if they had seen your blood?', '', '', '0606', '', '', ''),
+(1091, 'Yu gonplei ste odon.', 'Your fight is over.', '', '', '0606', '', '', ''),
+(1092, 'Fleimon-de laik ai shouna... En ai laik Fleimon-de.', 'The Flame is my guide... And I am the Flame.', '', '', '0606', '', '', ''),
+(1093, 'Weron emo noda Heda?', 'Where are the other Commanders?', '', '', '0606', '', '', ''),
+(1094, 'Em bilaik yumi soulou nau.', 'Itâ€™s just you and me now.', '', '', '0606', '', '', ''),
+(1095, 'Foshou yu Seda don tel yu na fig op shanen voudon. Yu dulaâ€™m op?', 'Iâ€™m sure your Seda told you to think good thoughts. Are you?', '', '', '0606', '', '', ''),
+(1096, 'Yu Seda get in non nowe. Ain seintaim. Em don trana hod ai daun. Yu laik Heda. Yu don hed fous op. Yu don kep Wonkru klin.', 'Your teacher knows nothing. Neither did mine. He tried to hold me back. Youâ€™re the Commander. You led an army. You saved Wonkru.', '', '', '0606', '', '', ''),
+(1097, 'Em fir in yu uf. Em gaf in hod yu daun. Ai Seda donâ€™s trana hod ai daun, den ai don frag em op. Yu souda frag yun op.', 'She fears your power. She wants to control you. My teacher was trying to control me, so I killed him. You must kill her.', '', '', '0606', '', '', ''),
+(1098, 'Yu fir raun bilaik yu na ste soulou nodotaim. Kom we em don lok yu op.', 'Youâ€™re scared that youâ€™ll be alone again. Like before she found you.', '', '', '0606', '', '', ''),
+(1099, 'Ba yu nou na ste soulou. Teik ai gouba raun yu soncha ona sheid...', 'But you wonâ€™t be. Let me be your light in the darkness...', '', '', '0606', '', '', ''),
+(1100, 'Sis ai meika op... En ogeda yumi na teik daun disha houd, seim bilaik lason.', 'Take my hand... And together we will conquer this world, like we did the last.', '', '', '0606', '', '', ''),
+(1101, 'Dulaâ€™m daun.', 'Do it.', '', '', '0606', '', '', ''),
+(1102, 'Frag em op. Em laik won we noumou na hon yu baman in.', 'Kill her. Itâ€™s the only way to get your revenge.', '', '', '0606', '', '', ''),
+(1103, 'Daunâ€™s kwelen. Heda nou bedaâ€”', 'That was weak. A Commander should neverâ€”', '', '', '0606', '', '', ''),
+(1104, 'Tel ai hana frag emo op ogeda.', 'Tell me how to kill them all.', '', '', '0606', '', '', ''),
+(1105, 'Ai fos seda.', 'My first teacher.', '', '', '0606', '', '', ''),
+(1106, 'Sou thosti na bos ai in em don teik ai gon bonij.', ' So desperate for me to conform that he kept me in chains.', '', '', '0606', '', '', ''),
+(1107, 'Fou em frag yu op, kos em sou na dulaâ€™m daun.', 'Before she kills you, because she will.', '', '', '0606', '', '', '');
 
 INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `citations`, `example`, `note`, `filter`) VALUES
 (1, 'aftaim', 'noun: future', 'from: after-time', '#', '421', '', '', 'canon'),
@@ -1620,7 +1642,7 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (97, 'daunde', 'pronoun: that one (far), that one over yonder', 'from: that-one-there', '#', '', '', '', 'canon'),
 (98, 'de', 'auxiliary: an emphatic particle with limited uses; attaches to a noun to indicate a specific instance of that noun', 'from: the', '#', '', '', '', 'canon'),
 (99, 'dei', 'adjective: that (near)', 'from: there', '#', '', '', '', 'canon'),
-(100, 'dei de', 'adjective: that (far); "de" acts like a verbal satellite', 'from: there-the', '#', '', '', '', 'canon'),
+(100, 'dei de', 'adjective: that (far); \"de\" acts like a verbal satellite', 'from: there-the', '#', '', '', '', 'canon'),
 (101, 'deimeika', 'noun: sun', 'from: day-maker', '#', '', '', '', 'canon'),
 (102, 'den', 'adverb: then, at that time; so, because of that', 'from: then', '#', '', '', '', 'canon'),
 (103, 'der', 'adverb: there (near)', 'from: there', '#', '', '', '', 'canon'),
@@ -1654,7 +1676,7 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (131, 'emo', 'pronoun: (third person plural) they, them', 'from: them all', '#', '', '', '', 'canon'),
 (132, 'en', 'conjunction: and', 'from: and', '#', '373', '', '', 'canon'),
 (133, 'en', 'noun: everyone', 'from: everyone', '#', '373', '', '', 'canon'),
-(134, 'en\'s', 'phrase: (contraction of "em ste") it\'s, it is', 'from: them-stay', '#', '', '', '', 'canon'),
+(134, 'en\'s', 'phrase: (contraction of \"em ste\") it\'s, it is', 'from: them-stay', '#', '', '', '', 'canon'),
 (135, 'ena', 'phrase: (interrogative) well?, and so?', 'from: and-so', '#', '283', '', '', 'canon'),
 (136, 'enes', 'noun: everyone else', 'from: everyone-else', '#', '', '', '', 'canon'),
 (137, 'eni', 'adverb: any', 'from: any', '#', '', '', '', 'canon'),
@@ -1760,7 +1782,7 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (237, 'gon', 'noun: weapon', 'from: gun', '#', '', '', '', 'canon'),
 (238, 'gona', 'noun: warrior', 'from: gunner', '#', '', '', '', 'canon'),
 (239, 'gonakru', 'noun: army, group of warriors', 'from: gunner-crew', '#', '', '', '', 'canon'),
-(240, 'gonasleng', 'noun: English; lit. "warrior-language"', 'from: gunner-slang', '#', '', '', '', 'canon'),
+(240, 'gonasleng', 'noun: English; lit. \"warrior-language\"', 'from: gunner-slang', '#', '', '', '', 'canon'),
 (241, 'gonen', 'noun: fighting', 'from: gunning', '#', '333', '', '', 'canon'),
 (242, 'gonot raun', 'verb: leave, go away (urgently)', 'from: gone-out around', '#', '373', '', '', 'canon'),
 (243, 'gonplei', 'noun: fight', 'from: gunplay', '#', '', '', '', 'canon'),
@@ -1842,7 +1864,7 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (319, 'ifi', 'adjective: risky', 'from: iffy', '#', '373', '', '', 'canon'),
 (320, 'imfou', 'noun: message', 'from: info', '#', '373', '', '', 'canon'),
 (321, 'in', 'satellite: a verbal satellite commonly used with abstract verbs', 'from: in', '#', '', '', '', 'canon'),
-(322, 'in-spuna', 'noun: back spoon, "big spoon"', 'from: in-spooner', '#', '', '', '', 'canon'),
+(322, 'in-spuna', 'noun: back spoon, \"big spoon\"', 'from: in-spooner', '#', '', '', '', 'canon'),
 (323, 'jak op', 'verb: take, steal', 'from: jack up', '#', '', '', '', 'canon'),
 (324, 'jaka', 'noun: thief', 'from: jack-er', '#', '', '', '', 'canon'),
 (325, 'java', 'noun: spear', 'from: javelin', '#', '', '', '', 'canon'),
@@ -1861,7 +1883,7 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (338, 'jusdreinen', 'noun: bloodshed', 'from: juice-draining', '#', '', '', '', 'canon'),
 (339, 'kaina', 'adjective: what kind of, kind of, kind, type', 'from: kind of', '#', '373', '', '', 'canon'),
 (340, 'kamp daun', 'verb: keep down', 'from: camp down', '#', '373', '', '', 'canon'),
-(341, 'kamp raun', 'verb: stay near, be near, go to; a locative-state verb with more permanence than "ste"', 'from: camp around', '#', '', '', '', 'canon'),
+(341, 'kamp raun', 'verb: stay near, be near, go to; a locative-state verb with more permanence than \"ste\"', 'from: camp around', '#', '', '', '', 'canon'),
 (342, 'kapa', 'noun: city; sir', 'from: capital; captain', '#', '373', '', '', 'canon'),
 (343, 'kefa', 'adjective: careful', 'from: careful', '#', '', '', '', 'canon'),
 (344, 'kei', 'phrase: okay, very well', 'from: okay', '#', '290', '', '', 'canon'),
@@ -1919,7 +1941,7 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (396, 'kripa', 'noun: demon', 'from: creeper', '#', '', '', '', 'canon'),
 (397, 'kripon', 'noun: crime', 'from: creep-one', '#', '294', '', '', 'canon'),
 (398, 'kru', 'noun: a people, group of people', 'from: crew', '#', '373', '', '', 'canon'),
-(399, 'krunes', 'noun: the "Kru life", lifestyle of a Grounder', 'from: crew-ness', '#', '', '', '', 'canon'),
+(399, 'krunes', 'noun: the \"Kru life\", lifestyle of a Grounder', 'from: crew-ness', '#', '', '', '', 'canon'),
 (400, 'ku', 'adjective: cool, okay, fine', 'from: cool', '#', '373', '', '', 'canon'),
 (401, 'kwelen', 'adjective: weak', 'from: quailing', '#', '', '', '', 'canon'),
 (402, 'kwelnes', 'noun: weakness', 'from: quailness', '#', '', '', '', 'canon'),
@@ -1930,7 +1952,7 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (407, 'laksen', 'adjective: hurt', '', '#', '', '', '', 'canon'),
 (408, 'lan op', 'verb: use', '', '#', '', '', '', 'canon'),
 (409, 'las', 'adjective: last', 'from: last', '#', '275', '', '', 'canon'),
-(410, 'laud', 'verb: sound, as a horn; usu. preceded by "teik"', 'from: loud', '#', '373', '', '', 'canon'),
+(410, 'laud', 'verb: sound, as a horn; usu. preceded by \"teik\"', 'from: loud', '#', '373', '', '', 'canon'),
 (411, 'laudnes', 'noun: pain', 'from: loudness', '#', '373', '', '', 'canon'),
 (412, 'led op', 'verb: (transitive) wound, injure someone or something', 'from: laid up', '#', '', '', '', 'canon'),
 (413, 'led raun', 'verb: (intransitive) wound, injure; go around causing wounds or injuries', 'from: laid around', '#', '', '', '', 'canon'),
@@ -1997,7 +2019,7 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (474, 'mous', 'adjective: almost, nearly, most of', 'from: most', '#', '', '', '', 'canon'),
 (475, 'na', 'auxiliary: (future auxiliary); can, could', 'from: gonna', '#', '', '', '', 'canon'),
 (476, 'na kom', 'preposition: until', 'from: gonna-come', '#', '', '', '', 'canon'),
-(477, 'nami', 'phrase: feel me?, know what I mean?, got it?; functions like the Japanese "ne" particle', 'from: know-what-I-mean', '#', '', '', '', 'canon'),
+(477, 'nami', 'phrase: feel me?, know what I mean?, got it?; functions like the Japanese \"ne\" particle', 'from: know-what-I-mean', '#', '', '', '', 'canon'),
 (478, 'nat', 'noun: night, tonight', 'from: night', '#', '373', '', '', 'canon'),
 (479, 'Natblida', 'proper noun: Nightblood, Blackblood', 'from: night-bleeder', '#', '', '', '', 'canon'),
 (480, 'natbri', 'noun: evening prayers', 'from: night-Hail-Mary', '#', '', '', '', 'canon'),
@@ -2026,7 +2048,7 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (503, 'non-non', 'adjective: tasty', 'from: nom-nom', '#', '', '', '', 'canon'),
 (504, 'noni', 'noun: dad', 'from: number-two-i', '#', '', '', '', 'canon'),
 (505, 'nontu', 'noun: father', 'from: number-two', '#', '', '', '', 'canon'),
-(506, 'noseim', 'adjective: different; also spelled "nouseim"', 'from: no-same', '#', '', '', '', 'canon'),
+(506, 'noseim', 'adjective: different; also spelled \"nouseim\"', 'from: no-same', '#', '', '', '', 'canon'),
 (507, 'nou', 'adverb: not', 'from: no', '#', '', '', '', 'canon'),
 (508, 'noumou', 'adverb: only', 'from: no-more', '#', '', '', '', 'canon'),
 (509, 'noun', 'noun: wisdom', 'from: knowing', '#', '', '', '', 'canon'),
@@ -2040,7 +2062,7 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (517, 'omi', 'noun: chicken', '', '#', '', '', '', 'canon'),
 (518, 'ona', 'preposition: (locative preposition) on, under, into', 'from: on', '#', '', '', '', 'canon'),
 (519, 'op', 'preposition: up', 'from: up', '#', '', '', '', 'canon'),
-(520, 'op-spuna', 'noun: front spoon, "little spoon"', 'from: up-spooner', '#', '', '', '', 'canon'),
+(520, 'op-spuna', 'noun: front spoon, \"little spoon\"', 'from: up-spooner', '#', '', '', '', 'canon'),
 (521, 'opkepa', 'noun: caretaker', 'from: up-keeper', '#', '414', '', '', 'canon'),
 (522, 'os', 'adjective: good, well, great', 'from: awesome', '#', '', '', '', 'canon'),
 (523, 'osir', 'pronoun: (first person plural exclusive) we, us; excludes the listener', 'from: us-here', '#', '', '', '', 'canon'),
@@ -2100,10 +2122,10 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (577, 'ridiyo', 'noun: truth', 'from: real-deal', '#', '', '', '', 'canon'),
 (578, 'ridou', 'noun: (technology) chip', 'from: Dorito', '#', '', '', '', 'canon'),
 (579, 'rip of', 'verb: tear off, rip off', 'from: rip off', '#', '373', '', '', 'canon'),
-(580, 'ripa', 'noun: murderer, killer; (capitalized) Reaper', 'from: reaper', '#', '', '', '', 'canon');
-INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `citations`, `example`, `note`, `filter`) VALUES
+(580, 'ripa', 'noun: murderer, killer; (capitalized) Reaper', 'from: reaper', '#', '', '', '', 'canon'),
 (581, 'riski', 'adjective: dark', 'from: risky', '#', '', '', '', 'canon'),
-(582, 'riskines', 'noun: darkness', 'from: risky-ness', '#', '', '', '', 'canon'),
+(582, 'riskines', 'noun: darkness', 'from: risky-ness', '#', '', '', '', 'canon');
+INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `citations`, `example`, `note`, `filter`) VALUES
 (583, 'ron of', 'verb: (attempt) escape', 'from: run off', '#', '', '', '', 'canon'),
 (584, 'ron op', 'verb: give', 'from: run up', '#', '', '', '', 'canon'),
 (585, 'ron raun', 'verb: (intransitive) give; (intransitive) run', 'from: run around', '#', '', '', '', 'canon'),
@@ -2227,7 +2249,7 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (703, 'sprintam', 'noun: spring (season)', 'from: spring-time', '#', '', '', '', 'canon'),
 (704, 'spun in', 'verb: act in the capacity of a back spoon, be (someone\'s) back spoon', 'from: spoon in', '#', '', '', '', 'canon'),
 (705, 'spun op', 'verb: act in the capacity of a front spoon, be (someone\'s) front spoon', 'from: spoon up', '#', '', '', '', 'canon'),
-(706, 'spuna', 'noun: one who participates in "spooning"', 'from: spooner', '#', '', '', '', 'canon'),
+(706, 'spuna', 'noun: one who participates in \"spooning\"', 'from: spooner', '#', '', '', '', 'canon'),
 (707, 'stanop', 'adjective: good', 'from: stand-up', '#', '', '', '', 'canon'),
 (708, 'ste', 'verb: (stative copula) be; used with adjectives; also used with verbs as a progressive marker', 'from: stay', '#', '', '', '', 'canon'),
 (709, 'ste daun', 'verb: be dead', 'from: stay down', '#', '373', '', '', 'canon'),
@@ -2323,7 +2345,7 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (799, 'trikova', 'noun: shadow', 'from: tree-cover', '#', '', '', '', 'canon'),
 (800, 'Trikru', 'proper noun: Tree People', 'from: tree-crew', '#', '', '', '', 'canon'),
 (801, 'trilipa', 'noun: deer', 'from: tree-leaper', '#', '', '', '', 'canon'),
-(802, 'trimani', 'noun: (also "trigeda", uncapitalized) forest', 'from: tree-many', '#', '', '', '', 'canon'),
+(802, 'trimani', 'noun: (also \"trigeda\", uncapitalized) forest', 'from: tree-many', '#', '', '', '', 'canon'),
 (803, 'trip raun', 'verb: get angry, freak out, lose one\'s cool', 'from: trip around', '#', '', '', '', 'canon'),
 (804, 'tripi', 'noun: strange', 'from: trippy', '#', '', '', '', 'canon'),
 (805, 'tripou', 'noun: log', 'from: tree-pole', '#', '', '', '', 'canon'),
@@ -2603,7 +2625,6 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (1088, 'bor thru', 'verb: bore, drill', 'from \"bore\"', '', '', '', '', 'noncanon'),
 (1089, 'boren', 'noun: bore, drill (short for boren rench', '', '', '', '', '', 'noncanon'),
 (1090, 'bouwi', 'adjective: genderfluid', '', '', '', '', '', 'noncanon'),
-(1091, 'bouwiyon', 'noun:', '', '', '', '', '', 'noncanon'),
 (1092, 'bouz', 'noun: voice', 'from speaker brand name \"boze\"', '', '', '', '', 'noncanon'),
 (1093, 'boza', 'noun: bee', 'from \"buzzer\"', '', '', '', '', 'slakgedasleng noncanon'),
 (1094, 'bozi', 'adjective: brave, courageous, valiant', '', '', '', '', '', 'noncanon'),
@@ -2636,11 +2657,11 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (1123, 'cheket', 'interjection: exclamation approximately meaning \"look!\" or \"see?\"', 'from \"check it (out)\"', '', '', '', '', 'noncanon'),
 (1124, 'cheknes', 'noun: gaze, look', 'from chek au', '', '', '', '', 'noncanon'),
 (1125, 'cher', 'noun: firewood, kindling', 'from \"chair\"', '', '', '', '', 'noncanon'),
-(1126, 'chesi', 'noun: sea serpent, sea monster', 'from: chessie', '', '', '', '', 'noncanon');
-INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `citations`, `example`, `note`, `filter`) VALUES
+(1126, 'chesi', 'noun: sea serpent, sea monster', 'from: chessie', '', '', '', '', 'noncanon'),
 (1127, 'chofnes', 'noun: thanks, gratitude', '', '', '', '', '', 'slakgedasleng noncanon'),
 (1128, 'chopfou', 'adjective: toothy', 'from c. chopa', '', '', '', '', 'noncanon'),
-(1129, 'chopro', 'interjection: wtf, excuse me', '', '', '', '', '', 'slakgedasleng noncanon'),
+(1129, 'chopro', 'interjection: wtf, excuse me', '', '', '', '', '', 'slakgedasleng noncanon');
+INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `citations`, `example`, `note`, `filter`) VALUES
 (1130, 'chouk', 'noun: neck', 'from \"chokepoint\" (pun intended)', '', '', '', '', 'noncanon'),
 (1131, 'chouka', 'noun: necklace', '', '', '', '', '', 'noncanon'),
 (1132, 'dai hok', 'noun: great axe, lochaber axe, pole axe, bardiche, sparth', 'from \"dire (toma)hawk\"', '', '', '', '', 'noncanon'),
@@ -2847,8 +2868,6 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (1346, 'jusfaya', 'noun: feeling of aliveness and adrenaline after battle', 'from Heda\'s Warrior by Alexis Payton', '', '', '', '', 'noncanon'),
 (1347, 'kainnes', 'noun: mercy', 'from \"kindness\"', '', '', '', '', 'noncanon'),
 (1348, 'kainfou', 'adjective: merciful', '', '', '', '', '', 'noncanon'),
-(1349, 'kan', 'verb:', '', '', '', '', '', 'noncanon'),
-(1350, 'kapengaun', 'noun:', '', '', '', '', '', 'slakgedasleng noncanon'),
 (1351, 'keijen', 'adjective: ribbed', '', '', '', '', '', 'noncanon'),
 (1352, 'keim thru', 'verb: raid', '', '', '', '', '', 'slakgedasleng noncanon'),
 (1353, 'kep op', 'verb: keep up, maintain an activity or condition, keep pace with', '', '', '', '', '', 'noncanon'),
@@ -3126,7 +3145,6 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (1651, 'skyuwa', 'noun: spike', 'from \"skewer\"', '', '', '', '', 'noncanon'),
 (1652, 'slais thru', 'verb: slash, slice', 'from \"slice\"', '', '', '', '', 'noncanon'),
 (1654, 'slip we', 'verb: sneak away, depart or escape by stealth', '', '', '', '', '', 'noncanon'),
-(1655, 'slipfou', 'adjective:', '', '', '', '', '', 'noncanon'),
 (1656, 'slipnes', 'noun: gravity', 'from slip daun', '', '', '', '', 'noncanon'),
 (1657, 'smak op', 'verb: strike a blow, smack', '', '', '', '', '', 'noncanon'),
 (1658, 'smol', 'adjective: small and precious', '', '', '', '', '', 'noncanon'),
@@ -3192,14 +3210,14 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (1726, 'sukola', 'adjective: black', '', '', '', '', '', 'slakgedasleng noncanon'),
 (1727, 'suna', 'adverb: eventually, a long time, awhile', 'from \"soon\"', '', '', '', '', 'canon'),
 (1728, 'sunas', 'adjective: eventual, future', '', '', '', '', '', 'noncanon'),
-(1729, 'sushi', 'noun: fish dish, food made from fish', 'from: \"sushi\"', '', '', '', '', 'slakgedasleng noncanon');
-INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `citations`, `example`, `note`, `filter`) VALUES
+(1729, 'sushi', 'noun: fish dish, food made from fish', 'from: \"sushi\"', '', '', '', '', 'slakgedasleng noncanon'),
 (1730, 'swega we', 'verb: swear off, abjure, forswear, renounce', '', '', '', '', '', 'noncanon'),
 (1731, 'sweya', 'noun: hip', 'from \"swayer\"', '', '', '', '', 'noncanon'),
 (1732, 'swich au', 'verb: exchange, swap', '', '', '', '', '', 'noncanon'),
 (1733, 'swich of', 'verb: take the place of, relieve', '', '', '', '', '', 'noncanon'),
 (1736, 'swish au', 'verb: swish (a tail), wag', '', '', '', '', '', 'noncanon'),
-(1737, 'swisha', 'noun: tail', '', '', '', '', '', 'noncanon'),
+(1737, 'swisha', 'noun: tail', '', '', '', '', '', 'noncanon');
+INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `citations`, `example`, `note`, `filter`) VALUES
 (1738, 'swiva', 'noun: wrist', 'from \"swiveler\"', '', '', '', '', 'noncanon'),
 (1739, 'swoul', 'adjective: muscular', 'from \"swol\"', '', '', '', '', 'noncanon'),
 (1740, 'swoulon', 'noun: muscle', '', '', '', '', '', 'noncanon'),
@@ -3319,8 +3337,11 @@ INSERT INTO `dict_words` (`id`, `word`, `translation`, `etymology`, `link`, `cit
 (1862, 'sinrolla', 'noun: movie', 'from: screen roller', '', '', '', '', 'slakgedasleng noncanon'),
 (1863, 'teikon', 'verb: contend, face', 'from: take on', '', '', '', '', 'slakgedasleng noncanon'),
 (1864, 'rayon', 'verb: depend on', 'from: rely on', '', '', '', '', 'slakgedasleng noncanon'),
-(1865, 'inayu', 'phrase: im into you', 'from: unknown', '', '', '', '', 'slakgedasleng noncanon');
-COMMIT;
+(1865, 'inayu', 'phrase: im into you', 'from: unknown', '', '', '', '', 'slakgedasleng noncanon'),
+(1866, 'airein', 'noun: tears', 'from: eye-rain', NULL, '431', NULL, NULL, 'canon'),
+(1867, 'Vosenshou', 'phrase: The Separation Ritual.', 'from: vos (from \'divorse\')', NULL, '431', NULL, NULL, 'canon'),
+(1868, 'bonij', 'noun: chain', 'from: bondage', NULL, '431', NULL, NULL, 'canon'),
+(1869, 'sonop', 'noun: morning', 'from: sun up', NULL, '', NULL, NULL, 'canon');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

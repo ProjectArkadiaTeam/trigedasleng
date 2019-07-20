@@ -97,6 +97,7 @@ $audio = $random_translation['audio'];
                     <li><a href="http://www.memrise.com/course/957902/trigedasleng/">Memrise course</a></li>
                     <li><a href="https://www.youtube.com/watch?v=JCoxlcHn7SQ&list=PLrk1St_BRZTFrhOYsz2KRS_fZ9ZzTavrq">Slakkru's Learn Trigedasleng videos </a></li>
                     <li><a href="http://slakgedakru.tumblr.com/">Slakgedakru</a></li>
+                    <li><a href="https://discord.gg/MFnCpEB">Slakgedakru Discord Server</a></li>
                 </ul>
             </div>
         </div>

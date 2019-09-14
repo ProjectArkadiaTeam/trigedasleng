@@ -74,13 +74,13 @@ $episode_names = [
     "0604" => "S6E04: The Face Behind the Glass",
     "0605" => "S6E05: The Gospel of Josephine",
     "0606" => "S6E06: Memento Mori",
-    "0607" => "S6E07: Episode 7",
-    "0608" => "S6E08: Episode 8",
-    "0609" => "S6E09: Episode 9",
-    "0610" => "S6E10: Episode 10",
-    "0611" => "S6E11: Episode 11",
-    "0612" => "S6E12: Episode 12",
-    "0613" => "S6E13: Episode 13",
+    "0607" => "S6E07: Nevermind",
+    "0608" => "S6E08: The Old Man and the Anomaly",
+    "0609" => "S6E09: What You Take With You",
+    "0610" => "S6E10: Matryoshka",
+    "0611" => "S6E11: Ashes to Ashes",
+    "0612" => "S6E12: Adjustment Protocol",
+    "0613" => "S6E13: The Blood of Sanctum",
     "other" => "Other Translations"
 ];
 

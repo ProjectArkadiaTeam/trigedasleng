@@ -14,4 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'WebController@index')->name('home');
-Route::get('/word/{word}', 'WebController@word')->name('word');
+Route::get('/word/{word}', 'WebController@wordLookup')->name('word.lookup');
+Route::get('/word/{word}/edit', 'WebController@wordEdit')->name('word.edit');
+Route::get('/dictionary/{dictionary?}', 'WebController@dictionaryLookup')->name('dictionary.lookup');
+Route::get('/sources', 'WebController@sources')->name('sources');
+Route::get('/grammar', static function(){
+    return view('grammar');
+})->name('grammar');
+Route::get('/translations', 'WebController@translations')->name('translations');

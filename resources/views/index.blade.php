@@ -9,7 +9,7 @@
                 <h3>Recently Added</h3>
                 <ul>
                     @foreach($recentWordList as $recentWord)
-                        <li><a href="word?q={{ $recentWord->word }}">{{ $recentWord->word }}</a></li>
+                        <li><a href="{{ route('word.lookup', [$recentWord->word]) }}">{{ $recentWord->word }}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -24,7 +24,7 @@
                 <div class="daily">
                     <h3>Random Word</h3>
                     <div class="dictionary entry" style="width:100%">
-                        <h4><b><a href="word?q={{ $randomWord->word }}">{{ $randomWord->word }}</a></b></h4>
+                        <h4><b><a href="{{ route('word.lookup', [$randomWord->word]) }}">{{ $randomWord->word }}</a></b></h4>
                         <p class="definition">{{ $randomWord->translation }}</p>
                         <p class="etymology">{{ $randomWord->etymology }}</p>
                     </div>

@@ -29,7 +29,10 @@
     @include('layouts.default.sidebar')
 @show
 
-<div id="content">
+@section('above-content')
+@show
+
+<div id="content" @hasSection('content-class') class="@section('content-class')@show" @endif @hasSection('content-style') style="@section('content-style')@show" @endif>
     @yield('content')
 </div>
 @section('footer')

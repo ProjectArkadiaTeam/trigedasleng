@@ -1,25 +1,12 @@
-<?php
+@extends('layouts.default.app')
 
-require_once("includes/common.inc.php");
+@section('title', "Signup")
 
-//HTML Head
-require_once("includes/head.inc.php");
-
-//Website Header
-require_once("includes/header.inc.php");
-
-//Website Sidebar
-require_once("includes/sidebar.inc.php");
-
-//already logged in?
-if(isset($_SESSION["username"])) {
-    header("Location: https://trigedasleng.net/");
-}
-?>
-<div id="content">
+@section('content')
     <div id="inner-signup-form">
         <div class="signup-form center">
-            <form style="border:1px solid #ccc">
+            <form style="border:1px solid #ccc" action="{{ route('signup') }}" method="post">
+                @csrf
                 <div class="container">
                     <h1>Sign Up</h1>
                     <p>Please fill in this form to create an account.</p>
@@ -48,6 +35,4 @@ if(isset($_SESSION["username"])) {
             </form>
         </div>
     </div>
-</div>
-<?php require_once("includes/footer.inc.php");
-
+@endsection

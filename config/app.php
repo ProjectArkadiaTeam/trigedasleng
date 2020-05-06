@@ -55,6 +55,8 @@ return [
     'url' => env('APP_URL', 'http://localhost'),
     'title' => env('APP_TITLE', 'Unofficial Trigedasleng Dictionary'),
     'gapp_analytics_id' => env('APP_ANALYTICS_ID'),
+    'meta_keywords' => env('APP_ANALYTICS_ID'),
+    'meta_desc' => env('APP_ANALYTICS_ID'),
 
     'asset_url' => env('ASSET_URL', null),
 

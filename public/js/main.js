@@ -26,8 +26,9 @@ $(document).ready(function(){
         event.preventDefault();
         $.ajax({
             type: "POST",
-            url: 'backend/auth',
+            url: '/login',
             data: {
+                _token: $('#_login').val(),
                 username: $("#username").val(),
                 password: $("#password").val(),
                 action: 'login'
@@ -49,8 +50,9 @@ $(document).ready(function(){
         event.preventDefault();
         $.ajax({
             type: "POST",
-            url: 'backend/auth',
+            url: '/signup',
             data: {
+                _token: $('[name=_token]').val(),
                 username: $("#signup-username").val(),
                 password: $("#signup-password").val(),
                 email: $("#signup-email").val(),
@@ -102,9 +104,10 @@ function signOut(){
     event.preventDefault();
     $.ajax({
         type: "POST",
-        url: 'backend/auth',
+        url: '/signout',
         data: {
-            action: 'signout'
+            _token: $('#_logout').val(),
+            action: 'signout',
         },
         success: function(data)
         {

@@ -17,6 +17,11 @@ class WebController extends Controller
 
     public function wordLookup(Request $request, $word){
         $wordInfo = DB::selectOne('SELECT * FROM `dict_words` WHERE `word`= ?', [$word]);
+        if(!isset($wordInfo)){
+            return response(view('word.lookup', [
+                'word' => $word,
+            ]), 404);
+        }
         $translationList = DB::select("SELECT * FROM `dict_translations` WHERE (`trigedasleng` LIKE ?) LIMIT 3", ["%{$word}%"]);
         $citation = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$wordInfo->citations]);
         return view('word.lookup', [
@@ -27,13 +32,39 @@ class WebController extends Controller
     }
 
     public function wordEdit(Request $request, $word){
+        if((int) session('admin') !== 1){
+            return redirect(route('word.lookup', $word));
+        }
         $wordInfo = DB::selectOne('SELECT * FROM `dict_words` WHERE `word`= ?', [$word]);
         $translationList = DB::select("SELECT * FROM `dict_translations` WHERE (`trigedasleng` LIKE ?) LIMIT 3", ["%{$word}%"]);
         $citation = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$wordInfo->citations]);
-        return view('word.lookup', [
+        return view('word.edit', [
             'word' => $wordInfo,
             'translationList' => $translationList,
             'citation' => $citation,
+        ]);
+    }
+
+    public function wordEditSubmit(Request $request, $word){
+        if((int) session('admin') !== 1){
+            return redirect(route('word.lookup', $word));
+        }
+
+        $update = DB::table('dict_words')->where('id', '=', $request->id)->update([
+            'word' => $request->trig,
+            'translation' => $request->translation,
+            'etymology' => $request->etymology,
+            'citations' => $request->source,
+            'filter' => $request->dictionary,
+        ]);
+        $wordInfo = DB::selectOne('SELECT * FROM `dict_words` WHERE `word`= ?', [$request->trig]);
+        $translationList = DB::select("SELECT * FROM `dict_translations` WHERE (`trigedasleng` LIKE ?) LIMIT 3", ["%{$word}%"]);
+        $citation = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$wordInfo->citations]);
+        return view('word.edit', [
+            'word' => $wordInfo,
+            'translationList' => $translationList,
+            'citation' => $citation,
+            'status'=> 'Updated word successfully!',
         ]);
     }
 
@@ -43,6 +74,11 @@ class WebController extends Controller
             $words->where('filter', 'RLIKE', "[[:<:]]{$dictionary}[[:>:]]");
         }
         $words = $words->orderBy('word')->get();
+        if($words->isEmpty()){
+            return response(view('dictionary.lookup', [
+                'dictionary' => $dictionary,
+            ]), 404);
+        }
         return view('dictionary.lookup', [
             'words' => $words,
             'dictionary' => $dictionary,
@@ -140,5 +176,56 @@ class WebController extends Controller
             'episodeList' => $episodeList,
             'translationList' => $translationList,
         ]);
+    }
+    public function login(Request $request){
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        $users = DB::table('dict_users')->select(['password', 'username', 'admin'])->where('username', '=', $request->username)->get();
+        if($users->isNotEmpty()){
+            if (password_verify($request->password, $users[0]->password)) {
+                $_SESSION["username"] = $users[0]->username;
+                $_SESSION["admin"] = $users[0]->admin;
+                session([
+                    'username' => $users[0]->username,
+                    'admin' => $users[0]->admin,
+                ]);
+                return 'Success';
+            }
+            return 'Incorrect password or username!';
+        }
+        return 'Incorrect password or username!';
+    }
+    public function signup(Request $request){
+        if(session('username') !== null){
+            return redirect(route('home'))->send();
+        }
+        return view('signup', []);
+    }
+    public function signupSubmit(Request $request){
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+            'email' => 'required',
+        ]);
+        $users = DB::table('dict_users')->select('username')->where('username', '=', $request->username)->get();
+        if($users->isEmpty()){
+            $password_hashed = password_hash($request->password, PASSWORD_DEFAULT);
+            DB::table('dict_users')->insert([
+                'username' => $request->username,
+                'password' => $password_hashed,
+                'email' => $request->email,
+                'signup_date' => DB::raw('NOW()'),
+            ]);
+            return 'Success';
+        }
+
+        return 'Username already exists :(';
+    }
+    public function signout(Request $request){
+        $request->session()->flush();
+        return 'Success';
     }
 }

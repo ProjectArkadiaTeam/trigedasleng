@@ -7,7 +7,7 @@
     <a href="{{ route('translations') }}">Translations</a>
     <a href="{{ route('grammar') }}">Grammar</a>
     <a href="{{ route('sources') }}">Sources</a>
-    @if(session('admin') && session('admin') === '1')
+    @if(session('admin') && (int) session('admin') === 1)
         <div class="line"></div>
         <a href="/admin?action=addword">New Word</a>
         <a href="/admin?action=addtranslation">New Translation</a>

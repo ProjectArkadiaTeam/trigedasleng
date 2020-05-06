@@ -8,7 +8,7 @@
         @foreach($sources as $source)
 
             <p class="entry" id="2014-11-06-01">
-                @if(session('admin') && session('admin') === '1')<i>ID#{{ $source->id }}</i>@endif {{ $source->author }} ({{ $source->date }}) <a href="{{ $source->url }}">{{ $source->title }}</a>
+                @if(session('admin') && (int) session('admin') === 1)<i>ID#{{ $source->id }}</i>@endif {{ $source->author }} ({{ $source->date }}) <a href="{{ $source->url }}">{{ $source->title }}</a>
             </p>
         @endforeach
     </div>

@@ -12,8 +12,8 @@
     @endif
     <title>@section('title')@show @hasSection('title') - @endif{{ config('app.title') }}</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Trigedasleng is a conlang created bt David J. Peterson for The TV-Show The100">
-    <meta name="keywords" content="The100,Dictionary,Unoffical,Trigedasleng">
+    <meta name="description" content="{{ config('meta_desc') }}">
+    <meta name="keywords" content="{{ config('meta_keywords') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css?v=13513.11" />

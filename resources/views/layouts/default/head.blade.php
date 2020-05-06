@@ -20,7 +20,7 @@
         </form>
         <div class="result"></div>
     </div>
-    @if(!session('user_id'))
+    @if(!session('username'))
         <div id="login-signup">
             <ul>
                 <li id="login">
@@ -29,6 +29,7 @@
                     </a>
                     <div id="login-content">
                         <form>
+                            <input type="hidden" id="_login" value="{{ csrf_token() }}">
                             <fieldset id="inputs">
                                 <input id="username" type="username" name="Username" placeholder="Username" required>
                                 <input id="password" type="password" name="Password" placeholder="Password" required>
@@ -42,6 +43,15 @@
                 </li>
                 <li id="signup">
                     <a href="signup">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    @else
+        <div id="login-signup">
+            <ul>
+                <li id="signup">
+                    <input type="hidden" id="_logout" value="{{ csrf_token() }}">
+                    <a href="logout" onclick="signOut()">Log Out</a>
                 </li>
             </ul>
         </div>

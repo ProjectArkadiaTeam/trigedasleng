@@ -1,5 +1,5 @@
 @if($words->isEmpty() && $translations->isEmpty())
-    No matches found for {{ $keyword }}
+    <p>No matches found for {{ $keyword }}</p>
 @else
     @php($count = 0)
 

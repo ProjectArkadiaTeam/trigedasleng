@@ -70,7 +70,7 @@ $(document).ready(function(){
         });
     });
 
-    $('.search input[type="text"]').on("keyup input", function(){
+    $('.search input[type="text"]').on("input", function(){
         /* Get input value on change */
         var inputVal = $(this).val();
         var resultDropdown = $(this).parent().siblings(".result");

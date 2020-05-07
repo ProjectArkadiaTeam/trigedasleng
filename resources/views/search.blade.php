@@ -5,7 +5,7 @@
 @section('content')
     <div id="inner">
         @if($words->isEmpty() && $translations->isEmpty())
-            No results found. Try again...
+            <h1>No results found for {{ $keyword }}. Try again...</h1>
         @else
             @if($words->isNotEmpty())
                 <h2>Words matching your search</h2>

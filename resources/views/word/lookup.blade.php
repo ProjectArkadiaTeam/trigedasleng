@@ -1,9 +1,9 @@
 @extends('layouts.default.app')
 
-@section('title', isset($citation) ? $word->word : $word)
+@section('title', is_object($word) ? $word->word : $word)
 
 @section('content')
-    @isset($citation)
+    @if(is_object($word))
         <div id="inner">
             <!--        <div class="dictionary entry">-->
             <h1>{{ $word->word }}
@@ -65,5 +65,5 @@
         <div id="inner">
             <h1>{{ $word }} does not exist.</h1>
         </div>
-    @endisset
+    @endif
 @endsection

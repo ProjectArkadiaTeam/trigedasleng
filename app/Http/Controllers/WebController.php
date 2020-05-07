@@ -91,6 +91,7 @@ class WebController extends Controller
             'sources' => $sources,
         ]);
     }
+
     public function translations(Request $request){
         $translations = DB::table('dict_translations')->get();
         $translationList = [];
@@ -177,6 +178,7 @@ class WebController extends Controller
             'translationList' => $translationList,
         ]);
     }
+
     public function login(Request $request){
         $request->validate([
             'username' => 'required',
@@ -198,12 +200,14 @@ class WebController extends Controller
         }
         return 'Incorrect password or username!';
     }
+
     public function signup(Request $request){
         if(session('username') !== null){
             return redirect(route('home'))->send();
         }
         return view('signup', []);
     }
+
     public function signupSubmit(Request $request){
         $request->validate([
             'username' => 'required',
@@ -224,8 +228,106 @@ class WebController extends Controller
 
         return 'Username already exists :(';
     }
+
     public function signout(Request $request){
         $request->session()->flush();
         return 'Success';
+    }
+
+    public function addWord(Request $request){
+        if((int) session('admin') !== 1){
+            return redirect(route('index'));
+        }
+        return view('admin.addword', []);
+    }
+
+    public function addWordSubmit(Request $request){
+        if((int) session('admin') !== 1){
+            return redirect(route('index'));
+        }
+
+        $request->validate([
+            'trig' => 'required',
+            'class' => 'required',
+            'translation' => 'required',
+            'etymology' => 'required',
+            'dictionary' => 'required',
+        ]);
+
+        // Add slaksleng to noncanon as well
+        $dictionary = $request->dictionary;
+        if($dictionary === "slakgedasleng") {
+            $dictionary .= " noncanon";
+        }
+
+        $translation = $request->class . ": " . $request->translation;
+        $etymology = "from: " . $request->etymology;
+
+        DB::table('dict_words')->insert([
+            'word' => $request->trig,
+            'translation' => $translation,
+            'etymology' => $etymology,
+            'citations' => $request->has('source') ? $request->source : '',
+            'filter' => $dictionary,
+            'link' => ''
+        ]);
+
+        return view('admin.addword', [
+            'status' => 'New Word Inserted Successfully',
+        ]);
+    }
+
+    public function addTranslation(Request $request){
+        if((int) session('admin') !== 1){
+            return redirect(route('index'));
+        }
+        return view('admin.addtranslation', []);
+    }
+
+    public function addTranslationSubmit(Request $request){
+        if((int) session('admin') !== 1){
+            return redirect(route('index'));
+        }
+        $request->validate([
+            'trig' => 'required',
+            'translation' => 'required',
+            'etymology' => 'required',
+            'leipzig' => 'required',
+            'speaker' => 'required',
+        ]);
+
+        DB::table('dict_translations')->insert([
+            'trigedasleng' => $request->trig,
+            'translation' => $request->translation,
+            'etymology' => $request->etymology,
+            'leipzig' => $request->leipzig,
+            'episode' => $request->has('episode') && isset($request->episode) ? $request->episode : 'other',
+            'speaker' => $request->speaker,
+            'audio' => $request->has('audio') && isset($request->audio) ? $request->audio : '',
+            'source' => $request->has('source') && isset($request->source) ? $request->source : '',
+        ]);
+
+        return view('admin.addtranslation', [
+            'status' => 'New Translation Inserted Successfully',
+        ]);
+    }
+
+    public function search(Request $request){
+        if((int) session('admin') !== 1){
+            return redirect(route('index'));
+        }
+        $wordsList = [];
+        $translationsList = [];
+        if(isset($request->q) && trim($request->q) !== ''){
+            $wordsList = DB::table('dict_words')->where('word', 'LIKE', "%{$request->q}%")
+                ->orWhere('translation', 'LIKE', "%{$request->q}%")->get();
+            $translationsList = DB::table('dict_translations')->where('trigedasleng', 'LIKE', "%{$request->q}%")
+                ->orWhere('translation', 'LIKE', "%{$request->q}%")->get();
+        }
+        return view('search', [
+            'keyword' => $request->q,
+            'words' => $wordsList,
+            'translations' => $translationsList,
+        ]);
     }
 }

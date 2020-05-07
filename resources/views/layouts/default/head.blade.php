@@ -6,16 +6,17 @@
     <div class="menu">
         <div class="menu-head" onclick="">Menu</div>
         <ul class="dropdown">
-            <a href="./"><li>Home</li></a>
-            <a href="./dictionary?filter=canon"><li>Canon Dictionary</li></a>
-            <a href="./dictionary?filter=slakgedasleng"><li>Slakkru Dictionary</li></a>
-            <a href="./dictionary?filter=noncanon"><li>Noncanon Dictionary</li></a>
-            <a href="./grammar"><li>Grammar</li></a>
-            <a href="./translations"><li>Translations</li></a>
+            <a href="{{ route('home') }}"><li>Home</li></a>
+            <a href="{{ route('dictionary.lookup') }}"><li>Canon Dictionary</li></a>
+            <a href="{{ route('dictionary.lookup', ['canon']) }}"><li>Canon Dictionary</li></a>
+            <a href="{{ route('dictionary.lookup', ['slakgedasleng']) }}"><li>Slakkru Dictionary</li></a>
+            <a href="{{ route('dictionary.lookup', ['noncanon']) }}"><li>Noncanon Dictionary</li></a>
+            <a href="{{ route('grammar') }}"><li>Grammar</li></a>
+            <a href="{{ route('translations') }}"><li>Translations</li></a>
         </ul>
     </div>
     <div class="search">
-        <form action="search" method="get" autocomplete="off">
+        <form action="{{ route('search') }}" method="get" autocomplete="off">
             <input type="text" placeholder="SEARCH" name="q">
         </form>
         <div class="result"></div>

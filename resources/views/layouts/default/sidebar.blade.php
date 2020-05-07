@@ -9,8 +9,8 @@
     <a href="{{ route('sources') }}">Sources</a>
     @if(session('admin') && (int) session('admin') === 1)
         <div class="line"></div>
-        <a href="/admin?action=addword">New Word</a>
-        <a href="/admin?action=addtranslation">New Translation</a>
+        <a href="{{ route('admin.word.add') }}">New Word</a>
+        <a href="{{ route('admin.translation.add') }}">New Translation</a>
         <div class="line"></div>
     @endif
 </div>a

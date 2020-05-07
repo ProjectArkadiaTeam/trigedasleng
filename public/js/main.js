@@ -75,7 +75,7 @@ $(document).ready(function(){
         var inputVal = $(this).val();
         var resultDropdown = $(this).parent().siblings(".result");
         if(inputVal.length){
-            $.get("/api/api.php", {action: 'liveSearch', query: inputVal})
+            $.get("/search/live", {q: inputVal})
                 .done(function (data) {
                     resultDropdown.html(data);
             }).fail(function (jqXHR, textStatus, errorThrown) { alert(errorThrown); });

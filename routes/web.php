@@ -37,6 +37,7 @@ Route::get('/dictionary/{dictionary?}', 'WebController@dictionaryLookup')->name(
 
 // Search
 Route::get('/search', 'WebController@search')->name('search');
+Route::get('/search/live', 'WebController@liveSearch')->name('search.live');
 
 // Sources
 Route::get('/sources', 'WebController@sources')->name('sources');

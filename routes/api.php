@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::namespace('Api')->group(function(){
+    Route::middleware('auth:api')->get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    // Legacy API
+    Route::prefix('legacy')->group(function () {
+        Route::get('/dictionary', 'LegacyController@dictionary')->name('api.legacy.dictionary');
+        Route::get('/search', 'LegacyController@search')->name('api.legacy.search');
+    });
 });

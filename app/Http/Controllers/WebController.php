@@ -330,4 +330,23 @@ class WebController extends Controller
             'translations' => $translationsList,
         ]);
     }
+
+    public function liveSearch(Request $request){
+        if((int) session('admin') !== 1){
+            return redirect(route('index'));
+        }
+        $wordsList = [];
+        $translationsList = [];
+        if(isset($request->q) && trim($request->q) !== ''){
+            $wordsList = DB::table('dict_words')->where('word', 'LIKE', "%{$request->q}%")
+                ->orWhere('translation', 'LIKE', "%{$request->q}%")->limit(10)->get();
+            $translationsList = DB::table('dict_translations')->where('trigedasleng', 'LIKE', "%{$request->q}%")
+                ->orWhere('translation', 'LIKE', "%{$request->q}%")->limit(10)->get();
+        }
+        return view('live-search', [
+            'keyword' => $request->q,
+            'words' => $wordsList,
+            'translations' => $translationsList,
+        ]);
+    }
 }

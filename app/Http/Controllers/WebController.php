@@ -236,14 +236,14 @@ class WebController extends Controller
 
     public function addWord(Request $request){
         if((int) session('admin') !== 1){
-            return redirect(route('index'));
+            return redirect(route('home'));
         }
         return view('admin.addword', []);
     }
 
     public function addWordSubmit(Request $request){
         if((int) session('admin') !== 1){
-            return redirect(route('index'));
+            return redirect(route('home'));
         }
 
         $request->validate([
@@ -279,14 +279,14 @@ class WebController extends Controller
 
     public function addTranslation(Request $request){
         if((int) session('admin') !== 1){
-            return redirect(route('index'));
+            return redirect(route('home'));
         }
         return view('admin.addtranslation', []);
     }
 
     public function addTranslationSubmit(Request $request){
         if((int) session('admin') !== 1){
-            return redirect(route('index'));
+            return redirect(route('home'));
         }
         $request->validate([
             'trig' => 'required',
@@ -313,9 +313,6 @@ class WebController extends Controller
     }
 
     public function search(Request $request){
-        if((int) session('admin') !== 1){
-            return redirect(route('index'));
-        }
         $wordsList = [];
         $translationsList = [];
         if(isset($request->q) && trim($request->q) !== ''){
@@ -332,9 +329,6 @@ class WebController extends Controller
     }
 
     public function liveSearch(Request $request){
-        if((int) session('admin') !== 1){
-            return redirect(route('index'));
-        }
         $wordsList = [];
         $translationsList = [];
         if(isset($request->q) && trim($request->q) !== ''){

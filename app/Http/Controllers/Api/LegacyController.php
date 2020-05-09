@@ -42,7 +42,7 @@ class LegacyController extends Controller
         $data = [];
 
         if($words->isNotEmpty()){
-            $data[] = $words->toArray();
+            $data = $words->toArray();
         }
 
         return response()->json($this->utf8ize($data));

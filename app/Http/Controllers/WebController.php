@@ -186,17 +186,14 @@ class WebController extends Controller
         ]);
 
         $users = DB::table('dict_users')->select(['password', 'username', 'admin'])->where('username', '=', $request->username)->get();
-        if($users->isNotEmpty()){
-            if (password_verify($request->password, $users[0]->password)) {
-                $_SESSION["username"] = $users[0]->username;
-                $_SESSION["admin"] = $users[0]->admin;
-                session([
-                    'username' => $users[0]->username,
-                    'admin' => $users[0]->admin,
-                ]);
-                return 'Success';
-            }
-            return 'Incorrect password or username!';
+        if($users->isNotEmpty() && password_verify($request->password, $users[0]->password)) {
+            $_SESSION["username"] = $users[0]->username;
+            $_SESSION["admin"] = $users[0]->admin;
+            session([
+                'username' => $users[0]->username,
+                'admin' => $users[0]->admin,
+            ]);
+            return 'Success';
         }
         return 'Incorrect password or username!';
     }

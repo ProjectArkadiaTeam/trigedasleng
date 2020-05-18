@@ -28,7 +28,7 @@ class LegacyController extends Controller
             $data['translations'] = $translations->toArray();
         }
 
-        return response()->json($this->utf8ize($data));
+        return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
     }
 
     public function dictionary(Request $request){
@@ -45,7 +45,7 @@ class LegacyController extends Controller
             $data = $words->toArray();
         }
 
-        return response()->json($this->utf8ize($data));
+        return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
     }
 
     private function utf8ize($data) {

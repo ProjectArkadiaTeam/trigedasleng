@@ -21,10 +21,21 @@ Trigedasleng is not a creole, but a descendant of American English alone, and wh
 
 ## Requirements
 - Apache 2.4.x
-- PHP 7.0+
+- PHP 7.2+
 - MariaDB 10.x / MySQL 5.6
 
 ## Setup
+
+### Installation
+
+1. Clone the repository
+2. Copy `.env.example` to a new `.env` file
+3. Populate the relevant fields inside the `.env` file.
+4. Install dependencies using [Composer](https://getcomposer.org/):
+    1. `composer install`
+5. Generate your app key.
+    1. `php artisan key:generate`
+6. Import MySQL Database.
 
 ### Enable MySQLi
 
@@ -38,7 +49,3 @@ sudo systemctl restart apache2
 ```sql
 CREATE DATABASE trigedasleng CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
-
-### Define configuration
-Copy [config.inc.example.php](includes/config.inc.example.php) into `config.inc.php` and fill declarations with your own values.
-

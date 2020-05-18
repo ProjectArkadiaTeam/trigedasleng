@@ -7,13 +7,13 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@master
-      - uses: SKroell/rsync-deploy-action@master
+      - uses: actions/checkout@v1
+      - name: Push to server
+        uses: appleboy/ssh-action@master
         with:
-          USER_HOST: trigdev@trigedasleng.net
-          DEST: /var/www/trigedasleng.net/public_html
-          RSYNC_ARGS: -avzr --delete --exclude sql --exclude '.git*'
-        env:
-          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: trigedasleng.net
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: cd ${{ secrets.PROJECT_PATH }} && git pull

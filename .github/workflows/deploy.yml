@@ -1,0 +1,20 @@
+name: Deploy to trigedasleng.net
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: SKroell/rsync-deploy-action@master
+        with:
+          USER_HOST: trigdev@trigedasleng.net
+          DEST: /var/www/html/trigedasleng.net
+          SRC: /
+          RSYNC_ARGS: -avzr --delete --exclude sql --exclude '.git*'
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

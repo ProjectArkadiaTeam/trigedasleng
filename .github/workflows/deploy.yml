@@ -13,7 +13,7 @@ jobs:
       - uses: SKroell/rsync-deploy-action@master
         with:
           USER_HOST: trigdev@trigedasleng.net
-          DEST: /var/www/html/trigedasleng.net/public_html
+          DEST: /var/www/trigedasleng.net/public_html
           RSYNC_ARGS: -avzr --delete --exclude sql --exclude '.git*'
         env:
           DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

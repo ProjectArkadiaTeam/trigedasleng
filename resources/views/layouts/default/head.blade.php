@@ -32,7 +32,7 @@
                         <form>
                             <input type="hidden" id="_login" value="{{ csrf_token() }}">
                             <fieldset id="inputs">
-                                <input id="username" type="username" name="Username" placeholder="Username" required>
+                                <input id="username" type="username" name="Username" placeholder="Email" required>
                                 <input id="password" type="password" name="Password" placeholder="Password" required>
                             </fieldset>
                             <fieldset id="actions">
@@ -53,6 +53,13 @@
                 <li id="signup">
                     <input type="hidden" id="_logout" value="{{ csrf_token() }}">
                     <a href="logout" onclick="signOut()">Log Out</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <div style="height:40px;">
+                        <a href="{{ route('profile') }}"><i class="far fa-user-circle fa-2x fa-align-center" style="line-height:40px;cursor:pointer;"></i></a>
+                    </div>
                 </li>
             </ul>
         </div>

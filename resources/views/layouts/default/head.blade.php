@@ -7,7 +7,7 @@
         <div class="menu-head" onclick="">Menu</div>
         <ul class="dropdown">
             <a href="{{ route('home') }}"><li>Home</li></a>
-            <a href="{{ route('dictionary.lookup') }}"><li>Canon Dictionary</li></a>
+            <a href="{{ route('dictionary.lookup') }}"><li>Dictionary</li></a>
             <a href="{{ route('dictionary.lookup', ['canon']) }}"><li>Canon Dictionary</li></a>
             <a href="{{ route('dictionary.lookup', ['slakgedasleng']) }}"><li>Slakkru Dictionary</li></a>
             <a href="{{ route('dictionary.lookup', ['noncanon']) }}"><li>Noncanon Dictionary</li></a>

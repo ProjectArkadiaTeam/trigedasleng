@@ -2,7 +2,7 @@
 <head>
     @if(config('app.gapp_analytics_id') !== '')
          <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('site.gapp_analytics_id') }}"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('app.gapp_analytics_id') }}"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -12,8 +12,8 @@
     @endif
     <title>@section('title')@show @hasSection('title') - @endif{{ config('app.title') }}</title>
     <meta charset="UTF-8">
-    <meta name="description" content="{{ config('meta_desc') }}">
-    <meta name="keywords" content="{{ config('meta_keywords') }}">
+    <meta name="description" content="{{ config('app.meta_desc') }}">
+    <meta name="keywords" content="{{ config('app.meta_keywords') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css?v=13513.11" />

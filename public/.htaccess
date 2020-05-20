@@ -14,16 +14,6 @@
     # RewriteCond %{REQUEST_URI} (.+)/$
     # RewriteRule ^ %1 [L,R=301]
 
-    # Old page redirects
-    RewriteCond %{SCRIPT_FILENAME} word.php
-    RewriteCond %{QUERY_STRING} ^q=(.*)
-    RewriteRule (.*) /word/%1/? [R=301,L]
-
-
-    RewriteCond %{SCRIPT_FILENAME} dictionary
-    RewriteCond %{QUERY_STRING} ^filter=(.*)
-    RewriteRule (.*) /dictionary/%1/? [R=301,L]
-
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f

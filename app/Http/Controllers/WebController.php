@@ -69,6 +69,9 @@ class WebController extends Controller
     }
 
     public function dictionaryLookup(Request $request, $dictionary = null){
+        if($request->has('filter')){
+            return redirect(route('dictionary.lookup', $request->query('filter')), 302);
+        }
         $words = DB::table('dict_words');
         if(isset($dictionary)){
             $words->where('filter', 'RLIKE', "[[:<:]]{$dictionary}[[:>:]]");

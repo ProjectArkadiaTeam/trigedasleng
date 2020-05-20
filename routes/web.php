@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,14 @@ Route::post('/signup', 'Web\\AuthController@signup')->name('signup.submit');
 Route::post('/signout', 'Web\\AuthController@logout')->name('signout');
 
 // Words
+
+// Old Word Route
+Route::get('/word', function(Request $request){
+    if($request->has('q')){
+        return redirect(\route('word.lookup', $request->query('q')), 302);
+    }
+    return redirect(\route('home'));
+});
 Route::get('/word/{word}', 'WebController@wordLookup')->name('word.lookup');
 Route::get('/word/{word}/edit', 'WebController@wordEdit')->name('word.edit');
 Route::post('/word/{word}/edit', 'WebController@wordEditSubmit')->name('word.edit.submit');

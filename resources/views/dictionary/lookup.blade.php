@@ -26,6 +26,9 @@
                 <h3><b><a href="{{ route('word.lookup',[$word->word]) }}">{{ strtolower($word->word) }}</a></b></h3>
                 <p class="definition">{{ $word->translation }}</p>
                 <p class="etymology">{{ $word->etymology }}</p>
+                @if(stripos($word->filter, 'noncanon') !== false)
+                    <i class="noncanon-warning">!!Not a canon word</i>
+                @endif
             </div>
         @endforeach
         <!--Fix for header link overshooting -->

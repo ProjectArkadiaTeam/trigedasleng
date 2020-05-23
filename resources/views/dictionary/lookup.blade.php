@@ -27,7 +27,9 @@
                 <p class="definition">{{ $word->translation }}</p>
                 <p class="etymology">{{ $word->etymology }}</p>
                 @if(stripos($word->filter, 'noncanon') !== false)
-                    <i class="noncanon-warning">!!Not a canon word</i>
+                    @if($dictionary == ucfirst($dictionary))
+                        <i class="noncanon-warning">!!Not a canon word</i>
+                    @endif
                 @endif
             </div>
         @endforeach

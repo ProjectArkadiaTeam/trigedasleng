@@ -35,7 +35,7 @@
                                 @endforeach
                             </tr>
                             <tr class="en_text">
-                                <td colspan="10">{{ $translation->trigedasleng }}</td>
+                                <td colspan="10">{{ $translation->translation }}</td>
                             </tr>
                             </tbody>
                         </table>

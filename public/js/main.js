@@ -78,7 +78,9 @@ $(document).ready(function(){
             $.get("/search/live", {q: inputVal})
                 .done(function (data) {
                     resultDropdown.html(data);
-            }).fail(function (jqXHR, textStatus, errorThrown) { alert(errorThrown); });
+            }).fail(function (jqXHR, textStatus, errorThrown) { 
+                console.log('Failed to retrieve live search results: ' + jqXHR.responseText); 
+            });
         } else{
             resultDropdown.empty();
         }

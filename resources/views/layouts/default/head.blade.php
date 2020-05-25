@@ -55,13 +55,6 @@
                     <a href="logout" onclick="signOut()">Log Out</a>
                 </li>
             </ul>
-            <ul>
-                <li>
-                    <div style="height:40px;">
-                        <a href="{{ route('profile') }}"><i class="far fa-user-circle fa-2x fa-align-center" style="line-height:40px;cursor:pointer;"></i></a>
-                    </div>
-                </li>
-            </ul>
         </div>
     @endif
 </div>

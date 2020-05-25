@@ -19,8 +19,8 @@ Route::get('/', 'WebController@index')->name('home');
 Route::post('/login', 'Web\\AuthController@login')->name('login');
 Route::get('/profile', 'Web\\AuthController@profile')->name('profile');
 Route::get('/signup', 'WebController@signup')->name('signup');
-Route::post('/signup', 'WebController@signupSubmit')->name('signup.submit');
-Route::post('/signout', 'WebController@signout')->name('signout');
+Route::post('/signup', 'Web\\AuthController@signup')->name('signup.submit');
+Route::post('/signout', 'Web\\AuthController@logout')->name('signout');
 
 // Words
 Route::get('/word/{word}', 'WebController@wordLookup')->name('word.lookup');

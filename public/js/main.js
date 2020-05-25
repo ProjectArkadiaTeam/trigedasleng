@@ -55,13 +55,14 @@ $(document).ready(function(){
                 _token: $('[name=_token]').val(),
                 username: $("#signup-username").val(),
                 password: $("#signup-password").val(),
+                password_confirmation: $("#signup-passwordrpt").val(),
                 email: $("#signup-email").val(),
                 action: 'signup'
             },
             success: function(data)
             {
                 if (data === 'Success') {
-                    window.location.reload();
+                    window.location = '/';
                 }
                 else {
                     alert(data);

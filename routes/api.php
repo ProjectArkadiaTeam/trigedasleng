@@ -28,10 +28,16 @@ Route::namespace('Api')->group(function(){
 });
 
 Route::namespace('Api\v1')->prefix('v1')->group(function(){
-    // Route::middleware('auth:api')->get('/user', function (Request $request) {
-    //     return $request->user();
-    // });
-    Route::get('/groups', 'GroupController@list')->name('api.v1.groups');
+    Route::get('/group', 'GroupController@list')->name('api.v1.groups');
+    Route::get('/user/{id}', 'UserController@profile')->name('api.v1.users.profile');
+
+    Route::group([
+        'middleware' => 'auth:api'
+    ], function() {
+        // Update User Profile
+        Route::put('/user/{id}', 'UserController@update')->name('api.v1.update.user.profile');
+    });
+
     // Authentication
     Route::group([
         'prefix' => 'auth'

@@ -13,20 +13,13 @@ class LegacyController extends Controller
             return 'A search query is required!';
         }
 
-        $data = [];
-
         $words = DB::table('dict_words')->where('word', 'LIKE', "%{$request->input('query')}%")
             ->orWhere('translation', 'LIKE', "%{$request->input('query')}%")->get();
         $data['words'] = $words;
-        if($words->isNotEmpty()){
-            $data['translations'] = $words->toArray();
-        }
 
         $translations = DB::table('dict_translations')->where('trigedasleng', 'LIKE', "%{$request->input('query')}%")
             ->orWhere('translation', 'LIKE', "%{$request->input('query')}%")->get();
-        if($translations->isNotEmpty()){
-            $data['translations'] = $translations->toArray();
-        }
+        $data['translations'] = $translations->toArray();
 
         return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
     }

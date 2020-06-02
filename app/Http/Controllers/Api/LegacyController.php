@@ -13,6 +13,8 @@ class LegacyController extends Controller
             return 'A search query is required!';
         }
 
+        $data = [];
+
         $words = DB::table('dict_words')->where('word', 'LIKE', "%{$request->input('query')}%")
             ->orWhere('translation', 'LIKE', "%{$request->input('query')}%")->get();
         $data['words'] = $words;

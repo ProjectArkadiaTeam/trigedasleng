@@ -69,7 +69,7 @@ class WebController extends Controller
     }
 
     public function translationLookup(Request $request, $id){
-        $translationInfo = DB::selectOne("SELECT * FROM `dict_translations` WHERE `id`=?", ["{$id}"]);
+        $translationInfo = DB::selectOne("SELECT * FROM `dict_translations` WHERE `id`=?", [$id]);
         if(!isset($translationInfo)){
             return response(view('translation.lookup', [
                 'translation' => $id,

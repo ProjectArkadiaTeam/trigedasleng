@@ -67,6 +67,7 @@ class WebController extends Controller
             'status'=> 'Updated word successfully!',
         ]);
     }
+
     public function translationLookup(Request $request, $id){
         $translationInfo = DB::selectOne("SELECT * FROM `dict_translations` WHERE `id`=?", ["{$id}"]);
         if(!isset($translationInfo)){
@@ -74,8 +75,10 @@ class WebController extends Controller
                 'translation' => $id,
             ]), 404);
         }
+        $citation = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$translationInfo->source]);
         return view('translation.lookup', [
-            'translation' => $translationInfo
+            'translation' => $translationInfo,
+            'citation' => $citation,
         ]);
     }
 

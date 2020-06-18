@@ -35,13 +35,13 @@
                     </br>
             </div>
             <h3 class="citations">Sources:</h3>
-            {{-- @if($citation !== null)
+            @if($citation !== null)
                 <ul class="citations">
                     <li><a href="{{ $citation->url }}">{{ $citation->title }}</a></li>
                 </ul>
             @else
                 <p>None</p>
-            @endif --}}
+            @endif
             <div id="output"></div>
         </div>
     @else

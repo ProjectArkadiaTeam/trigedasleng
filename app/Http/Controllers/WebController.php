@@ -67,6 +67,53 @@ class WebController extends Controller
             'status'=> 'Updated word successfully!',
         ]);
     }
+    public function translationLookup(Request $request, $id){
+        $translationInfo = DB::selectOne("SELECT * FROM `dict_translations` WHERE `id`=?", ["{$id}"]);
+        if(!isset($translationInfo)){
+            return response(view('translation.lookup', [
+                'translation' => $id,
+            ]), 404);
+        }
+        return view('translation.lookup', [
+            'translation' => $translationInfo
+        ]);
+    }
+
+    public function translationEdit(Request $request, $id){
+        if((int) session('admin') !== 1){
+            return redirect(route('translation.lookup', $id));
+        }
+        $translationInfo = DB::selectOne('SELECT * FROM `dict_translations` WHERE `id`= ?', [$id]);
+        $source = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$translationInfo->source]);
+        return view('translation.edit', [
+            'translation' => $translationInfo,
+            'source' => $source,
+        ]);
+    }
+
+    public function translationEditSubmit(Request $request, $id){
+        if((int) session('admin') !== 1){
+            return redirect(route('translation.lookup', $id));
+        }
+
+        $update = DB::table('dict_translations')->where('id', '=', $request->id)->update([
+            'trigedasleng' => $request->trig,
+            'translation' => $request->translation,
+            'etymology' => $request->etymology,
+            'leipzig' => $request->leipzig,
+            'episode' => $request->episode,
+            'audio' => $request->audio,
+            'speaker' => $request->speaker,
+            'source' => $request->source,
+        ]);
+        $translationInfo = DB::selectOne('SELECT * FROM `dict_translations` WHERE `id`= ?', [$request->id]);
+        $source = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$translationInfo->source]);
+        return view('translation.edit', [
+            'translation' => $translationInfo,
+            'source' => $source,
+            'status'=> 'Updated translation successfully!',
+        ]);
+    }
 
     public function dictionaryLookup(Request $request, $dictionary = null){
         if($request->has('filter')){

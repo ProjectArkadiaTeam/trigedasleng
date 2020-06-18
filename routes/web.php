@@ -57,4 +57,7 @@ Route::get('/grammar', static function(){
 })->name('grammar');
 
 // Translations
+Route::get('/translation/{id}', 'WebController@translationLookup')->where('id', '[0-9]+')->name('translation.lookup');
+Route::get('/translation/{id}/edit', 'WebController@translationEdit')->where('id','[0-9]+')->name('translation.edit');
+Route::post('/translation/{id}/edit', 'WebController@translationEditSubmit')->where('id','[0-9]+')->name('translation.edit.submit');
 Route::get('/translations', 'WebController@translations')->name('translations');

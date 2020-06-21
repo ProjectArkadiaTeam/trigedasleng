@@ -28,7 +28,7 @@
                 @foreach($translations as $translation)
                     <div class="entry unflagged">
                         <table class="gloss">
-                            <tbody><tr class="tgs_text"><td colspan="10"><a href="#">{{ $translation->trigedasleng }}</a></td></tr>
+                            <tbody><tr class="tgs_text"><td colspan="10"><a href="/translation/{{$translation->id}}">{{ $translation->trigedasleng }}</a></td></tr>
                             <tr class="tgs" style="display: table-row;">
                                 @foreach(explode(' ', $translation->trigedasleng) as $word)
                                     <td>{{ $word }}</td>

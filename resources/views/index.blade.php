@@ -36,7 +36,7 @@
                         <table class="gloss">
                             <tbody>
                             <tr class="tgs_text">
-                                <td colspan="10"><a href="#">{{ $randomTranslation->trigedasleng }}</a></td>
+                                <td colspan="10"><a href="/translation/{{$translation->id}}">{{ $randomTranslation->trigedasleng }}</a></td>
                             </tr>
                             <tr class="tgs" style="display: table-row;">
                                 @foreach(explode(' ', $randomTranslation->trigedasleng) as $word)

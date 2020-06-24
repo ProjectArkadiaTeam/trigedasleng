@@ -104,9 +104,9 @@ class WebController extends Controller
             'translation' => $request->translation,
             'etymology' => $request->etymology,
             'leipzig' => $request->leipzig,
-            'episode' => $request->episode,
+            'episode' => isset($request->episode) ? $request->episode : '',
             'audio' => $request->audio,
-            'speaker' => $request->speaker,
+            'speaker' => isset($request->speaker) ? $request->speaker : '',
             'source' => $request->source,
         ]);
         $translationInfo = DB::selectOne('SELECT * FROM `dict_translations` WHERE `id`= ?', [$request->id]);

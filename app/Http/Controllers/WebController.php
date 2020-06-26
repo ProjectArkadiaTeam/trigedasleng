@@ -104,7 +104,7 @@ class WebController extends Controller
             'translation' => $request->translation,
             'etymology' => $request->etymology,
             'leipzig' => $request->leipzig,
-            'episode' => isset($request->episode) ? $request->episode : '',
+            'episode' => isset($request->episode) ? $request->episode : 'other',
             'audio' => $request->audio,
             'speaker' => isset($request->speaker) ? $request->speaker : '',
             'source' => $request->source,

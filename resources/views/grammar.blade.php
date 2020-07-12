@@ -4,7 +4,6 @@
 
 @section('content')
     <div id="inner">
-
         <div class="grammar">
             <h1>The Grammar of Trigedasleng</h1>
 

@@ -43,6 +43,13 @@ class LegacyController extends Controller
         return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
     }
 
+    public function translations(){
+        $translations = DB::table('dict_translations');
+        $data = $translations->get()->toArray();
+
+        return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
+    }
+
     private function utf8ize($data) {
         if (is_array($data)) {
             foreach ($data as $key => $value) {

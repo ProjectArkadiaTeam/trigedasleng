@@ -13,4 +13,4 @@
         <a href="{{ route('admin.translation.add') }}">New Translation</a>
         <div class="line"></div>
     @endif
-</div>a
+</div>

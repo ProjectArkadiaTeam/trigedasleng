@@ -45,6 +45,7 @@ body {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	padding-top: 4rem;
 	height: 100%;
 	width: 100%;
 }
@@ -106,10 +107,6 @@ table.gloss tr.tgs_text, table.gloss tr.en_text {
 
 table.gloss tr.tgs, table.gloss tr.tgs_gloss {
 	font-style: italic;
-}
-
-table.gloss tr.ety, table.gloss tr.ety_gloss {
-	color: var(--color-gray);
 }
 
 table.gloss td {
@@ -286,10 +283,10 @@ ul, ol {
 }
 
 
-#content {
+.content {
 	min-height: 100%;
-	margin-top: 80px;
-	width: 85%;
+	margin-top: 10px;
+	width: 100%;
 	float: right;
 }
 
@@ -297,8 +294,9 @@ ul, ol {
 	display: inline-block;
 	background: #ddd;
 	padding: 10px;
+	margin: 5px;
 	vertical-align: top;
-	height: 100%;
+	min-height: 100%;
 }
 
 #inner {
@@ -321,7 +319,7 @@ td.help {
 	width: 80px;
 }
 
-#footer {
+footer {
 	text-align: center;
 	font: 12px 'Noto Sans', Arial, sans-serif;
 	text-transform: uppercase;
@@ -332,24 +330,13 @@ td.help {
 	float: right;
 }
 
-#footer a, #footer a:visited {
+footer a, footer a:visited {
 	color: white;
 	border-color: white;
 	margin: 0 8px;
 }
 
 /* page-specific overrides */
-.admin-edit, .admin-edit a, .admin-edit a:hover, .admin-edit a:visited {
-	font: 12px/12px 'Noto Sans', Arial, sans-serif;
-	color: red;
-	padding: 5px 8px;
-	border: 1px solid red;
-}
-
-.admin-edit {
-	margin-top: 10px;
-	border: none;
-}
 
 .citations {
 
@@ -359,18 +346,6 @@ td.help {
 	font: 14px/21px 'Noto Sans', Arial, sans-serif;
 	text-indent: -3em;
 	margin: 0 0 7px 3em;
-}
-
-.citation {
-	margin-left: 10px;
-}
-
-.citedby {
-
-}
-
-.dictionary {
-	/*margin-top: 120px !important;*/
 }
 
 .dictionary h1, .dictionary h2 {
@@ -499,6 +474,12 @@ td.help {
 
 }
 
+.row {
+	height: auto;
+	min-height: 100%;
+	padding: 20px 0 20px 0;
+}
+
 .home .column.side {
 	width: 20%;
 	margin: 10px auto 10px auto;
@@ -525,11 +506,9 @@ td.help {
 	text-align: center;
 }
 
-.translations {
-}
-
 .translations .entry {
-	margin: 15px;
+    margin: 15px;
+    overflow-x: auto;
 }
 
 .translations .tgs_text, .translations .en_text {
@@ -733,7 +712,7 @@ button {
 	margin: 8px 0;
 	border: none;
 	cursor: pointer;
-	width: 100%;
+	/* width: 100%; */
 	opacity: 0.9;
 }
 
@@ -803,11 +782,6 @@ button:hover {
 	text-align: center;
 }
 
-.topbar {
-	height: 70px;
-	width: 100%;
-}
-
 .topbar h2 {
 	float: right;
 	margin-top: 20px;
@@ -825,24 +799,8 @@ button:hover {
 	border-bottom: var(--color-light-gray) dotted;
 }
 
-.request-quickstats {
-	width: 200px;
-	height: 100%;
-	display: inline-block;
-}
-
 .request-summary {
 	display: inline-block;
-}
-
-.votes,
-.answers {
-	width: 80px;
-	height: 80px;
-	text-align: center;
-	display: inline-block;
-	border: var(--color-gray) solid 2px;
-	border-radius: 15px;
 }
 
 .summary-count {
@@ -893,26 +851,13 @@ button:hover {
 	border: #dedddd 1px solid;
 }
 
-span.commet-row-label {
-	font-style: italic;
-}
-
-span.posted-by {
-	color: #09F;
-}
-
 .comment-info {
 	font-size: 0.8em;
 }
 .comment-text {
-	margin: 10px 0px;
+	margin: 10px 0;
 }
-.btn-reply {
-	font-size: 0.8em;
-	text-decoration: underline;
-	color: #888787;
-	cursor:pointer;
-}
+
 #comment-message {
 	margin-left: 20px;
 	color: #189a18;
@@ -953,16 +898,16 @@ span.posted-by {
 @media only screen and (max-device-width: 640px) {
 
 	p, li {
-		font-size: 2em;
+		/*font-size: 2em;*/
 	}
 
 	h1, h2, h3 {
 		font-weight: bold;
-		font-size: 3em;
+		/*font-size: 3em;*/
 	}
 
 	#inner {
-		padding: 0px;
+		padding: 0;
 		width: 100%;
 	}
 
@@ -978,7 +923,7 @@ span.posted-by {
 		font-weight: bold;
 		line-height: 1.35em;
 		width: 8%;
-		margin-left:0px;
+		margin-left:0;
 	}
 
 	#abc {
@@ -1018,11 +963,8 @@ span.posted-by {
 	}
 
 	.menu-head {
-		margin: 25px 0px 19px 0px;
+		margin: 25px 0 19px 0;
 		width:180px;
-	}
-
-	.home {
 	}
 
 	.home .column.side {
@@ -1047,9 +989,9 @@ span.posted-by {
 		line-height: 1.5em
 	}
 
-	.grammar table {
+	/* .grammar table {
 		font-size: 2em;
-	}
+	} */
 
 	.dictionary {
 		width: 92% !important;
@@ -1060,19 +1002,11 @@ span.posted-by {
 	}
 
 	.dictionary p, .dictionary .etymology {
-		font-size: 2em;
+		/*font-size: 2em;*/
 	}
 
 	.grammar {
 		margin-left: 10px;
-	}
-
-	.translations {
-
-	}
-
-	.translations table {
-		font-size: 2em;
 	}
 
 	.translation.entry {
@@ -1130,9 +1064,9 @@ span.posted-by {
 
 	#login-signup {
 		display: block;
-		margin: 15px 0px;
+		margin: 15px 0;
 		position: fixed;
-		top: 0px;
+		top: 0;
 		right: 10px;
 	}
 
@@ -1171,15 +1105,7 @@ span.posted-by {
 
 /* TUTORIAL */
 
-ul.chapter-list {
-	text-align: left;
-}
-
 ul.chapter-list li {
-	list-style-type: none;
-}
-
-.glossary-index {
 	list-style-type: none;
 }
 
@@ -1192,4 +1118,120 @@ ul.chapter-list li {
 
 .answer {
 	margin-left: 4em;
+}
+
+
+
+/* Sidebar */
+#wrapper {
+	padding-left: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+	padding-right: 250px;
+}
+
+#sidebar-wrapper {
+	z-index: 1000;
+	position: fixed;
+	width: 0;
+	height: 100%;
+	margin-right: -250px;
+	overflow-y: auto;
+	background: #23272b;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+	width: 250px;
+}
+
+#page-content-wrapper {
+	width: 100%;
+	position: absolute;
+	padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+	position: absolute;
+	margin-right: 0;
+}
+
+
+/* Sidebar Styles */
+.sidebar-nav {
+	position: absolute;
+	top: 0;
+	width: 250px;
+	margin: 0;
+	margin-top: 20px;
+	padding: 0;
+	list-style: none;
+}
+
+.sidebar-nav li {
+	text-indent: 20px;
+	line-height: 40px;
+	font-size: 1.2em;
+}
+
+.sidebar-nav li a {
+	display: block;
+	text-decoration: none;
+	color: #999999;
+}
+
+.sidebar-nav li a:hover {
+	text-decoration: none;
+	color: #fff;
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+	text-decoration: none;
+}
+
+.sidebar-nav>.sidebar-brand {
+	height: 65px;
+	font-size: 18px;
+	line-height: 60px;
+}
+
+.activeLink {
+	color: white !important;
+}
+
+@media(min-width:768px) {
+
+	.content {
+		width: calc(100% - 250px);
+	}
+
+	#wrapper {
+		padding-left: 0;
+	}
+	#wrapper.toggled {
+		padding-right: 250px;
+	}
+	#sidebar-wrapper {
+		width: 0;
+	}
+	#wrapper.toggled #sidebar-wrapper {
+		width: 250px;
+	}
+	#page-content-wrapper {
+		padding: 20px;
+		position: relative;
+	}
+	#wrapper.toggled #page-content-wrapper {
+		position: relative;
+		margin-right: 0;
+	}
 }

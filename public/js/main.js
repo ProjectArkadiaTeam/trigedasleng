@@ -17,9 +17,9 @@ $(document).ready(function(){
         $(this).next('#login-content').slideToggle();
         $(this).toggleClass('active');
 
-        if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
+        if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;');
         else $(this).find('span').html('&#x25BC;')
-    })
+    });
 
     //Login
     $('#loginbtn').click(function() {
@@ -72,8 +72,8 @@ $(document).ready(function(){
 
     $('.search input[type="text"]').on("input", function(){
         /* Get input value on change */
-        var inputVal = $(this).val();
-        var resultDropdown = $(this).parent().siblings(".result");
+        const inputVal = $(this).val();
+        const resultDropdown = $(this).parent().siblings(".result");
         if(inputVal.length){
             $.get("/search/live", {q: inputVal})
                 .done(function (data) {
@@ -91,6 +91,16 @@ $(document).ready(function(){
         $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
         $(this).parent(".result").empty();
     });
+
+    $(function(){
+        $(window).resize(function(e) {
+          if($(window).width()<768){
+            $("#wrapper").removeClass("toggled");
+          }else{
+            $("#wrapper").addClass("toggled");
+          }
+        });
+      });
 });
 
 function filter(className, obj) {
@@ -122,3 +132,4 @@ function signOut(){
         }
     });
 };
+

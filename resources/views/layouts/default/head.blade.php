@@ -16,7 +16,7 @@
         </ul>
     </div>
     <div class="search">
-        <form action="{{ route('search') }}" method="get" autocomplete="off">
+        <form action="{{ route('search') }}" method="get" autoComplete="off">
             <input type="text" placeholder="SEARCH" name="q">
         </form>
         <div class="result"></div>

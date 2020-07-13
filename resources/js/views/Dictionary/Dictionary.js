@@ -7,6 +7,10 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 
 const Word = lazy(() => import('../../components/Word'))
 
+// Apple devices running an iOS version earlier than 10
+// does not support fetch, so we use a workaround
+import 'whatwg-fetch';
+
 class Dictionary extends Component {
     constructor() {
         super();

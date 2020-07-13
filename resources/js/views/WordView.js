@@ -7,6 +7,10 @@ import Translation from '../components/Translation';
 const Word = lazy(() => import('../components/Word'))
 // const Translation = lazy(() => import('../components/Translation'))
 
+// Apple devices running an iOS version earlier than 10
+// does not support fetch, so we use a workaround
+import 'whatwg-fetch';
+
 class WordView extends Component {
 
 	constructor() {
@@ -57,7 +61,7 @@ class WordView extends Component {
                                     {this.state.wordInfo.examples.length > 0 ?
                                     <>
                                         <h3>Examples:</h3>
-                                        <div>
+                                        <div style={{overflow: "auto"}}>
                                             {this.state.wordInfo.examples.map(translation => {
                                                 return (<Translation translation={translation} key={translation.id} />)
                                             })}

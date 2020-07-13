@@ -76,7 +76,7 @@ class WordView extends Component {
 
 									<h3>Source:</h3>
 									{/* Only show source if there is one */}
-                                    {this.state.wordInfo.word.note != "" ?
+                                    {this.state.wordInfo.source != null ?
                                     <a href={this.state.wordInfo.source.url}>{this.state.wordInfo.source.title}</a>
                                     : <p>None</p>}
 								</Suspense>

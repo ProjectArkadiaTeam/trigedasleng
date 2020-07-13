@@ -18,9 +18,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css?v=13513.11" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/583b09e947.js"></script>
-    <script src="/js/main.js?v=1.1"></script>
 </head>
 <body>
 @section('head')
@@ -41,5 +38,7 @@
         <a href="..">Home</a> | <a href="https://github.com/projectarkadiateam/trigedasleng">Github</a> <!--| <a href="contact.php">Contact</a>-->
     </div>
 @show
+<script src="https://kit.fontawesome.com/583b09e947.js"></script>
+<script src="/js/main.js?v=1.1"></script>
 </body>
 </html>

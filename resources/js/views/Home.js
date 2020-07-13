@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
-import Sidebar from './Sidebar/Sidebar.js';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
-import Word from "./Word";
-import PWAPrompt from 'react-ios-pwa-prompt'
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
+import Sidebar from '../components/Sidebar/Sidebar.js';
+import { Link } from 'react-router-dom';
+import PWAPrompt from 'react-ios-pwa-prompt';
 
 class Home extends Component {
 	constructor() {

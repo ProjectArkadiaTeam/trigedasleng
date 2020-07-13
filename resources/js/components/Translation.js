@@ -32,9 +32,10 @@ class Translation extends Component {
             </tr>
             </tbody>
           </Table>
+          {translation.audio != "" ?
           <audio controls preload="none">
             <source src={ translation.audio } type="audio/mpeg" />
-          </audio>
+          </audio> : ''}
         </div>
     );
   }

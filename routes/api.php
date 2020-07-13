@@ -24,5 +24,6 @@ Route::namespace('Api')->group(function(){
         Route::get('/dictionary', 'LegacyController@dictionary')->name('api.legacy.dictionary');
         Route::get('/translations', 'LegacyController@translations')->name('api.legacy.translations');
         Route::get('/search', 'LegacyController@search')->name('api.legacy.search');
+        Route::get('/lookup', 'LegacyController@wordLookup')->name('api.legacy.lookup');
     });
 });

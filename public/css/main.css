@@ -257,32 +257,6 @@ ul, ol {
 	width: 400px;
 }
 
-
-#header .search form input.q {
-}
-
-/*#header .search form input.submit {
-    margin:0 0 0 -4px;
-    padding:5px 13px 5px 7px;
-    background:var(--color-lighter-gray);
-    border:0 solid black;
-    height:50px;
-    font-style:bold;
-    text-transform:lowercase;
-    letter-spacing:.05em;
-    text-align:center;
-    width:50px;
-}*/
-
-/*#header .search form input.submit:hover {
-    background:var(--color-light-gray);
-}*/
-
-#navigation {
-
-}
-
-
 .content {
 	min-height: 100%;
 	margin-top: 10px;
@@ -338,10 +312,6 @@ footer a, footer a:visited {
 
 /* page-specific overrides */
 
-.citations {
-
-}
-
 .citations p, .citation p {
 	font: 14px/21px 'Noto Sans', Arial, sans-serif;
 	text-indent: -3em;
@@ -393,9 +363,6 @@ footer a, footer a:visited {
 	font-size: 14px;
 }
 
-.entry {
-}
-
 .entry .citations {
 	margin-top: 12px;
 }
@@ -444,14 +411,6 @@ footer a, footer a:visited {
 	font-family: 'Noto Sans', Arial, sans-serif;
 }
 
-.flag-list {
-
-}
-
-.flag-entry {
-
-}
-
 .grammar .entry {
 	margin-top: 30px;
 }
@@ -470,9 +429,6 @@ footer a, footer a:visited {
 	text-align: left
 }
 
-.home {
-
-}
 
 .row {
 	height: auto;
@@ -897,10 +853,6 @@ button:hover {
 /* mobile overrides */
 @media only screen and (max-device-width: 640px) {
 
-	p, li {
-		/*font-size: 2em;*/
-	}
-
 	h1, h2, h3 {
 		font-weight: bold;
 		/*font-size: 3em;*/
@@ -1001,10 +953,6 @@ button:hover {
 		width: 45%;
 	}
 
-	.dictionary p, .dictionary .etymology {
-		/*font-size: 2em;*/
-	}
-
 	.grammar {
 		margin-left: 10px;
 	}
@@ -1016,10 +964,7 @@ button:hover {
 
 	.translation.entry table.gloss {
 		font-size: 2em;
-	}
-
-	#filter {
-	}
+    }
 
 	#filter section {
 		display: block;
@@ -1107,9 +1052,6 @@ button:hover {
 
 ul.chapter-list li {
 	list-style-type: none;
-}
-
-.practice-problem {
 }
 
 .question {

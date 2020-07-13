@@ -50,6 +50,32 @@ class LegacyController extends Controller
         return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
     }
 
+    public function wordLookup(Request $request){
+        if(!$request->has('query') || trim($request->input('query')) === ''){
+            return 'A search query is required!';
+        }
+
+        $word = $request->input('query');
+        $data = [];
+
+        // Get word info
+        $wordInfo = DB::selectOne('SELECT * FROM `dict_words` WHERE `word`= ?', [$word]);
+        if(!isset($wordInfo)){
+            return 'Word not found!';
+        }
+        $data['word'] = $wordInfo;
+
+        // Get example translations
+        $translationList = DB::select("SELECT * FROM `dict_translations` WHERE (`trigedasleng` LIKE ?) LIMIT 3", ["%{$word}%"]);
+        $data['examples'] = $translationList;
+
+        // Get sources
+        $citation = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$wordInfo->citations]);
+        $data['source'] = $citation;
+
+        return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
+    }
+
     private function utf8ize($data) {
         if (is_array($data)) {
             foreach ($data as $key => $value) {

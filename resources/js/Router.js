@@ -1,30 +1,33 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 
-import Home from './components/Home';
-import Login from './views/Login/Login';
-import Register from './views/Register/Register';
-import NotFound from './views/Errors/NotFound';
-import Dictionary from './views/Dictionary/Dictionary';
-import Translations from './views/Translations';
-import Grammar from './views/Grammar';
+const Home = lazy(() => import('./views/Home'));
+const Login = lazy(() => import('./views/Login/Login'));
+const Grammar = lazy(() => import('./views/Grammar'));
+const Register = lazy(() => import('./views/Register/Register'));
+const NotFound = lazy(() => import('./views/Errors/NotFound'));
+const WordView = lazy(() => import('./views/WordView'));
+const Dictionary = lazy(() => import('./views/Dictionary/Dictionary'));
+const Translations = lazy(() => import('./views/Translations'));
 
 
 // User is LoggedIn
 import PrivateRoute from './PrivateRoute'
 
 const Main = props => (
-<Switch>
-  <Route exact path='/' component={Home}/>
-  <Route exact path='/login' component={Login}/>
-  <Route exact path='/register' component={Register}/>
-  <Route exact path='/translations' component={Translations}/>
-  <Route exact path='/grammar' component={Grammar}/>
-  <Route exact path='/dictionary' component={Dictionary}/>
-  <Route path='/dictionary/:dictionary' component={Dictionary}/>
-  <Route component={NotFound} />
-    {/* <Route path='/dictionary/:dictionary' component={Dictionary} />
-  <Route path='/word/:word' component={Word} /> */}
-</Switch>
+<Suspense fallback={<div>Loading...</div>}>
+    <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/login' component={Login}/>
+        <Route exact path='/register' component={Register}/>
+        <Route exact path='/translations' component={Translations}/>
+        <Route exact path='/grammar' component={Grammar}/>
+        <Route exact path='/dictionary' component={Dictionary}/>
+        <Route path='/dictionary/:dictionary' component={Dictionary}/>
+        <Route exact path='/word' component={WordView}/>
+        <Route path='/word/:word' component={WordView}/>
+        <Route component={NotFound} />
+    </Switch>
+</Suspense>
 );
 export default Main;

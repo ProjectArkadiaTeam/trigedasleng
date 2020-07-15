@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 require('laravel-mix-bundle-analyzer');
+require('laravel-mix-workbox');
+
 
 if (!mix.inProduction()) {
     mix.bundleAnalyzer();

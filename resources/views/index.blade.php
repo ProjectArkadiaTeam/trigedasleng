@@ -69,13 +69,13 @@
             <div class="column side">
                 <h3>Resources:</h3>
                 <ul id="resources">
-                    <li><a href="https://en.wikipedia.org/wiki/Trigedasleng">Trigedasleng on Wikipedia</a></li>
-                    <li><a href="https://dedalvs.tumblr.com/tagged/Trigedasleng">Dedalvs Tumblr</a></li>
-                    <li><a href="http://dedalvs.com/work/the-100/trigedasleng_master_dialogue.pdf">Transcripts of Trig lines in the show</a></li>
-                    <li><a href="http://www.memrise.com/course/957902/trigedasleng/">Memrise course</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=JCoxlcHn7SQ&list=PLrk1St_BRZTFrhOYsz2KRS_fZ9ZzTavrq">Slakkru's Learn Trigedasleng videos </a></li>
-                    <li><a href="http://slakgedakru.tumblr.com/">Slakgedakru</a></li>
-                    <li><a href="https://discord.gg/MFnCpEB">Slakgedakru Discord Server</a></li>
+                    <li><Link to="https://en.wikipedia.org/wiki/Trigedasleng" target="_blank">Trigedasleng on Wikipedia</Link></li>
+                    <li><Link to="https://dedalvs.tumblr.com/tagged/Trigedasleng" target="_blank">Dedalvs Tumblr</Link></li>
+                    <li><Link to="http://dedalvs.com/work/the-100/trigedasleng_master_dialogue.pdf" target="_blank">Transcripts of Trig lines in the show</Link></li>
+                    <li><Link to="http://www.memrise.com/course/957902/trigedasleng/" target="_blank">Memrise course</Link></li>
+                    <li><Link to="https://www.youtube.com/watch?v=JCoxlcHn7SQ&list=PLrk1St_BRZTFrhOYsz2KRS_fZ9ZzTavrq" target="_blank">Slakkru's Learn Trigedasleng videos </a></li>
+                    <li><Link to="http://slakgedakru.tumblr.com/" target="_blank">Slakgedakru</Link></li>
+                    <li><Link to="https://discord.gg/MFnCpEB" target="_blank">Slakgedakru Discord Server</Link></li>
                 </ul>
             </div>
         </div>

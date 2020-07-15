@@ -19,7 +19,6 @@ const seasonList = {
     "07": "Season 7",
     "other": "Other"
 }
-
 const episodeList = {
     "0201": "S2E01: The 48",
     "0202": "S2E02: Inclement Weather",
@@ -111,20 +110,27 @@ const episodeList = {
     "other": "Other Translations"
 }
 
+// Define search function outside class so we can reach it from the Header
+export function searchTranslations(query) {
+	if (this !== undefined)
+		this.setState({search: query})
+}
 
 class Translations extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			isLoggedIn: false,
 			isAdmin: false,
 			user: {},
             translations: [],
-            isLoading: false,
+            isLoading: true,
             selectedSeason: null,
             episodesLoaded: 2,
+			search: "",
         }
 
+		searchTranslations = searchTranslations.bind(this)
         this.renderSeason = this.renderSeason.bind(this);
 	}
 
@@ -145,7 +151,7 @@ class Translations extends Component {
 				.then(translations => {
 					// Fetched dictionary is stored in the state
 					// const sorted = translations.sort((a, b) => a.episode.toLowerCase() > b.episode.toLowerCase() ? 1 : -1);
-					this.setState({ translations: translations });
+					this.setState({ translations: translations, isLoading: false });
 				});
 		}
 	}
@@ -153,7 +159,7 @@ class Translations extends Component {
     /* Get index of current offset in episodeList */
     getSeasonOffset(season){
         let seasonListKeys = Object.keys(seasonList);
-        if(season == "other") return Object.keys(episodeList).length - 1;
+        if(season === "other") return Object.keys(episodeList).length - 1;
 
         let offset = 0;
         for (let index = 0; index < seasonListKeys.indexOf(season); index++) {
@@ -164,11 +170,12 @@ class Translations extends Component {
 
     /* How many episodes do we need to render for a given season */
     getEpisodeCount(season){
-        if(season == 'other') return 1;
+    	if(season === null) return Object.keys(episodeList).length;
+        if(season === 'other') return 1;
 
         let count = 0;
         Object.keys(episodeList).forEach(key => {
-            if(key.substring(0,2) == season)
+            if(key.substring(0,2) === season)
                 count++;
         });
 
@@ -178,13 +185,19 @@ class Translations extends Component {
 	/* Get filtered dictionary */
 	getEpisode(key) {
 		return this.state.translations.filter(function (entry) {
-			return entry.episode == key;
+			return entry.episode === key;
 		});
 	}
 
 	/* Render list of translations */
 	renderTranslations(key) {
-		return this.getEpisode(key).map(translation => {
+		let search = this.state.search.toLowerCase();
+		let filtered = this.getEpisode(key).filter(translation => {
+			return (translation.trigedasleng.toLowerCase().includes(search)
+				|| translation.translation.toLowerCase().includes(search))
+		});
+
+		let list = filtered.map(translation => {
 			return (
                 <React.Fragment key={translation.id}>
                     <Suspense fallback={<h3>Receving data from the ark...</h3>} >
@@ -193,12 +206,23 @@ class Translations extends Component {
                     <div className="line" />
                 </React.Fragment>
 			);
-		})
+		});
+
+		return (
+			<>
+			{ filtered.length > 0 ? <>
+					<h2>{episodeList[key]}</h2>
+					{ list } </> : ''
+			}
+			</>
+		)
 	}
 
     loadFunc(page){
-        let loaded = this.state.episodesLoaded + 1;
-        this.setState({episodesLoaded: loaded});
+		console.log(this.state.episodesLoaded)
+		this.setState((state, props) => ({
+			episodesLoaded: state.episodesLoaded + 2
+		}));
     }
 
     /* Update state to load selected season */
@@ -266,7 +290,7 @@ class Translations extends Component {
 					<div className="translations">
 						{this.state.selectedSeason != null ?
 						<h1>{seasonList[this.state.selectedSeason]} Translations</h1> : <h1>All Translations</h1>}
-
+						{this.state.isLoading ? <div className="loader" key={0}>Loading ...</div> :
 						<InfiniteScroll
 							pageStart={0}
 							loadMore={this.loadFunc.bind(this)}
@@ -281,12 +305,11 @@ class Translations extends Component {
 							.map(key => {
 								return (
 									<React.Fragment key={key}>
-										<h2>{episodeList[key]}</h2>
 										{this.renderTranslations(key)}
 									</React.Fragment>
 								)
 							})}
-						</InfiniteScroll>
+						</InfiniteScroll>}
 					</div>
 				</div>
 			</div>

@@ -3,6 +3,7 @@ import {Link, withRouter} from 'react-router-dom';
 import {Navbar, Nav, Form, FormControl} from 'react-bootstrap';
 
 import {searchDict} from './../../views/Dictionary/Dictionary';
+import {searchTranslations} from './../../views/Translations';
 
 class Header extends Component {
 
@@ -46,7 +47,14 @@ class Header extends Component {
 						<Nav.Link href="/register" className="navbar-right">Signup</Nav.Link>
 					</Nav>
 					<Form className="form-inline my-2">
-						<FormControl className="mr-md-2" type="search" placeholder="Search" aria-label="Search" onChange={(e) => searchDict(e.target.value)}/>
+						<FormControl className="mr-md-2"
+									 type="search"
+									 placeholder="Search"
+									 aria-label="Search"
+									 onChange={(e) => {
+									 	searchDict(e.target.value);
+									 	searchTranslations(e.target.value);
+									 }}/>
 					</Form>
 				</Navbar.Collapse>
 			</Navbar>

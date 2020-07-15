@@ -601,7 +601,7 @@ footer a, footer a:visited {
 
 #login #loginbtn {
   background-color: #d14545;
-  background-image: linear-gradient(top, #e97171, #d14545);
+  background-image: linear-gradient(to top, #e97171, #d14545);
   text-shadow: 0 1px 0 rgba(0,0,0,.5);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
   border: 1px solid #7e1515;
@@ -617,7 +617,7 @@ footer a, footer a:visited {
 #login #loginbtn:hover,
 #login #loginbtn:focus {
   background-color: #e97171;
-  background-image: linear-gradient(top, #d14545, #e97171);
+  background-image: linear-gradient(to top, #d14545, #e97171);
 }
 
 #login #loginbtn:active {
@@ -711,7 +711,7 @@ button:hover {
 
 #signupbtn {
   background-color: #d14545;
-  background-image: linear-gradient(top, #e97171, #d14545);
+  background-image: linear-gradient(to top, #e97171, #d14545);
   text-shadow: 0 1px 0 rgba(0,0,0,.5);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
   border: 1px solid #7e1515;

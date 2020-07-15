@@ -7,10 +7,10 @@ const Word = lazy(() => import('../../components/Word' /* webpackChunkName: "js/
 // does not support fetch, so we use a workaround
 import 'whatwg-fetch';
 
-
-// Define search function outside class so we can bind it from the Header
+// Define search function outside class so we can reach it from the Header
 export function searchDict(query) {
-	this.setState({search: query})
+	if (this !== undefined)
+		this.setState({search: query})
 }
 
 class Dictionary extends Component {

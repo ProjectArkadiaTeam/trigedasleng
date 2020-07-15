@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 // TODO: Move
 // Route::view('/{path?}', 'app');
 
+// Authentication
+Route::post('/login', 'WebController@login')->name('login');
+//Route::get('/signup', 'WebController@signup')->name('signup');
+Route::post('/signup', 'WebController@signupSubmit')->name('signup.submit');
+Route::post('/signout', 'WebController@signout')->name('signout');
 
 Route::view('/{path?}', 'app')
      ->where('path', '.*')
@@ -31,11 +36,7 @@ Route::view('/{path?}', 'app')
 //     return view('grammar');
 // })->name('grammar');
 
-// // Authentication
-// Route::post('/login', 'WebController@login')->name('login');
-// Route::get('/signup', 'WebController@signup')->name('signup');
-// Route::post('/signup', 'WebController@signupSubmit')->name('signup.submit');
-// Route::post('/signout', 'WebController@signout')->name('signout');
+
 
 // // Words
 

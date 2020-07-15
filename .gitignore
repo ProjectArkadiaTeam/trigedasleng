@@ -13,9 +13,7 @@ yarn-error.log
 .idea
 local/
 .DS_Store
-/public/*.js
-/public/*.js.map
+/public/js/*.js
+/public/js/*.js.map
 /public/css/app.css
 /public/css/app.css.map
-/public/js/app.js
-/public/js/app.js.map

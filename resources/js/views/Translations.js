@@ -1,8 +1,5 @@
-import React, { Component, lazy, Suspense, useState, useEffect } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import Sidebar from '../components/Sidebar/Sidebar';
+import React, { Component, lazy, Suspense } from 'react';
+import { Row, Col, Button } from 'react-bootstrap';
 import InfiniteScroll from 'react-infinite-scroller';
 
 // Apple devices running an iOS version earlier than 10
@@ -10,7 +7,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import 'whatwg-fetch';
 
 // import Translation from '../components/Translation';
-const Translation = lazy(() => import('../components/Translation'))
+const Translation = lazy(() => import('../components/Translation' /* webpackChunkName: "js/Translation" */))
 
 const seasonList = {
     "01": "Season 1",
@@ -138,7 +135,7 @@ class Translations extends Component {
 
 	/* fetch API */
 	fetchTranslations() {
-		if (this.state.translations.length == 0) {
+		if (this.state.translations.length === 0) {
 
 			// fetch
 			fetch("/api/legacy/translations")
@@ -261,43 +258,38 @@ class Translations extends Component {
 	/* Render page */
 	render() {
 		return (
-			<>
-				<Sidebar />
-				<Header userData={this.state.user} userIsLoggedIn={this.state.isLoggedIn} />
-				<div className="content">
-					<div id="inner">
-                        <h1>Translations by season:</h1>
-                        {this.seasonSelect() }
-                        {/* {this.episodeSelect() } */}
-						<div className="translations">
-                            {this.state.selectedSeason != null ?
-                            <h1>{seasonList[this.state.selectedSeason]} Translations</h1> : <h1>All Translations</h1>}
+			<div className="content">
+				<div id="inner">
+					<h1>Translations by season:</h1>
+					{this.seasonSelect() }
+					{/* {this.episodeSelect() } */}
+					<div className="translations">
+						{this.state.selectedSeason != null ?
+						<h1>{seasonList[this.state.selectedSeason]} Translations</h1> : <h1>All Translations</h1>}
 
-                            <InfiniteScroll
-                                pageStart={0}
-                                loadMore={this.loadFunc.bind(this)}
-                                hasMore={this.canLoadMoreEpisodes()}
-                                loader={<div className="loader" key={0}>Loading ...</div>}
-                                initialLoad={true}
-                                useWindow={true}
-                            >
-                                {Object.keys(episodeList).slice(
-                                    this.state.selectedSeason == null ? 0 : this.getSeasonOffset(this.state.selectedSeason),
-                                    this.getSeasonOffset(this.state.selectedSeason) + this.state.episodesLoaded)
-                                .map(key => {
-									return (
-										<React.Fragment key={key}>
-											<h2>{episodeList[key]}</h2>
-											{this.renderTranslations(key)}
-										</React.Fragment>
-									)
-								})}
-                            </InfiniteScroll>
-						</div>
+						<InfiniteScroll
+							pageStart={0}
+							loadMore={this.loadFunc.bind(this)}
+							hasMore={this.canLoadMoreEpisodes()}
+							loader={<div className="loader" key={0}>Loading ...</div>}
+							initialLoad={true}
+							useWindow={true}
+						>
+							{Object.keys(episodeList).slice(
+								this.state.selectedSeason == null ? 0 : this.getSeasonOffset(this.state.selectedSeason),
+								this.getSeasonOffset(this.state.selectedSeason) + this.state.episodesLoaded)
+							.map(key => {
+								return (
+									<React.Fragment key={key}>
+										<h2>{episodeList[key]}</h2>
+										{this.renderTranslations(key)}
+									</React.Fragment>
+								)
+							})}
+						</InfiniteScroll>
 					</div>
 				</div>
-				<Footer />
-			</>
+			</div>
 		)
 	}
 

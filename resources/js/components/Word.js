@@ -1,23 +1,19 @@
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
-class Word extends Component {
+import {Link} from 'react-router-dom';
 
-  constructor(props) {
-    super(props);
-      this.state = {
-				word: props.word
-      };
-  }
-
-  render() {
-      const word = this.props.word;
-      return (
-			<div className="entry">
-				<h3><b><Link to={ "/word/" + word.word }>{ word.word }</Link></b></h3>
-				<p className="definition">{ word.translation }</p>
-				<p className="etymology">{ word.etymology }</p>
-			</div>
-    )
-  }
+function Word(props) {
+	const word = props.word;
+	return (
+		<div className="entry">
+			<h3><b><Link to={"/word/" + word.word}>{word.word}</Link></b></h3>
+			<p className="definition">{word.translation}</p>
+			<p className="etymology">{word.etymology}</p>
+			{
+				word.filter.includes('noncanon') ?
+					<i className="noncanon-warning">!!Not a canon word</i>
+					: ''
+			}
+		</div>
+	);
 }
 export default Word

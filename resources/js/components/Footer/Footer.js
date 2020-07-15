@@ -1,5 +1,6 @@
 import React from 'react';
-const Footer = () => {
+
+function Footer() {
   return (
     <footer>
         <a href="..">Home</a> | <a href="https://github.com/projectarkadiateam/trigedasleng">Github</a>

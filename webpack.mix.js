@@ -19,4 +19,5 @@ if (!mix.inProduction()) {
  */
 
 mix.react('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css').sourceMaps(false, 'source-map');
+    .sass('resources/sass/app.scss', 'public/css')
+    .sourceMaps(false, 'source-map');

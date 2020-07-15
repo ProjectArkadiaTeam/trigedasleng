@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
-import {Link, Redirect, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import FlashMessage from 'react-flash-message';
+
 class LoginContainer extends Component {
   constructor(props) {
     super(props);
+
+    //Init state
     this.state = {
       isLoggedIn: false,
       error: '',
@@ -14,10 +17,14 @@ class LoginContainer extends Component {
       },
       redirect: props.redirect,
     };
+
+    // Bind functions
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
   }
+
+  // Before render
   componentWillMount() {
     let state = localStorage["appState"];
     if (state) {
@@ -25,31 +32,46 @@ class LoginContainer extends Component {
       this.setState({isLoggedIn: AppState.isLoggedIn, user: AppState});
     }
   }
+
+  // After render
   componentDidMount() {
     const { prevLocation } = this.state.redirect.state || { prevLocation: { pathname: '/dashboard' } };
     if (prevLocation && this.state.isLoggedIn) {
       return this.props.history.push(prevLocation);
     }
   }
+
+  // Handle submit button press
   handleSubmit(e) {
+    // Disable default submit events
     e.preventDefault();
+
+    // Update state
     this.setState({formSubmitting: true});
     let userData = this.state.user;
+
+    // Authenticate
     axios.post("/api/v1/auth/login", userData).then(response => {
       return response;
     }).then(json => {
       if (json.data.success) {
+
+        // Store user date in object
         let userData = {
           id: json.data.id,
           name: json.data.name,
           email: json.data.email,
           access_token: json.data.access_token,
         };
+
+        // Update application state to set user as logged in
         let appState = {
           isLoggedIn: true,
           user: userData
         };
         localStorage["appState"] = JSON.stringify(appState);
+
+        // Set component state
         this.setState({
           isLoggedIn: appState.isLoggedIn,
           user: appState.user,
@@ -87,6 +109,7 @@ class LoginContainer extends Component {
     }).finally(this.setState({error: ''}));
   }
 
+
   handleEmail(e) {
     let value = e.target.value;
     this.setState(prevState => ({
@@ -109,8 +132,8 @@ class LoginContainer extends Component {
     const { state = {} } = this.state.redirect;
     const { error } = state;
     return (
-      <div className="container">
-        <div className="row">
+      <Container>
+        <Row>
           <div className="offset-xl-3 col-xl-6 offset-lg-1 col-lg-10 col-md-12 col-sm-12 col-12 ">
             <h2 className="text-center mb30">Log In To Your Account</h2>
             {this.state.isLoggedIn ? <FlashMessage duration={60000} persistOnHover={true}>
@@ -129,8 +152,8 @@ class LoginContainer extends Component {
               <button disabled={this.state.formSubmitting} type="submit" name="singlebutton" className="btn btn-default btn-lg  btn-block mb10"> {this.state.formSubmitting ? "Logging You In..." : "Log In"} </button>
             </form>
           </div>
-        </div>
-      </div>
+        </Row>
+      </Container>
     )
   }
 }

@@ -56,27 +56,28 @@ class Dictionary extends Component {
 		}
 	}
 
-	applySearch(entry){
-		return entry.word.toLowerCase().includes(search.toLowerCase())
-			|| entry.translation.toLowerCase().includes(search.toLowerCase())
-	}
+
 
 	/* Get filtered dictionary */
 	getDictionary() {
+		function applySearch(entry){
+			return entry.word.toLowerCase().includes(search.toLowerCase())
+				|| entry.translation.toLowerCase().includes(search.toLowerCase())
+		}
 		let dict = this.props.match.params.dictionary;
 		let search = this.state.search;
 
 		// dict will be undefined if no dictionary is given
 		if (dict == null)
 			return this.state.dictionary.filter(function (entry) {
-				return this.applySearch(entry)
+				return applySearch(entry)
 			}
 		);
 
 		// Filter based on dictionary type
 		return this.state.dictionary.filter(function (entry) {
 			return (dict === entry.filter.split(' ').find(val => val === dict)
-			&& this.applySearch(entry))
+			&& applySearch(entry))
 		});
 	}
 

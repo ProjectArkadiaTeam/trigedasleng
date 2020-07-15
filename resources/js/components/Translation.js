@@ -21,12 +21,14 @@ class Translation extends Component {
             <tr className="tgs" style={{display: "table-row"}}>
               { translation.trigedasleng.split(' ').map((word , index) => <td key={index}>{word}</td>) }
             </tr>
+            {translation.etymology != "" ?
             <tr className="ety" style={{display: "table-row"}}>
               { translation.etymology.split(' ').map((word , index) => <td key={index}>{word}</td>) }
-            </tr>
+            </tr> : ''}
+            {translation.etymology != "" ?
             <tr className="leipzig" style={{display: "table-row"}}>
               { translation.leipzig.split(' ').map((word , index) => <td key={index}>{word}</td>) }
-            </tr>
+            </tr> : ''}
             <tr className="en_text">
               <td colSpan="10">{ translation.translation }</td>
             </tr>

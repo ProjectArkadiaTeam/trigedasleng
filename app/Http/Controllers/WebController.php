@@ -224,6 +224,22 @@ class WebController extends Controller
             "0611" => "S6E11: Ashes to Ashes",
             "0612" => "S6E12: Adjustment Protocol",
             "0613" => "S6E13: The Blood of Sanctum",
+            "0701" => "S7E01: From the Ashes",
+            "0702" => "S7E02: The Garden",
+            "0703" => "S7E03: False Gods",
+            "0704" => "S7E04: Hesperides",
+            "0705" => "S7E05: Welcome to Bardo",
+            "0706" => "S7E06: Nakara",
+            "0707" => "S7E07: The Queen's Gambit",
+            "0708" => "S7E08: Anaconda",
+            "0709" => "S7E09: The Flock",
+            "0710" => "S7E10: ",
+            "0711" => "S7E11: ",
+            "0712" => "S7E12: ",
+            "0713" => "S7E13: ",
+            "0714" => "S7E14: ",
+            "0715" => "S7E15: ",
+            "0716" => "S7E16: ",
             "other" => "Other Translations"
         ];
         return view('translations', [

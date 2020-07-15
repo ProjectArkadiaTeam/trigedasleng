@@ -33,14 +33,15 @@ Trigedasleng is not a creole, but a descendant of American English alone, and wh
 3. Populate the relevant fields inside the `.env` file.
 4. Install dependencies using [Composer](https://getcomposer.org/):
     1. `composer install`
-5. Generate your app keys.
+5. Generate your app key.
     1. `php artisan key:generate`
+6. Run the database migrations.
+    1. `php artisan migrate`
+7. Generate your passport keys.
     2. `php artisan passport:keys`
     3. `php artisan passport:install --uuids`
     4. `php artisan passport:client --personal`
-6. Import the MySQL Database.
-7. Run the database migrations.
-    1. `php artisan migrate`
+8. Import the MySQL Database.
 
 ### Enable MySQLi
 

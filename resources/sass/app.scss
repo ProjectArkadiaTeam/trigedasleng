@@ -209,10 +209,6 @@ ul, ol {
   vertical-align: top;
 }
 
-.dropdown {
-  display: none;
-}
-
 .menu:hover .dropdown {
   display: block;
 }
@@ -928,6 +924,10 @@ button:hover {
     width:180px;
   }
 
+  .content {
+    float:none;
+  }
+
   .home .column.side {
     width: 100%;
     margin: 8px 0 15px;
@@ -956,6 +956,7 @@ button:hover {
 
   .dictionary {
     width: 92% !important;
+    margin: auto auto;
   }
 
   .dictionary .entry {

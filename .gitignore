@@ -17,3 +17,5 @@ local/
 /public/js/*.js.map
 /public/css/app.css
 /public/css/app.css.map
+/public/vendors~js
+/public/*.js*

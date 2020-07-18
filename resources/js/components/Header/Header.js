@@ -3,7 +3,7 @@ import {Link, withRouter} from 'react-router-dom';
 import {Navbar, Nav, Form, FormControl} from 'react-bootstrap';
 
 import {searchDict} from './../../views/Dictionary/Dictionary';
-import {searchTranslations} from './../../views/Translations';
+import {searchTranslations} from '../../views/Translations/Translations';
 
 class Header extends Component {
 

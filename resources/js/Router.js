@@ -9,7 +9,7 @@ const Register = lazy(() => import('./views/Register/Register' /* webpackChunkNa
 const NotFound = lazy(() => import('./views/Errors/NotFound' /* webpackChunkName: "js/NotFound" */));
 const WordView = lazy(() => import('./views/WordView' /* webpackChunkName: "js/WordView" */));
 const Dictionary = lazy(() => import('./views/Dictionary/Dictionary' /* webpackChunkName: "js/Dictionary" */));
-const Translations = lazy(() => import('./views/Translations' /* webpackChunkName: "js/Translations" */));
+const Translations = lazy(() => import('./views/Translations/Translations' /* webpackChunkName: "js/Translations" */));
 
 // Load Static elements normally as they are required
 import Header from './components/Header/Header';

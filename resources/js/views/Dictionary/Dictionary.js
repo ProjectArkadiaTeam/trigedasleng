@@ -1,5 +1,7 @@
 import React, { Component, lazy, Suspense } from 'react';;
+import {Button, Col, DropdownButton, Dropdown, Row} from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { isMobile, MobileView } from "react-device-detect";
 
 const Word = lazy(() => import('../../components/Word' /* webpackChunkName: "js/word" */))
 
@@ -13,25 +15,40 @@ export function searchDict(query) {
 		this.setState({search: query})
 }
 
+const wordClasses = [
+	"all",
+	"noun",
+	"pronoun",
+	"verb",
+	"adverb",
+	"adjective",
+	"conjunction",
+	"preposition",
+	"interjection",
+	"auxiliary"
+	];
+
 class Dictionary extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			isLoggedIn: false,
 			isAdmin: false,
-			search: "",
 			user: {},
+			search: "",
+			classFilter: "all",
+			showFilterButtons: !isMobile,
 			dictionary: [],
 		}
 		searchDict = searchDict.bind(this)
 	}
 
-	/* On first load */
+	/** On first load */
 	componentDidMount() {
 		this.fetchDictionary();
 	}
 
-	/* Live switch dictionaries */
+	/** Live switch dictionaries */
 	componentDidUpdate(prevProps, prevState, snapshot) {
 		window.scrollTo(0, 0)
 		if (prevProps !== this.props) {
@@ -39,7 +56,7 @@ class Dictionary extends Component {
 		}
 	}
 
-	/* Fetch API */
+	/** Fetch API */
 	fetchDictionary() {
 		if (this.state.dictionary.length === 0) {
 
@@ -58,14 +75,20 @@ class Dictionary extends Component {
 
 
 
-	/* Get filtered dictionary */
+	/** Get filtered dictionary */
 	getDictionary() {
+		let dict = this.props.match.params.dictionary;
+		let search = this.state.search;
+		let classFilter = this.state.classFilter;
+
 		function applySearch(entry){
 			return entry.word.toLowerCase().includes(search.toLowerCase())
 				|| entry.translation.toLowerCase().includes(search.toLowerCase())
 		}
-		let dict = this.props.match.params.dictionary;
-		let search = this.state.search;
+
+		function applyClassFilter(entry){
+			return classFilter === "all" || entry.translation.split(":")[0] === classFilter;
+		}
 
 		// dict will be undefined if no dictionary is given
 		if (dict == null)
@@ -77,11 +100,41 @@ class Dictionary extends Component {
 		// Filter based on dictionary type
 		return this.state.dictionary.filter(function (entry) {
 			return (dict === entry.filter.split(' ').find(val => val === dict)
-			&& applySearch(entry))
+			&& applySearch(entry) && applyClassFilter(entry))
 		});
 	}
 
-	/* Render list of words */
+	/** Update state to load selected season */
+	renderWordClass(wordClass){
+		this.setState({classFilter: wordClass})
+		if(isMobile)
+			this.setState({showFilterButtons: false})
+	}
+
+	/** Renders the word class select buttons */
+	wordClassSelect(){
+		return (
+			<React.Fragment>
+				<MobileView>
+					<Row xs={1} className="justify-content-md-center">
+						<Col key="showFilter" xl={1} lg={1} md={1}><Col md={12} as={Button} onClick={() => this.setState({showFilterButtons: !this.state.showFilterButtons})}>Filter</Col></Col>
+					</Row>
+				</MobileView>
+				{this.state.showFilterButtons ?
+				<Row xs={2} sm={2} className="justify-content-md-center">
+					{
+						wordClasses.map(wordClass => {
+							return (
+								<Col key={wordClass} xl={1} lg={2} md={3}><Col md={12} as={Button} onClick={() => this.renderWordClass(wordClass)}>{wordClass}</Col></Col>
+							)
+						})
+					}
+				</Row> : ''}
+			</React.Fragment>
+		)
+	}
+
+	/** Render list of words */
 	renderWords() {
 		let lastChar = null;
 		return this.getDictionary().map(word => {
@@ -101,16 +154,17 @@ class Dictionary extends Component {
 		})
 	}
 
-	/* Get headername for dictionary */
+	/** Get headername for dictionary */
 	DictionaryName() {
 		let { dictionary } = useParams();
 		return (<h1 style={{ textTransform: 'capitalize' }}>{dictionary} Dictionary</h1>);
 	}
 
-	/* Render page */
+	/** Render page */
 	render() {
 		return (
 			<div className="content dictionary">
+				{this.wordClassSelect()}
 				<this.DictionaryName/>
 				<Suspense fallback={<h3>Receving data from the ark...</h3>} >
 					{ this.renderWords() }

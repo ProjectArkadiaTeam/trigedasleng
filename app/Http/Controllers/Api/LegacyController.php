@@ -59,9 +59,9 @@ class LegacyController extends Controller
         $data = [];
 
         // Get word info
-        $wordInfo = DB::selectOne('SELECT * FROM `dict_words` WHERE `word`= ?', [$word]);
+        $wordInfo = DB::select('SELECT * FROM `dict_words` WHERE `word`= ?', [$word]);
         if(!isset($wordInfo)){
-            return 'Word not found!';
+            return 'Word(s) not found!';
         }
         $data['word'] = $wordInfo;
 
@@ -70,8 +70,8 @@ class LegacyController extends Controller
         $data['examples'] = $translationList;
 
         // Get sources
-        $citation = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$wordInfo->citations]);
-        $data['source'] = $citation;
+//        $citation = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$wordInfo->citations]);
+//        $data['source'] = $citation;
 
         return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
     }

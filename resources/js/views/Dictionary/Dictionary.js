@@ -11,8 +11,9 @@ import 'whatwg-fetch';
 
 // Define search function outside class so we can reach it from the Header
 export function searchDict(query) {
+	console.log(this);
 	if (this !== undefined)
-		this.setState({search: query})
+		this.setState({search: query});
 }
 
 const wordClasses = [
@@ -45,7 +46,15 @@ class Dictionary extends Component {
 
 	/** On first load */
 	componentDidMount() {
+		searchDict = searchDict.bind(this)
 		this.fetchDictionary();
+	}
+
+	componentWillUnmount() {
+		// fix Warning: Can't perform a React state update on an unmounted component
+		this.setState = (state,callback)=>{
+			return;
+		};
 	}
 
 	/** Live switch dictionaries */
@@ -73,8 +82,6 @@ class Dictionary extends Component {
 		}
 	}
 
-
-
 	/** Get filtered dictionary */
 	getDictionary() {
 		let dict = this.props.match.params.dictionary;
@@ -93,7 +100,7 @@ class Dictionary extends Component {
 		// dict will be undefined if no dictionary is given
 		if (dict == null)
 			return this.state.dictionary.filter(function (entry) {
-				return applySearch(entry)
+				return applySearch(entry) && applyClassFilter(entry)
 			}
 		);
 

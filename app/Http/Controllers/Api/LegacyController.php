@@ -76,6 +76,21 @@ class LegacyController extends Controller
         return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
     }
 
+    public function recent(Request $request) {
+        $limit = $request->input('limit') != "" ? $request->input('limit') : 10;
+        $recentList = DB::select("SELECT * FROM `dict_words` ORDER BY id DESC LIMIT ?", [$limit]);
+
+        return response()->json($this->utf8ize($recentList), 200, array(), JSON_PRETTY_PRINT);
+    }
+
+    public function random(Request $request) {
+        $data['word'] = DB::selectOne("SELECT * FROM `dict_words` ORDER BY RAND() LIMIT 1");
+        $data['translation'] = DB::selectOne("SELECT * FROM `dict_translations` ORDER BY RAND() LIMIT 1");
+
+        return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
+
+    }
+
     private function utf8ize($data) {
         if (is_array($data)) {
             foreach ($data as $key => $value) {

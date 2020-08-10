@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {Link} from "react-router-dom";
+import Translation from "../components/Translation";
+import Word from "../components/Word";
 
 class Home extends Component {
 	constructor() {
@@ -6,8 +9,47 @@ class Home extends Component {
 		this.state = {
 			isLoggedIn: false,
 			isAdmin: false,
-			user: {}
+			user: {},
+			recent: [],
+			random: []
 		}
+	}
+
+	fetchRecentList() {
+		// If we already have data cached skip
+		if (this.state.recent.length === 0) {
+			// fetch using the API
+			// TODO: Once the new api is in switch to that
+			fetch("/api/legacy/recent?limit=10")
+				.then(response => {
+					return response.json();
+				})
+				.then(recent => {
+					// Fetched data is stored in the state
+					this.setState({ recent: recent });
+				});
+		}
+	}
+
+	fetchRandom() {
+		// If we already have data cached skip
+		if (this.state.recent.length === 0) {
+			// fetch using the API
+			// TODO: Once the new api is in switch to that
+			fetch("/api/legacy/random")
+				.then(response => {
+					return response.json();
+				})
+				.then(random => {
+					// Fetched data is stored in the state
+					this.setState({ random: random });
+				});
+		}
+	}
+
+	componentDidMount() {
+		this.fetchRecentList();
+		this.fetchRandom();
 	}
 
 	// check if user is authenticated and storing authentication data as states if true
@@ -27,54 +69,31 @@ class Home extends Component {
 						<div className="col-lg col-md-12 column">
 							<h3>Recently Added</h3>
 							<ul>
-								{/* @foreach($recentWordList as $recentWord)
-							<li><a href="{{ route('word.lookup', [$recentWord->word]) }}">{{ $recentWord->word }}</a></li>
-					@endforeach */}
+								{ this.state.recent.map((recent, index) =>
+									<li key={index}><Link to={"/word/" + recent.word}>{recent.word}</Link></li>
+								)
+								}
 							</ul>
 						</div>
 						<div className="col-lg-6 col-md-12 column">
 							<div className="daily">
 								<h3>About this website</h3>
-								<p>This website is an attempt at recreating what was Trigedasleng.info after it went dark in december 2018.</p>
+								<p>Welcome to the Unofficial Trigedasleng Dictionary.</p>
+								<p>
+									Trigedasleng is a constructed language (conlang) developed by David J. Peterson for
+									use on the CW show The 100. The Woods Clan (Trigedakru/Trikru) and Sand Nomads (Sanskavakru)
+									have been heard using this language, but other groups of grounders (that is, earth-born
+									people not born inside Mt. Weather) may also speak the language. Some of the Sky People
+									(Skaikru; those from the Ark) began to learn Trigedasleng after repeated contact with the Trigedakru.
+								</p>
 							</div>
 							<div className="daily">
 								<h3>Random Word</h3>
-								{/*<Word word={}/>*/}
+								{ this.state.random.word !== undefined ? <Word word={this.state.random.word}/> : '' }
 							</div>
-							<div className="daily">
+							<div className="daily" style={{overflow: "auto"}}>
 								<h3>Random Translation</h3>
-								{/* <div className="translations entry unflagged">
-						<table class="gloss">
-								<tbody>
-								<tr class="tgs_text">
-										<td colspan="10"><a href="#">{{ $randomTranslation->trigedasleng }}</a></td>
-								</tr>
-								<tr class="tgs" style="display: table-row;">
-										@foreach(explode(' ', $randomTranslation->trigedasleng) as $word)
-												<td>{{ $word }}</td>
-										@endforeach
-								</tr>
-								<tr class="ety" style="display: table-row;">
-										@foreach(explode(' ', $randomTranslation->etymology) as $word)
-												<td>{{ $word }}</td>
-										@endforeach
-								</tr>
-								<tr class="leipzig" style="display: table-row;">
-										@foreach(explode(' ', $randomTranslation->leipzig) as $word)
-												<td>{{ $word }}</td>
-										@endforeach
-								</tr>
-								<tr class="en_text">
-										<td colspan="10">{{ $randomTranslation->translation }}</td>
-								</tr>
-								</tbody>
-						</table>
-						@if($randomTranslation->audio !== '')
-								<audio controls="" preload="none">
-										<source src="{{ $randomTranslation->audio }}" type="audio/mpeg">
-								</audio>
-						@endifs
-				</div> */}
+								{ this.state.random.translation !== undefined ? <Translation translation={this.state.random.translation}/> : '' }
 							</div>
 						</div>
 						<div className="col-lg col-md-12 column">

@@ -24,10 +24,10 @@ import PrivateRoute from './PrivateRoute'
 import AddTranslation from "./views/Admin/AddTranslation";
 import AddWord from "./views/Admin/AddWord";
 
-const Main = () => (
+const Main = props => (
 	<React.Fragment>
 		<PWAPrompt/>
-		<Header/>
+		<Header userData={props.userData} userIsLoggedIn={props.isLoggedIn}/>
 		<Sidebar/>
 		<Suspense fallback={<div>Loading...</div>}>
 			<Switch>

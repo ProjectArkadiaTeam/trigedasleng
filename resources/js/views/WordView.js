@@ -10,8 +10,8 @@ import {Link} from "react-router-dom";
 
 class WordView extends Component {
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			isLoggedIn: false,
 			isAdmin: false,
@@ -52,7 +52,6 @@ class WordView extends Component {
 								<h1><b><Link to={"/word/" + this.state.wordInfo.word[0].word}>{this.state.wordInfo.word[0].word}</Link></b></h1>
 								<p><strong>Pronounciation:</strong> coming soon!</p>
 								{
-
 									this.state.wordInfo.word.map((word, index) =>
 										<React.Fragment>
 											<h3>{"Etymology " + (this.state.wordInfo.word.length > 1 ? (index + 1) : "")}</h3>

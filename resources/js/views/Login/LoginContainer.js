@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Container, Row} from 'react-bootstrap';
 import {withRouter} from 'react-router-dom';
 import FlashMessage from 'react-flash-message';
 

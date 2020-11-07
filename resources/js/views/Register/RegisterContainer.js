@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import FlashMessage from 'react-flash-message';
+import {Container, Row} from "react-bootstrap";
 class RegisterContainer extends Component {
 
 	constructor(props) {
@@ -12,7 +13,7 @@ class RegisterContainer extends Component {
 			errorMessage: '',
 			formSubmitting: false,
 			user: {
-				name: '',
+				username: '',
 				email: '',
 				password: '',
 				password_confirmation: '',
@@ -22,7 +23,7 @@ class RegisterContainer extends Component {
 
 		// function bindings
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleName = this.handleName.bind(this);
+		this.handleUsername = this.handleUsername.bind(this);
 		this.handleEmail = this.handleEmail.bind(this);
 		this.handlePassword = this.handlePassword.bind(this);
 		this.handlePasswordConfirm = this.handlePasswordConfirm.bind(this);
@@ -53,14 +54,14 @@ class RegisterContainer extends Component {
 		this.setState({formSubmitting: true});
 		ReactDOM.findDOMNode(this).scrollIntoView();
 		let userData = this.state.user;
-		axios.post("/signup", userData)
+		axios.post("/api/v1/auth/signup", userData)
 			.then(response => {
 				return response;
 			}).then(json => {
 			if (json.data.success) {
 				let userData = {
 					id: json.data.id,
-					name: json.data.name,
+					username: json.data.username,
 					email: json.data.email,
 					activation_token: json.data.activation_token,
 				};
@@ -106,11 +107,11 @@ class RegisterContainer extends Component {
 		}).finally(this.setState({error: ''}));
 	}
 
-	handleName(e) {
+	handleUsername(e) {
 		let value = e.target.value;
 		this.setState(prevState => ({
 			user: {
-				...prevState.user, first_name: value
+				...prevState.user, username: value
 			}
 		}));
 	}
@@ -164,7 +165,7 @@ class RegisterContainer extends Component {
 							</ul></FlashMessage> : ''}
 						<form onSubmit={this.handleSubmit}>
 							<div className="form-group">
-								<input id="name" type="text" placeholder="Name" className="form-control" required onChange={this.handleName}/>
+								<input id="username" type="text" placeholder="Username" className="form-control" required onChange={this.handleUsername}/>
 							</div>
 							<div className="form-group">
 								<input id="email" type="email" name="email" placeholder="E-mail" className="form-control" required onChange={this.handleEmail}/>

@@ -53,7 +53,7 @@ class Home extends Component {
 	}
 
 	// check if user is authenticated and storing authentication data as states if true
-	componentWillMount() {
+	UNSAFE_componentWillMount() {
 		let state = localStorage["appState"];
 		if (state) {
 			let AppState = JSON.parse(state);

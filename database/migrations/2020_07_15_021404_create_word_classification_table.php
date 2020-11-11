@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhraseTranslationTable extends Migration
+class CreateWordClassificationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreatePhraseTranslationTable extends Migration
      */
     public function up()
     {
-        Schema::create('phrase_translation', function (Blueprint $table) {
-            $table->id();
+        Schema::create('word_classification', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('value', 100);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreatePhraseTranslationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phrase_translation');
+        Schema::dropIfExists('word_classification');
     }
 }

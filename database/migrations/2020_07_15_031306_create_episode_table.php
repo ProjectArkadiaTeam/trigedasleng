@@ -14,7 +14,13 @@ class CreateEpisodeTable extends Migration
     public function up()
     {
         Schema::create('episode', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->uuid('season_id');
+            $table->foreign('season_id')->references('id')->on('season');
+            $table->string('name', 100);
+            $table->integer('season_number');
+            $table->integer('series_number');
+            $table->dateTime('aired_at'); // UTC
             $table->timestamps();
         });
     }

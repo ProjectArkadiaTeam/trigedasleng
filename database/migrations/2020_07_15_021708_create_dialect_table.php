@@ -15,7 +15,7 @@ class CreateDialectTable extends Migration
     {
         Schema::create('dialect', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('value');
+            $table->string('value', 100);
             $table->timestamps();
         });
     }

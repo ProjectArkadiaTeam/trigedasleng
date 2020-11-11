@@ -14,7 +14,11 @@ class CreateWordTypeTable extends Migration
     public function up()
     {
         Schema::create('word_type', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->uuid('word_id');
+            $table->foreign('word_id')->references('id')->on('word');
+            $table->uuid('classification_id');
+            $table->foreign('classification_id')->references('id')->on('word_classification');
             $table->timestamps();
         });
     }

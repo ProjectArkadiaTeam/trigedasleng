@@ -1,11 +1,10 @@
 <?php
 
-use App\Series;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSeriesTable extends Migration
+class CreateTranslationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,17 +13,15 @@ class CreateSeriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('series', function (Blueprint $table) {
+        Schema::create('translation', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name', 100);
+            $table->uuid('source_id');
+            $table->foreign('source_id')->references('id')->on('word');
+            $table->uuid('target_id');
+            $table->foreign('target_id')->references('id')->on('word');
+            $table->text('etymology');
             $table->timestamps();
         });
-
-        // Create base show
-        $Series = new Series([
-           'name' => 'The 100',
-        ]);
-        $Series->save();
     }
 
     /**
@@ -34,6 +31,6 @@ class CreateSeriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('series');
+        Schema::dropIfExists('translation');
     }
 }

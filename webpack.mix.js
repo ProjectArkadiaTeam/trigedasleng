@@ -1,4 +1,11 @@
 const mix = require('laravel-mix');
+require('laravel-mix-bundle-analyzer');
+require('laravel-mix-workbox');
+
+
+if (!mix.inProduction()) {
+    mix.bundleAnalyzer();
+}
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +18,6 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.react('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+    .sourceMaps(false, 'source-map');

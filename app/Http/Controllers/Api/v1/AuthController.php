@@ -39,9 +39,17 @@ class AuthController extends Controller
             'group_id' => env('APP_DEFAULT_GROUP_ID', Group::getDefaultGroupId()),
         ]);
         $user->save();
+
         return response()->json([
-            'message' => 'Successfully created user!',
-        ], 201, array(), JSON_PRETTY_PRINT);
+            'success' => true,
+            'id' => $user->id,
+            'name' => $user->first_name,
+            'email' => $user->email,
+        ], 201);
+
+//        return response()->json([
+//            'message' => 'Successfully created user!',
+//        ], 201, array(), JSON_PRETTY_PRINT);
     }
 
     /**
@@ -76,13 +84,26 @@ class AuthController extends Controller
             $token->expires_at = Carbon::now()->addWeeks(1);
         }
         $token->save();
+
         return response()->json([
+            'success' => true,
+            'id' => $user->id,
+            'username' => $user->username,
+            'email' => $user->email,
             'access_token' => $tokenResult->accessToken,
-            'token_type'   => 'Bearer',
-            'expires_at'   => Carbon::parse(
+            'token_type' => 'Bearer',
+            'expires_at' => Carbon::parse(
                 $tokenResult->token->expires_at
-            )->toDateTimeString(),
+            )->toDateTimeString()
         ]);
+
+//        return response()->json([
+//            'access_token' => $tokenResult->accessToken,
+//            'token_type'   => 'Bearer',
+//            'expires_at'   => Carbon::parse(
+//                $tokenResult->token->expires_at
+//            )->toDateTimeString(),
+//        ]);
     }
 
     /**

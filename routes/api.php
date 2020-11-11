@@ -23,6 +23,9 @@ Route::namespace('Api')->group(function(){
     Route::prefix('legacy')->group(function () {
         Route::get('/dictionary', 'LegacyController@dictionary')->name('api.legacy.dictionary');
         Route::get('/search', 'LegacyController@search')->name('api.legacy.search');
+        Route::get('/recent', 'LegacyController@recent')->name('api.legacy.recent');
+        Route::get('/random', 'LegacyController@random')->name('api.legacy.random');
+        Route::get('/translations', 'LegacyController@translations')->name('api.legacy.translations');
     });
 
 });

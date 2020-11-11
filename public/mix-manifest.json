@@ -1,0 +1,22 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/app.js.map": "/js/app.js.map",
+    "/css/app.css.map": "/css/app.css.map",
+    "/js/Grammar.js": "/js/Grammar.js",
+    "/js/Grammar.js.map": "/js/Grammar.js.map",
+    "/js/Home.js": "/js/Home.js",
+    "/js/Home.js.map": "/js/Home.js.map",
+    "/js/Login.js": "/js/Login.js",
+    "/js/Login.js.map": "/js/Login.js.map",
+    "/js/NotFound.js": "/js/NotFound.js",
+    "/js/NotFound.js.map": "/js/NotFound.js.map",
+    "/js/Register.js": "/js/Register.js",
+    "/js/Register.js.map": "/js/Register.js.map",
+    "/js/Translation.js": "/js/Translation.js",
+    "/js/Translation.js.map": "/js/Translation.js.map",
+    "/js/WordView.js": "/js/WordView.js",
+    "/js/WordView.js.map": "/js/WordView.js.map",
+    "/js/word.js": "/js/word.js",
+    "/js/word.js.map": "/js/word.js.map"
+}

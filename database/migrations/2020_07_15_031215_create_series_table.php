@@ -16,15 +16,11 @@ class CreateSeriesTable extends Migration
     {
         Schema::create('series', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name', 100);
+            $table->string('value');
             $table->timestamps();
         });
 
-        // Create base show
-        $Series = new Series([
-           'name' => 'The 100',
-        ]);
-        $Series->save();
+        (new Series(['value'  => 'The 100',]))->save();
     }
 
     /**

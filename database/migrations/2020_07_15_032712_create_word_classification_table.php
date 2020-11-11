@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDialectTable extends Migration
+class CreateWordClassificationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateDialectTable extends Migration
      */
     public function up()
     {
-        Schema::create('dialect', function (Blueprint $table) {
+        Schema::create('word_classification', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('value');
+            $table->uuid('word_id');
+            $table->uuid('classification_id');
             $table->timestamps();
+
+            $table->foreign('word_id')->references('id')->on('words');
+            $table->foreign('classification_id')->references('id')->on('classifications');
         });
     }
 
@@ -27,6 +31,6 @@ class CreateDialectTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dialect');
+        Schema::dropIfExists('word_classification');
     }
 }

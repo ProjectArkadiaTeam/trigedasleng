@@ -68,56 +68,6 @@ class WebController extends Controller
         ]);
     }
 
-    public function translationLookup(Request $request, $id){
-        $translationInfo = DB::selectOne("SELECT * FROM `dict_translations` WHERE `id`=?", [$id]);
-        if(!isset($translationInfo)){
-            return response(view('translation.lookup', [
-                'translation' => $id,
-            ]), 404);
-        }
-        $citation = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$translationInfo->source]);
-        return view('translation.lookup', [
-            'translation' => $translationInfo,
-            'citation' => $citation,
-        ]);
-    }
-
-    public function translationEdit(Request $request, $id){
-        if((int) session('admin') !== 1){
-            return redirect(route('translation.lookup', $id));
-        }
-        $translationInfo = DB::selectOne('SELECT * FROM `dict_translations` WHERE `id`= ?', [$id]);
-        $source = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$translationInfo->source]);
-        return view('translation.edit', [
-            'translation' => $translationInfo,
-            'source' => $source,
-        ]);
-    }
-
-    public function translationEditSubmit(Request $request, $id){
-        if((int) session('admin') !== 1){
-            return redirect(route('translation.lookup', $id));
-        }
-
-        $update = DB::table('dict_translations')->where('id', '=', $request->id)->update([
-            'trigedasleng' => $request->trig,
-            'translation' => $request->translation,
-            'etymology' => $request->etymology,
-            'leipzig' => $request->leipzig,
-            'episode' => $request->episode,
-            'audio' => $request->audio,
-            'speaker' => $request->speaker,
-            'source' => $request->source,
-        ]);
-        $translationInfo = DB::selectOne('SELECT * FROM `dict_translations` WHERE `id`= ?', [$request->id]);
-        $source = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$translationInfo->source]);
-        return view('translation.edit', [
-            'translation' => $translationInfo,
-            'source' => $source,
-            'status'=> 'Updated translation successfully!',
-        ]);
-    }
-
     public function dictionaryLookup(Request $request, $dictionary = null){
         if($request->has('filter')){
             return redirect(route('dictionary.lookup', $request->query('filter')), 302);
@@ -232,56 +182,11 @@ class WebController extends Controller
         ]);
     }
 
-    public function login(Request $request){
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ]);
-
-        $users = DB::table('dict_users')->select(['password', 'username', 'admin'])->where('username', '=', $request->username)->get();
-        if($users->isNotEmpty() && password_verify($request->password, $users[0]->password)) {
-            $_SESSION["username"] = $users[0]->username;
-            $_SESSION["admin"] = $users[0]->admin;
-            session([
-                'username' => $users[0]->username,
-                'admin' => $users[0]->admin,
-            ]);
-            return 'Success';
-        }
-        return 'Incorrect password or username!';
-    }
-
     public function signup(Request $request){
         if(session('username') !== null){
-            return redirect(route('home'))->send();
+            return redirect(route('home'));
         }
         return view('signup', []);
-    }
-
-    public function signupSubmit(Request $request){
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-            'email' => 'required',
-        ]);
-        $users = DB::table('dict_users')->select('username')->where('username', '=', $request->username)->get();
-        if($users->isEmpty()){
-            $password_hashed = password_hash($request->password, PASSWORD_DEFAULT);
-            DB::table('dict_users')->insert([
-                'username' => $request->username,
-                'password' => $password_hashed,
-                'email' => $request->email,
-                'signup_date' => DB::raw('NOW()'),
-            ]);
-            return 'Success';
-        }
-
-        return 'Username already exists :(';
-    }
-
-    public function signout(Request $request){
-        $request->session()->flush();
-        return 'Success';
     }
 
     public function addWord(Request $request){

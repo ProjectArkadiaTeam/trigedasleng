@@ -1,0 +1,802 @@
+[
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-03-19 21:00",
+        "episode_name": "Pilot",
+        "series_number": 1,
+        "season_number": 1
+    },
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-03-26 21:00",
+        "episode_name": "Earth Skills",
+        "series_number": 2,
+        "season_number": 2
+    },
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-04-02 21:00",
+        "episode_name": "Earth Kills",
+        "series_number": 3,
+        "season_number": 3
+    },
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-04-09 21:00",
+        "episode_name": "Murphy's Law",
+        "series_number": 4,
+        "season_number": 4
+    },
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-04-16 21:00",
+        "episode_name": "Twilight's Last Gleaming",
+        "series_number": 5,
+        "season_number": 5
+    },
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-04-23 21:00",
+        "episode_name": "His Sister's Keeper",
+        "series_number": 6,
+        "season_number": 6
+    },
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-04-30 21:00",
+        "episode_name": "Contents Under Pressure",
+        "series_number": 7,
+        "season_number": 7
+    },
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-05-07 21:00",
+        "episode_name": "Day Trip",
+        "series_number": 8,
+        "season_number": 8
+    },
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-05-14 21:00",
+        "episode_name": "Unity Day",
+        "series_number": 9,
+        "season_number": 9
+    },
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-05-21 21:00",
+        "episode_name": "I Am Become Death",
+        "series_number": 10,
+        "season_number": 10
+    },
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-05-28 21:00",
+        "episode_name": "The Calm",
+        "series_number": 11,
+        "season_number": 11
+    },
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-06-04 21:00",
+        "episode_name": "We Are Grounders - Part I",
+        "series_number": 12,
+        "season_number": 12
+    },
+    {
+        "season": 1,
+        "series_name": "The 100",
+        "aired_at": "2014-06-11 21:00",
+        "episode_name": "We Are Grounders - Part II",
+        "series_number": 13,
+        "season_number": 13
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2014-10-22 21:00",
+        "episode_name": "The 48",
+        "series_number": 14,
+        "season_number": 1
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2014-10-29 21:00",
+        "episode_name": "Inclement Weather",
+        "series_number": 15,
+        "season_number": 2
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2014-11-05 21:00",
+        "episode_name": "Reapercussions",
+        "series_number": 16,
+        "season_number": 3
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2014-11-12 21:00",
+        "episode_name": "Many Happy Returns",
+        "series_number": 17,
+        "season_number": 4
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2014-11-19 21:00",
+        "episode_name": "Human Trials",
+        "series_number": 18,
+        "season_number": 5
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2014-12-03 21:00",
+        "episode_name": "Fog of War",
+        "series_number": 19,
+        "season_number": 6
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2014-12-10 21:00",
+        "episode_name": "Long Into an Abyss",
+        "series_number": 20,
+        "season_number": 7
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2014-12-17 21:00",
+        "episode_name": "Spacewalker",
+        "series_number": 21,
+        "season_number": 8
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2015-01-21 21:00",
+        "episode_name": "Remember Me",
+        "series_number": 22,
+        "season_number": 9
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2015-01-28 21:00",
+        "episode_name": "Survival of the Fittest",
+        "series_number": 23,
+        "season_number": 10
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2015-02-04 21:00",
+        "episode_name": "Coup de Gr\u00e2ce",
+        "series_number": 24,
+        "season_number": 11
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2015-02-11 21:00",
+        "episode_name": "Rubicon",
+        "series_number": 25,
+        "season_number": 12
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2015-02-18 21:00",
+        "episode_name": "Resurrection",
+        "series_number": 26,
+        "season_number": 13
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2015-02-25 21:00",
+        "episode_name": "Bodyguard of Lies",
+        "series_number": 27,
+        "season_number": 14
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2015-03-04 21:00",
+        "episode_name": "Blood Must Have Blood, Part One",
+        "series_number": 28,
+        "season_number": 15
+    },
+    {
+        "season": 2,
+        "series_name": "The 100",
+        "aired_at": "2015-03-11 21:00",
+        "episode_name": "Blood Must Have Blood, Part Two",
+        "series_number": 29,
+        "season_number": 16
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-01-21 21:00",
+        "episode_name": "Wanheda: Part One",
+        "series_number": 30,
+        "season_number": 1
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-01-28 21:00",
+        "episode_name": "Wanheda: Part Two",
+        "series_number": 31,
+        "season_number": 2
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-02-04 21:00",
+        "episode_name": "Ye Who Enter Here",
+        "series_number": 32,
+        "season_number": 3
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-02-11 21:00",
+        "episode_name": "Watch the Thrones",
+        "series_number": 33,
+        "season_number": 4
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-02-18 21:00",
+        "episode_name": "Hakeldama",
+        "series_number": 34,
+        "season_number": 5
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-02-25 21:00",
+        "episode_name": "Bitter Harvest",
+        "series_number": 35,
+        "season_number": 6
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-03-03 21:00",
+        "episode_name": "Thirteen",
+        "series_number": 36,
+        "season_number": 7
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-03-10 21:00",
+        "episode_name": "Terms and Conditions",
+        "series_number": 37,
+        "season_number": 8
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-03-31 21:00",
+        "episode_name": "Stealing Fire",
+        "series_number": 38,
+        "season_number": 9
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-04-07 21:00",
+        "episode_name": "Fallen",
+        "series_number": 39,
+        "season_number": 10
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-04-14 21:00",
+        "episode_name": "Nevermore",
+        "series_number": 40,
+        "season_number": 11
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-04-21 21:00",
+        "episode_name": "Demons",
+        "series_number": 41,
+        "season_number": 12
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-04-28 21:00",
+        "episode_name": "Join or Die",
+        "series_number": 42,
+        "season_number": 13
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-05-05 21:00",
+        "episode_name": "Red Sky at Morning",
+        "series_number": 43,
+        "season_number": 14
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-05-12 21:00",
+        "episode_name": "Perverse Instantiation - Part One",
+        "series_number": 44,
+        "season_number": 15
+    },
+    {
+        "season": 3,
+        "series_name": "The 100",
+        "aired_at": "2016-05-19 21:00",
+        "episode_name": "Perverse Instantiation - Part Two",
+        "series_number": 45,
+        "season_number": 16
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-02-01 21:00",
+        "episode_name": "Echoes",
+        "series_number": 46,
+        "season_number": 1
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-02-08 21:00",
+        "episode_name": "Heavy Lies the Crown",
+        "series_number": 47,
+        "season_number": 2
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-02-15 21:00",
+        "episode_name": "The Four Horsemen",
+        "series_number": 48,
+        "season_number": 3
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-02-22 21:00",
+        "episode_name": "A Lie Guarded",
+        "series_number": 49,
+        "season_number": 4
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-03-01 21:00",
+        "episode_name": "The Tinder Box",
+        "series_number": 50,
+        "season_number": 5
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-03-15 21:00",
+        "episode_name": "We Will Rise",
+        "series_number": 51,
+        "season_number": 6
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-03-22 21:00",
+        "episode_name": "Gimme Shelter",
+        "series_number": 52,
+        "season_number": 7
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-03-29 21:00",
+        "episode_name": "God Complex",
+        "series_number": 53,
+        "season_number": 8
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-04-26 21:00",
+        "episode_name": "DNR",
+        "series_number": 54,
+        "season_number": 9
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-05-03 21:00",
+        "episode_name": "Die All, Die Merrily",
+        "series_number": 55,
+        "season_number": 10
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-05-10 21:00",
+        "episode_name": "The Other Side",
+        "series_number": 56,
+        "season_number": 11
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-05-17 21:00",
+        "episode_name": "The Chosen",
+        "series_number": 57,
+        "season_number": 12
+    },
+    {
+        "season": 4,
+        "series_name": "The 100",
+        "aired_at": "2017-05-24 21:00",
+        "episode_name": "Praimfaya",
+        "series_number": 58,
+        "season_number": 13
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-04-24 21:00",
+        "episode_name": "Eden",
+        "series_number": 59,
+        "season_number": 1
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-05-01 21:00",
+        "episode_name": "Red Queen",
+        "series_number": 60,
+        "season_number": 2
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-05-08 21:00",
+        "episode_name": "Sleeping Giants",
+        "series_number": 61,
+        "season_number": 3
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-05-15 21:00",
+        "episode_name": "Pandora's Box",
+        "series_number": 62,
+        "season_number": 4
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-05-22 21:00",
+        "episode_name": "Shifting Sands",
+        "series_number": 63,
+        "season_number": 5
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-06-05 21:00",
+        "episode_name": "Exit Wounds",
+        "series_number": 64,
+        "season_number": 6
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-06-19 21:00",
+        "episode_name": "Acceptable Losses",
+        "series_number": 65,
+        "season_number": 7
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-06-26 21:00",
+        "episode_name": "How We Get to Peace",
+        "series_number": 66,
+        "season_number": 8
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-07-10 20:00",
+        "episode_name": "Sic Semper Tyrannis",
+        "series_number": 67,
+        "season_number": 9
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-07-17 20:00",
+        "episode_name": "The Warriors Will",
+        "series_number": 68,
+        "season_number": 10
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-07-24 20:00",
+        "episode_name": "The Dark Year",
+        "series_number": 69,
+        "season_number": 11
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-07-31 20:00",
+        "episode_name": "Damocles - Part One",
+        "series_number": 70,
+        "season_number": 12
+    },
+    {
+        "season": 5,
+        "series_name": "The 100",
+        "aired_at": "2018-08-07 20:00",
+        "episode_name": "Damocles - Part Two",
+        "series_number": 71,
+        "season_number": 13
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-04-30 21:00",
+        "episode_name": "Sanctum",
+        "series_number": 72,
+        "season_number": 1
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-05-07 21:00",
+        "episode_name": "Red Sun Rising",
+        "series_number": 73,
+        "season_number": 2
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-05-14 21:00",
+        "episode_name": "The Children of Gabriel",
+        "series_number": 74,
+        "season_number": 3
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-05-21 21:00",
+        "episode_name": "The Face Behind the Glass",
+        "series_number": 75,
+        "season_number": 4
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-05-28 21:00",
+        "episode_name": "The Gospel of Josephine",
+        "series_number": 76,
+        "season_number": 5
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-06-11 21:00",
+        "episode_name": "Memento Mori",
+        "series_number": 77,
+        "season_number": 6
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-06-18 21:00",
+        "episode_name": "Nevermind",
+        "series_number": 78,
+        "season_number": 7
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-06-25 21:00",
+        "episode_name": "The Old Man and the Anomaly",
+        "series_number": 79,
+        "season_number": 8
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-07-09 21:00",
+        "episode_name": "What You Take With You",
+        "series_number": 80,
+        "season_number": 9
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-07-16 21:00",
+        "episode_name": "Matryoshka",
+        "series_number": 81,
+        "season_number": 10
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-07-23 21:00",
+        "episode_name": "Ashes to Ashes",
+        "series_number": 82,
+        "season_number": 11
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-07-30 21:00",
+        "episode_name": "Adjustment Protocol",
+        "series_number": 83,
+        "season_number": 12
+    },
+    {
+        "season": 6,
+        "series_name": "The 100",
+        "aired_at": "2019-08-06 21:00",
+        "episode_name": "The Blood of Sanctum",
+        "series_number": 84,
+        "season_number": 13
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-05-20 20:00",
+        "episode_name": "From the Ashes",
+        "series_number": 85,
+        "season_number": 1
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-05-27 20:00",
+        "episode_name": "The Garden",
+        "series_number": 86,
+        "season_number": 2
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-06-03 20:00",
+        "episode_name": "False Gods",
+        "series_number": 87,
+        "season_number": 3
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-06-10 20:00",
+        "episode_name": "Hesperides",
+        "series_number": 88,
+        "season_number": 4
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-06-17 20:00",
+        "episode_name": "Welcome to Bardo",
+        "series_number": 89,
+        "season_number": 5
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-06-24 20:00",
+        "episode_name": "Nakara",
+        "series_number": 90,
+        "season_number": 6
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-07-01 20:00",
+        "episode_name": "The Queen's Gambit",
+        "series_number": 91,
+        "season_number": 7
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-07-08 20:00",
+        "episode_name": "Anaconda",
+        "series_number": 92,
+        "season_number": 8
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-07-15 20:00",
+        "episode_name": "The Flock",
+        "series_number": 93,
+        "season_number": 9
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-08-05 20:00",
+        "episode_name": "A Little Sacrifice",
+        "series_number": 94,
+        "season_number": 10
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-08-12 20:00",
+        "episode_name": "Etherea",
+        "series_number": 95,
+        "season_number": 11
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-08-19 20:00",
+        "episode_name": "The Stranger",
+        "series_number": 96,
+        "season_number": 12
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-09-09 20:00",
+        "episode_name": "Blood Giant",
+        "series_number": 97,
+        "season_number": 13
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-09-16 20:00",
+        "episode_name": "A Sort of Homecoming",
+        "series_number": 98,
+        "season_number": 14
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-09-23 20:00",
+        "episode_name": "The Dying of the Light",
+        "series_number": 99,
+        "season_number": 15
+    },
+    {
+        "season": 7,
+        "series_name": "The 100",
+        "aired_at": "2020-09-30 20:00",
+        "episode_name": "The Last War",
+        "series_number": 100,
+        "season_number": 16
+    }
+]

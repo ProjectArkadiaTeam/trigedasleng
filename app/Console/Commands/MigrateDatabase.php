@@ -14,7 +14,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\EnumeratesValues;
-use phpDocumentor\Reflection\DocBlock\Tags\Source;
 
 class MigrateDatabase extends Command
 {
@@ -123,7 +122,7 @@ class MigrateDatabase extends Command
 
             // Create episode quote
             if($episode != 'other'){
-                $new_episode = 
+                //$new_episode =
             }
         }
     }
@@ -138,7 +137,7 @@ class MigrateDatabase extends Command
     {
 
         //$this->convertWords();
-        $this->convertSentences();
+        //$this->convertSentences();
 
         return 0;
     }

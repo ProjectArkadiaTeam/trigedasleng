@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Group query()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Group whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Group whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Group whereValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Group whereSeasonNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Group whereSeriesId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Group whereUpdatedAt($value)
  * @mixin \Eloquent
@@ -34,7 +34,7 @@ class Season extends Model
      * @var array
      */
     protected $fillable = [
-        'value', 'series_id'
+        'season_number', 'series_id'
     ];
 
     /**

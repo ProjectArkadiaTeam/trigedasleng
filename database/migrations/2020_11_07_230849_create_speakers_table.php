@@ -45,7 +45,6 @@ class CreateSpeakersTable extends Migration
         (new Speaker(['value'  => 'Murphey',    'series_id' => Series::whereValue('The 100')->value('id')]))->save();
         (new Speaker(['value'  => 'Nyko',       'series_id' => Series::whereValue('The 100')->value('id')]))->save();
         (new Speaker(['value'  => 'Obika',      'series_id' => Series::whereValue('The 100')->value('id')]))->save();
-
     }
 
     /**

@@ -58,28 +58,4 @@ Route::namespace('Api\v1')->prefix('v1')->group(function(){
 
 });
 
-//Route::namespace('Api')->group(function(){
-////    Route::middleware('auth:api')->get('/user', function (Request $request) {
-////        return $request->user();
-////    });
-//
-//    Route::prefix('auth')->group(function () {
-//        Route::post('login', 'AuthController@login');
-//        Route::post('signup', 'AuthController@signup');
-//
-//        Route::group(['middleware' => 'auth:api'], function() {
-//            Route::get('logout', 'AuthController@logout');
-//            Route::get('user', 'AuthController@user');
-//        });
-//    });
-//
-//    // Legacy API
-//    Route::prefix('legacy')->group(function () {
-//        Route::get('/dictionary', 'LegacyController@dictionary')->name('api.legacy.dictionary');
-//        Route::get('/translations', 'LegacyController@translations')->name('api.legacy.translations');
-//        Route::get('/search', 'LegacyController@search')->name('api.legacy.search');
-//        Route::get('/lookup', 'LegacyController@wordLookup')->name('api.legacy.lookup');
-//        Route::get('/recent', 'LegacyController@recent')->name('api.legacy.recent');
-//        Route::get('/random', 'LegacyController@random')->name('api.legacy.random');
-//    });
-//});
+

@@ -16,6 +16,7 @@ class CreateWordsTable extends Migration
         Schema::create('words', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('value');
+            $table->string('pronunciation')->nullable();
             $table->uuid('dictionary_id');
             $table->timestamps();
 

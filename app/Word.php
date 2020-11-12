@@ -17,7 +17,7 @@ class Word extends Model
      * @var array
      */
     protected $fillable = [
-        'value', 'dictionary_id',
+        'value', 'dictionary_id', 'pronunciation'
     ];
     /**
      * The attributes that should be hidden for arrays.

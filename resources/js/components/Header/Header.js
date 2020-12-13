@@ -132,7 +132,7 @@ class Header extends Component {
 		this.setState({
 			value: newValue
 		});
-		onSearch(event);
+		onSearch(newValue);
 	};
 
 	/**

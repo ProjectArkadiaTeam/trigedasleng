@@ -90,9 +90,8 @@ class Main extends Component {
 		}
 	}
 
-	updateSearch = (e) => {
-		e.preventDefault();
-		this.setState({search: e.target.value})
+	updateSearch = (query) => {
+		this.setState({search: query})
 	};
 
 	/** On first load */

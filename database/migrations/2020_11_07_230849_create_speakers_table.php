@@ -17,7 +17,7 @@ class CreateSpeakersTable extends Migration
     {
         Schema::create('speakers', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('value');
+            $table->text('value');
             $table->uuid('series_id');
             $table->timestamps();
 

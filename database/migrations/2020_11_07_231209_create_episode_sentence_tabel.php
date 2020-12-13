@@ -17,7 +17,7 @@ class CreateEpisodeSentenceTabel extends Migration
             $table->uuid('id')->primary();
             $table->uuid('episode_id');
             $table->uuid('sentence_id');
-            $table->uuid('speaker_id');
+            $table->uuid('speaker_id')->nullable();
             $table->timestamps();
 
             $table->foreign('episode_id')->references('id')->on('episodes');

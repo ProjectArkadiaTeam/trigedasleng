@@ -16,7 +16,7 @@ class CreateSeriesTable extends Migration
     {
         Schema::create('series', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('value');
+            $table->text('value');
             $table->timestamps();
         });
 

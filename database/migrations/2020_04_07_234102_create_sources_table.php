@@ -16,10 +16,10 @@ class CreateSourcesTable extends Migration
     {
         Schema::create('sources', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('title');
-            $table->string('author');
+            $table->text('title');
+            $table->text('author');
             $table->date('date')->nullable();
-            $table->string('url');
+            $table->text('url');
             $table->timestamps();
         });
 

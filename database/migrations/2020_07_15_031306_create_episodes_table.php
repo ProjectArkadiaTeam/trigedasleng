@@ -19,7 +19,7 @@ class CreateEpisodesTable extends Migration
         Schema::create('episodes', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('season_id');
-            $table->string('value');
+            $table->text('value');
             $table->integer('season_number');
             $table->integer('series_number');
             $table->timestamps();

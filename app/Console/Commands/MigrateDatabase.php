@@ -4,7 +4,10 @@ namespace App\Console\Commands;
 
 use App\Classification;
 use App\Dictionary;
+use App\Episode;
+use App\Season;
 use App\Sentence;
+use App\Speaker;
 use App\Translation;
 use App\Word;
 use App\Source;
@@ -97,7 +100,6 @@ class MigrateDatabase extends Command
             if ($episode != 'other') {
                 // Guess source
                 $season = str_split($episode)[1];
-                $episode_n = 0;
                 if (str_split($episode)[2] != '0')
                     $episode_n = str_split($episode)[2] + str_split($episode)[3];
                 else
@@ -120,9 +122,21 @@ class MigrateDatabase extends Command
             );
             $new_sentence->save();
 
-            // Create episode quote
-            if($episode != 'other'){
-                //$new_episode =
+            // Find episode and attach
+            if($episode != 'other' && $episode != ''){
+                //'value', 'season_id', 'season_number', 'series_number'
+                $episode = Episode::where([
+                    ['season_id', '=', Season::whereSeasonNumber($season)->value('id')],
+                    ['season_number', '=', $episode_n ]
+                ])->first();
+
+                if ($episode != null) {
+                    $speaker = Speaker::whereValue($speaker)->first();
+                    if ($speaker != null){
+                        $speaker = $speaker->value('id');
+                    }
+                    $episode->sentences()->attach($new_sentence->value('id'), ['speaker_id' => $speaker, 'id' => Str::orderedUuid()]);
+                }
             }
         }
     }
@@ -136,8 +150,8 @@ class MigrateDatabase extends Command
     public function handle()
     {
 
-        //$this->convertWords();
-        //$this->convertSentences();
+        $this->convertWords();
+        $this->convertSentences();
 
         return 0;
     }

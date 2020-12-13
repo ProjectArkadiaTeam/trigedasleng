@@ -17,12 +17,12 @@ class CreateSentencesTable extends Migration
         Schema::create('sentences', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('dictionary_id');
-            $table->uuid('source_id');
-            $table->string('value');
-            $table->string('english');
-            $table->string('etymology');
-            $table->string('leipzig_glossing');
-            $table->string('audio');
+            $table->uuid('source_id')->nullable();
+            $table->text('value');
+            $table->text('english');
+            $table->text('etymology')->nullable();
+            $table->text('leipzig_glossing')->nullable();
+            $table->text('audio')->nullable();
             $table->timestamps();
 
             $table->foreign('dictionary_id')->references('id')->on('dictionaries');

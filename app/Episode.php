@@ -50,10 +50,18 @@ class Episode extends Model
 
 
     /**
-     * Get the seaon for the episode.
+     * Get the season for the episode.
      */
     public function season()
     {
         return $this->belongsTo('App\Season');
+    }
+
+    /**
+     * Get the sentences for the episode.
+     */
+    public function sentences()
+    {
+        return $this->belongsToMany('App\Sentence','episode_sentence')->withTimestamps();
     }
 }

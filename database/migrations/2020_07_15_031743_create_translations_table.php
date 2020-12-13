@@ -19,7 +19,7 @@ class CreateTranslationsTable extends Migration
             $table->uuid('word_source_id');
             $table->uuid('word_target_id');
             $table->uuid('source_id')->nullable();
-            $table->string('etymology')->default('unknown');
+            $table->text('etymology')->default('unknown');
             $table->boolean('is_approved')->default(false);
             $table->timestamps();
 

@@ -96,6 +96,13 @@ class LegacyController extends Controller
 
     }
 
+    public function sources(){
+        $sources = DB::table('dict_sources');
+        $data = $sources->get()->toArray();
+
+        return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
+    }
+
     private function utf8ize($data) {
         if (is_array($data)) {
             foreach ($data as $key => $value) {

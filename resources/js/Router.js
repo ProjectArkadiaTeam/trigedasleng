@@ -5,6 +5,7 @@ import {Route, Switch} from 'react-router-dom';
 const Home = lazy(() => import('./views/Home' /* webpackChunkName: "js/Home" */));
 const Login = lazy(() => import('./views/Login/Login' /* webpackChunkName: "js/Login" */));
 const Grammar = lazy(() => import('./views/Grammar' /* webpackChunkName: "js/Grammar" */));
+const Sources = lazy(() => import('./views/Sources' /* webpackChunkName: "js/Sources" */));
 const Register = lazy(() => import('./views/Register/Register' /* webpackChunkName: "js/Register" */));
 const NotFound = lazy(() => import('./views/Errors/NotFound' /* webpackChunkName: "js/NotFound" */));
 const WordView = lazy(() => import('./views/WordView' /* webpackChunkName: "js/WordView" */));
@@ -38,6 +39,7 @@ const Main = props => (
 				<Route exact path='/register' component={Register}/>
 				<Route exact path='/translations' component={Translations}/>
 				<Route exact path='/grammar' component={Grammar}/>
+				<Route exact path='/sources' component={Sources}/>
 				<Route exact path='/dictionary' component={Dictionary}/>
 				<Route path='/dictionary/:dictionary' component={Dictionary}/>
 				<Route exact path='/word' component={WordView}/>

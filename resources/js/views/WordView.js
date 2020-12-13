@@ -29,7 +29,6 @@ class WordView extends Component {
 	fetchWordInfo() {
 		let word = this.props.match.params.word;
 		let api = '/api/legacy/lookup?query=' + word;
-		console.log(word);
 
 		// fetch
 		fetch(api)

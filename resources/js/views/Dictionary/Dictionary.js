@@ -10,11 +10,10 @@ const Word = lazy(() => import('../../components/Word' /* webpackChunkName: "js/
 import 'whatwg-fetch';
 
 // Define search function outside class so we can reach it from the Header
-export function searchDict(query) {
-	console.log(this);
-	if (this !== undefined)
-		this.setState({search: query});
-}
+// export function searchDict(query) {
+// 	if (this !== undefined)
+// 		this.setState({search: query});
+// }
 
 const wordClasses = [
 	"all",
@@ -33,20 +32,16 @@ class Dictionary extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isLoggedIn: false,
-			isAdmin: false,
-			user: {},
-			search: "",
 			classFilter: "all",
 			showFilterButtons: !isMobile,
 			dictionary: [],
-		}
-		searchDict = searchDict.bind(this)
+		};
 	}
+
 
 	/** On first load */
 	componentDidMount() {
-		searchDict = searchDict.bind(this)
+		//searchDict = searchDict.bind(this)
 		this.fetchDictionary();
 	}
 
@@ -85,7 +80,7 @@ class Dictionary extends Component {
 	/** Get filtered dictionary */
 	getDictionary() {
 		let dict = this.props.match.params.dictionary;
-		let search = this.state.search;
+		let search = this.props.search;
 		let classFilter = this.state.classFilter;
 
 		function applySearch(entry){
@@ -132,7 +127,7 @@ class Dictionary extends Component {
 					{
 						wordClasses.map(wordClass => {
 							return (
-								<Col key={wordClass} xl={1} lg={2} md={3}><Col md={12} as={Button} onClick={() => this.renderWordClass(wordClass)}>{wordClass}</Col></Col>
+								<Col key={wordClass} xl={1} lg={2} md={3}><Col md={12} variant="dark" as={Button} onClick={() => this.renderWordClass(wordClass)}>{wordClass}</Col></Col>
 							)
 						})
 					}

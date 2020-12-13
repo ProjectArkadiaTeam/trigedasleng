@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 
-
 import Main from './Router';
-
 class Index extends Component {
 	render() {
 		return (

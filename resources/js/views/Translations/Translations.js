@@ -15,32 +15,16 @@ import {seasonList, episodeList} from "./data";
  */
 import 'whatwg-fetch';
 
-/**
- * Export search function outside class so we can reach it from the Header
- * Not sure if there is a better way to do this
- */
-export function searchTranslations(query) {
-	// this is undefined when the component is not mounted
-	if (this !== undefined)
-		this.setState({search: query})
-}
-
 class Translations extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isLoggedIn: false,
-			isAdmin: false,
-			user: {},
             translations: [],
             isLoading: true,
             selectedSeason: null,
             episodesLoaded: 2,
-			search: "",
-        }
-
-		searchTranslations = searchTranslations.bind(this)
-        this.renderSeason = this.renderSeason.bind(this);
+        };
+		this.renderSeason = this.renderSeason.bind(this);
 	}
 
 	/**
@@ -130,7 +114,7 @@ class Translations extends Component {
 	/** Render list of translations */
 	renderTranslations(key) {
 		// If search is not none we filter the translations
-		let search = this.state.search.toLowerCase();
+		let search = this.props.search.toLowerCase();
 		let translations = this.getEpisode(key);
 		if (search !== "") {
 			translations = this.getEpisode(key).filter(translation => {
@@ -180,7 +164,7 @@ class Translations extends Component {
             <Row xs={2} sm={2} md={2} lg={3} xl={4} className="justify-content-md-center">
                 {
                     Object.keys(seasonList).map(key => {
-                        return (<Col key={key} md={6}><Col md={12} as={Button} onClick={() => this.renderSeason(key)}>{seasonList[key]}</Col></Col>)
+                        return (<Col key={key} md={6}><Col md={12} variant="dark" as={Button} onClick={() => this.renderSeason(key)}>{seasonList[key]}</Col></Col>)
                     })
                 }
             </Row>

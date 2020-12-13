@@ -4,12 +4,9 @@ import Translation from "../components/Translation";
 import Word from "../components/Word";
 
 class Home extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
-			isLoggedIn: false,
-			isAdmin: false,
-			user: {},
 			recent: [],
 			random: []
 		}
@@ -50,15 +47,6 @@ class Home extends Component {
 	componentDidMount() {
 		this.fetchRecentList();
 		this.fetchRandom();
-	}
-
-	// check if user is authenticated and storing authentication data as states if true
-	UNSAFE_componentWillMount() {
-		let state = localStorage["appState"];
-		if (state) {
-			let AppState = JSON.parse(state);
-			this.setState({ isLoggedIn: AppState.isLoggedIn, user: AppState.user });
-		}
 	}
 
 	render() {

@@ -7,19 +7,25 @@ import {searchTranslations} from '../../views/Translations/Translations';
 
 class Header extends Component {
 
+	/**
+	 * Constructor
+	 * @param props
+	 */
 	constructor(props) {
 		super(props);
 		this.logOut = this.logOut.bind(this);
 	}
 
+	/**
+	 * Logout the user
+	 */
 	logOut() {
-
 		const config = {
 			headers: { Authorization: `Bearer ${this.state.user.access_token}` }
 		};
 
 		axios.get(
-			'http://localhost:8000/api/v1/auth/logout',
+			'/api/v1/auth/logout',
 			config
 		);
 
@@ -33,7 +39,10 @@ class Header extends Component {
 		window.location.reload();
 	}
 
-	// check if user is authenticated and storing authentication data as states if true
+	/**
+	 * check if user is authenticated and storing authentication data as states if true
+	 * @constructor
+	 */
 	UNSAFE_componentWillMount() {
 		let state = localStorage["appState"];
 		if (state) {
@@ -42,8 +51,12 @@ class Header extends Component {
 		}
 	}
 
+	/**
+	 * Render the header
+	 * @returns {*}
+	 */
 	render() {
-		const {location} = this.props;
+		const {location, onSearch} = this.props;
 		return (
 			<Navbar collapseOnSelect bg="dark" variant="dark" expand="md" fixed="top">
 				<Navbar.Brand href="/">Trigedasleng Dictionary</Navbar.Brand>
@@ -76,8 +89,9 @@ class Header extends Component {
 									 placeholder="Search"
 									 aria-label="Search"
 									 onChange={(e) => {
-									 	searchDict(e.target.value);
-									 	searchTranslations(e.target.value);
+										 onSearch(e);
+									 	//searchDict(e.target.value);
+									 	//searchTranslations(e.target.value);
 									 }}/>
 					</Form>
 				</Navbar.Collapse>

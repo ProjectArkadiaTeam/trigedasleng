@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {Navbar, Nav, Form, FormControl} from 'react-bootstrap';
+import Autosuggest from 'react-autosuggest';
 
 import {searchDict} from './../../views/Dictionary/Dictionary';
 import {searchTranslations} from '../../views/Translations/Translations';
@@ -14,6 +15,11 @@ class Header extends Component {
 	constructor(props) {
 		super(props);
 		this.logOut = this.logOut.bind(this);
+
+		this.state = {
+			value: '',
+			suggestions: []
+		};
 	}
 
 	/**
@@ -51,12 +57,97 @@ class Header extends Component {
 		}
 	}
 
+	// https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
+	escapeRegexCharacters(str) {
+		return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+
+	getSuggestions(value) {
+		const escapedValue = this.escapeRegexCharacters(value.trim());
+
+		if (escapedValue === '') {
+			return [];
+		}
+
+		const regex = new RegExp('^' + escapedValue, 'i');
+
+		let data = [
+			{
+				'title': 'words',
+				'results' : this.props.dictionary,
+			},
+			{
+				'title' : 'translations',
+				'results' : this.props.translations,
+			}
+		];
+
+		return data
+			.map(section => {
+				return {
+					title: section.title,
+					results: section.results.filter(result => regex.test(result.word) || regex.test(result.trigedasleng)).slice(0,5)
+				};
+			})
+			.filter(section => section.results.length > 0)
+	}
+
+	getSuggestionValue(suggestion) {
+		if (suggestion.word !== undefined)
+			return suggestion.word;
+		else
+			return suggestion.trigedasleng;
+	}
+
+	renderSuggestion(suggestion) {
+		return (
+			<span>{suggestion.word}{suggestion.trigedasleng}</span>
+		);
+	}
+
+	renderSectionTitle(section) {
+		return (
+			<strong>{section.title}</strong>
+		);
+	}
+
+	getSectionSuggestions(section) {
+		return section.results;
+	}
+
+	onSuggestionsFetchRequested = ({ value }) => {
+		this.setState({
+			suggestions: this.getSuggestions(value)
+		});
+	};
+
+	onSuggestionsClearRequested = () => {
+		this.setState({
+			suggestions: []
+		});
+	};
+
+	onChange = (event, { newValue, method }) => {
+		const {location, onSearch} = this.props;
+		this.setState({
+			value: newValue
+		});
+		onSearch(event);
+	};
+
 	/**
 	 * Render the header
 	 * @returns {*}
 	 */
 	render() {
 		const {location, onSearch} = this.props;
+		const { value, suggestions } = this.state;
+		const inputProps = {
+			placeholder: "Search",
+			value,
+			onChange: this.onChange
+		};
+
 		return (
 			<Navbar collapseOnSelect bg="dark" variant="dark" expand="md" fixed="top">
 				<Navbar.Brand href="/">Trigedasleng Dictionary</Navbar.Brand>
@@ -84,15 +175,26 @@ class Header extends Component {
 
 					}
 					<Form className="form-inline my-2">
-						<FormControl className="mr-md-2"
-									 type="search"
-									 placeholder="Search"
-									 aria-label="Search"
-									 onChange={(e) => {
-										 onSearch(e);
-									 	//searchDict(e.target.value);
-									 	//searchTranslations(e.target.value);
-									 }}/>
+						{/*<FormControl className="mr-md-2"*/}
+						{/*			 type="search"*/}
+						{/*			 placeholder="Search"*/}
+						{/*			 aria-label="Search"*/}
+						{/*			 onChange={(e) => {*/}
+						{/*				 onSearch(e);*/}
+						{/*			 	//searchDict(e.target.value);*/}
+						{/*			 	//searchTranslations(e.target.value);*/}
+						{/*			 }}/>*/}
+						<Autosuggest
+							multiSection={true}
+							suggestions={suggestions}
+							onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+							onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+							getSuggestionValue={this.getSuggestionValue}
+							renderSuggestion={this.renderSuggestion}
+							renderSectionTitle={this.renderSectionTitle}
+							getSectionSuggestions={this.getSectionSuggestions}
+							inputProps={inputProps} />
+						);
 					</Form>
 				</Navbar.Collapse>
 			</Navbar>

@@ -19,7 +19,6 @@ class Translations extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-            translations: [],
             isLoading: true,
             selectedSeason: null,
             episodesLoaded: 2,
@@ -35,29 +34,7 @@ class Translations extends Component {
 	 * https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class
 	 */
 	componentDidMount() {
-		this.fetchTranslations();
-	}
-
-	/**
-	 * Fetch translation data from the API endpoint.
-	 * Translation data is saved when switching between
-	 * dictionaries, so we dont have to fetch them everytime
-	 **/
-	fetchTranslations() {
-		// If we already have translation data cached skip
-		if (this.state.translations.length === 0) {
-
-			// fetch using the API
-			// TODO: Once the new api is in switch to that
-			fetch("/api/legacy/translations")
-				.then(response => {
-					return response.json();
-				})
-				.then(translations => {
-					// Fetched dictionary is stored in the state
-					this.setState({ translations: translations, isLoading: false });
-				});
-		}
+		//this.fetchTranslations();
 	}
 
     /**
@@ -106,7 +83,7 @@ class Translations extends Component {
 	 *  TODO: This is slow...
 	 */
 	getEpisode(key) {
-		return this.state.translations.filter(function (entry) {
+		return this.props.translations.filter(function (entry) {
 			return entry.episode === key;
 		});
 	}
@@ -216,7 +193,7 @@ class Translations extends Component {
 					<div className="translations">
 						{this.state.selectedSeason != null ?
 						<h1>{seasonList[this.state.selectedSeason]} Translations</h1> : <h1>All Translations</h1>}
-						{this.state.isLoading ? <div className="loader" key={0}>Loading ...</div> :
+						{this.props.isLoading ? <div className="loader" key={0}>Loading ...</div> :
 						<InfiniteScroll
 							pageStart={0}
 							loadMore={this.loadMoreEpisodes.bind(this)}

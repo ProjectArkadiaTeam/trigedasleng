@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, Component } from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, withRouter} from 'react-router-dom';
 
 // Everything is lazy loaded to allow for code splitting and faster initial load times
 const Home = lazy(() => import('./views/Home' /* webpackChunkName: "js/Home" */));
@@ -24,7 +24,6 @@ import PWAPrompt from 'react-ios-pwa-prompt';
 import PrivateRoute from './PrivateRoute'
 import AddTranslation from "./views/Admin/AddTranslation";
 import AddWord from "./views/Admin/AddWord";
-import Translation from "./components/Translation";
 
 let state = localStorage["appState"];
 let AppState = JSON.parse(state);
@@ -45,7 +44,49 @@ class Main extends Component {
 			user: Auth.user !== undefined ? Auth.user : {},
 
 			// Search
-			search: ""
+			search: "",
+
+			// Data
+			dictionary: [],
+			translations: [],
+			isLoading: false,
+		}
+	}
+
+	/**
+	 * Fetch translation data from the API endpoint.
+	 * Translation data is saved when switching between
+	 * dictionaries, so we dont have to fetch them everytime
+	 **/
+	fetchTranslations() {
+		// If we already have translation data cached skip
+		if (this.state.translations.length === 0 || this.state.translations.length === undefined) {
+			// fetch using the API
+			// TODO: Once the new api is in switch to that
+			fetch("/api/legacy/translations")
+				.then(response => {
+					return response.json();
+				})
+				.then(translations => {
+					// Fetched dictionary is stored in the state
+					this.setState({ translations: translations, isLoading: false });
+				});
+		}
+	}
+
+	/** Fetch API */
+	fetchDictionary() {
+		if (this.state.dictionary.length === 0 || this.state.dictionary.length === undefined) {
+			// fetch
+			fetch("/api/legacy/dictionary")
+				.then(response => {
+					return response.json();
+				})
+				.then(words => {
+					// Fetched dictionary is stored in the state
+					const sorted = words.sort((a, b) => a.word.toLowerCase() > b.word.toLowerCase() ? 1 : -1);
+					this.setState({ dictionary: sorted });
+				});
 		}
 	}
 
@@ -54,12 +95,23 @@ class Main extends Component {
 		this.setState({search: e.target.value})
 	};
 
+	/** On first load */
+	componentDidMount() {
+		this.fetchDictionary();
+		this.fetchTranslations();
+	}
+
 	render(){
 		return(
 			<React.Fragment>
 				<PWAPrompt/>
-				{console.log(this.state.isLoggedIn)}
-				<Header userData={this.state.userData} userIsLoggedIn={this.state.isLoggedIn} onSearch={this.updateSearch}/>
+				<Header
+					userData={this.state.userData}
+					userIsLoggedIn={this.state.isLoggedIn}
+					onSearch={this.updateSearch}
+					dictionary={this.state.dictionary}
+					translations={this.state.translations}
+				/>
 				<Sidebar/>
 				<Suspense fallback={<div>Loading...</div>}>
 					<Switch>
@@ -71,7 +123,11 @@ class Main extends Component {
 						<Route
 							exact path='/translations'
 							render={(props) => (
-								<Translations {...props} search={this.state.search} />
+								<Translations {...props}
+									search={this.state.search}
+									translations={this.state.translations}
+									isLoading={this.state.isLoading}
+								/>
 							)}
 						/>
 						<Route exact path='/grammar' component={Grammar}/>
@@ -79,13 +135,13 @@ class Main extends Component {
 						<Route
 							exact path='/dictionary'
 						   	render={(props) => (
-								<Dictionary {...props} search={this.state.search} />
+								<Dictionary {...props} search={this.state.search} dictionary={this.state.dictionary} />
 						   	)}
 						/>
 						<Route
 							path='/dictionary/:dictionary'
 							render={(props) => (
-								<Dictionary {...props} search={this.state.search} />
+								<Dictionary {...props} search={this.state.search} dictionary={this.state.dictionary} />
 							)}
 						/>
 						<Route exact path='/word' component={WordView}/>
@@ -99,4 +155,4 @@ class Main extends Component {
 	}
 }
 
-export default Main;
+export default withRouter(Main);

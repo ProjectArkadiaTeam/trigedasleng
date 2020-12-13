@@ -9,12 +9,6 @@ const Word = lazy(() => import('../../components/Word' /* webpackChunkName: "js/
 // does not support fetch, so we use a workaround
 import 'whatwg-fetch';
 
-// Define search function outside class so we can reach it from the Header
-// export function searchDict(query) {
-// 	if (this !== undefined)
-// 		this.setState({search: query});
-// }
-
 const wordClasses = [
 	"all",
 	"noun",
@@ -34,7 +28,6 @@ class Dictionary extends Component {
 		this.state = {
 			classFilter: "all",
 			showFilterButtons: !isMobile,
-			dictionary: [],
 		};
 	}
 
@@ -42,7 +35,7 @@ class Dictionary extends Component {
 	/** On first load */
 	componentDidMount() {
 		//searchDict = searchDict.bind(this)
-		this.fetchDictionary();
+		//this.fetchDictionary();
 	}
 
 	componentWillUnmount() {
@@ -60,25 +53,13 @@ class Dictionary extends Component {
 		}
 	}
 
-	/** Fetch API */
-	fetchDictionary() {
-		if (this.state.dictionary.length === 0) {
-
-			// fetch
-			fetch("/api/legacy/dictionary")
-				.then(response => {
-					return response.json();
-				})
-				.then(words => {
-					// Fetched dictionary is stored in the state
-					const sorted = words.sort((a, b) => a.word.toLowerCase() > b.word.toLowerCase() ? 1 : -1);
-					this.setState({ dictionary: sorted });
-				});
-		}
-	}
-
 	/** Get filtered dictionary */
 	getDictionary() {
+		const {dictionary} = this.props;
+
+		if (dictionary.length === undefined)
+			return [];
+
 		let dict = this.props.match.params.dictionary;
 		let search = this.props.search;
 		let classFilter = this.state.classFilter;
@@ -94,13 +75,13 @@ class Dictionary extends Component {
 
 		// dict will be undefined if no dictionary is given
 		if (dict == null)
-			return this.state.dictionary.filter(function (entry) {
+			return dictionary.filter(function (entry) {
 				return applySearch(entry) && applyClassFilter(entry)
 			}
 		);
 
 		// Filter based on dictionary type
-		return this.state.dictionary.filter(function (entry) {
+		return dictionary.filter(function (entry) {
 			return (dict === entry.filter.split(' ').find(val => val === dict)
 			&& applySearch(entry) && applyClassFilter(entry))
 		});

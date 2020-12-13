@@ -20,5 +20,17 @@
     "/js/WordView.js": "/js/WordView.js",
     "/js/WordView.js.map": "/js/WordView.js.map",
     "/js/word.js": "/js/word.js",
-    "/js/word.js.map": "/js/word.js.map"
+    "/js/word.js.map": "/js/word.js.map",
+    "/js/Dictionary.js": "/js/Dictionary.js",
+    "/js/Dictionary.js.map": "/js/Dictionary.js.map",
+    "/js/Translations.js": "/js/Translations.js",
+    "/js/Translations.js.map": "/js/Translations.js.map",
+    "/vendors~js/Dictionary.js": "/vendors~js/Dictionary.js",
+    "/vendors~js/Dictionary.js.map": "/vendors~js/Dictionary.js.map",
+    "/vendors~js/Dictionary~js/Translations~js/WordView.js": "/vendors~js/Dictionary~js/Translations~js/WordView.js",
+    "/vendors~js/Dictionary~js/Translations~js/WordView.js.map": "/vendors~js/Dictionary~js/Translations~js/WordView.js.map",
+    "/vendors~js/Translations.js": "/vendors~js/Translations.js",
+    "/vendors~js/Translations.js.map": "/vendors~js/Translations.js.map",
+    "/vendors~js/Dictionary~js/Grammar~js/Home~js/Login~js/Register~js/Translations~js/WordView.js": "/vendors~js/Dictionary~js/Grammar~js/Home~js/Login~js/Register~js/Translations~js/WordView.js",
+    "/vendors~js/Dictionary~js/Grammar~js/Home~js/Login~js/Register~js/Translations~js/WordView.js.map": "/vendors~js/Dictionary~js/Grammar~js/Home~js/Login~js/Register~js/Translations~js/WordView.js.map"
 }

@@ -26,6 +26,7 @@ Route::namespace('Api')->group(function(){
         Route::get('/recent', 'LegacyController@recent')->name('api.legacy.recent');
         Route::get('/random', 'LegacyController@random')->name('api.legacy.random');
         Route::get('/translations', 'LegacyController@translations')->name('api.legacy.translations');
+        Route::get('/lookup', 'LegacyController@wordLookup')->name('api.legacy.wordLookup');
     });
 
 });

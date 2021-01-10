@@ -141,6 +141,7 @@ class Header extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
+		e.target.blur();
 		this.closeNav();
 		this.props.history.push('/search/'+this.state.value)
 	};
@@ -171,6 +172,19 @@ class Header extends Component {
 				<Navbar.Brand href="/">Trigedasleng Dictionary</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav"/>
 				<Navbar.Collapse id="basic-navbar-nav">
+					<Form className="form-inline my-2" onSubmit={this.handleSubmit}>
+						<Autosuggest
+							multiSection={true}
+							suggestions={suggestions}
+							onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+							onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+							getSuggestionValue={this.getSuggestionValue}
+							renderSuggestion={this.renderSuggestion}
+							renderSectionTitle={this.renderSectionTitle}
+							getSectionSuggestions={this.getSectionSuggestions}
+							inputProps={inputProps} />
+						);
+					</Form>
 					<Nav className="mr-auto" activeKey={location.pathname}>
 						<Nav.Link eventKey="1" as={Link} to="/" className="d-md-none">Home</Nav.Link>
 						<Nav.Link eventKey="1" as={Link} to="/dictionary" className="d-md-none">Dictionary</Nav.Link>
@@ -192,19 +206,6 @@ class Header extends Component {
 
 
 					}
-					<Form className="form-inline my-2" onSubmit={this.handleSubmit}>
-						<Autosuggest
-							multiSection={true}
-							suggestions={suggestions}
-							onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-							onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-							getSuggestionValue={this.getSuggestionValue}
-							renderSuggestion={this.renderSuggestion}
-							renderSectionTitle={this.renderSectionTitle}
-							getSectionSuggestions={this.getSectionSuggestions}
-							inputProps={inputProps} />
-						);
-					</Form>
 				</Navbar.Collapse>
 			</Navbar>
 		)

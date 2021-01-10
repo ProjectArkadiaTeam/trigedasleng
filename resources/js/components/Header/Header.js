@@ -15,8 +15,11 @@ class Header extends Component {
 
 		this.state = {
 			value: '',
-			suggestions: []
+			suggestions: [],
+			navExpanded: false
 		};
+
+		this.setNavExpanded = this.setNavExpanded.bind(this);
 	}
 
 	/**
@@ -138,7 +141,16 @@ class Header extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
+		this.closeNav();
 		this.props.history.push('/search/'+this.state.value)
+	};
+
+	setNavExpanded(expanded) {
+		this.setState({ navExpanded: expanded });
+	};
+
+	closeNav() {
+		this.setState({ navExpanded: false });
 	};
 
 	/**
@@ -155,7 +167,7 @@ class Header extends Component {
 		};
 
 		return (
-			<Navbar collapseOnSelect bg="dark" variant="dark" expand="md" fixed="top">
+			<Navbar collapseOnSelect onToggle={this.setNavExpanded} expanded={this.state.navExpanded} bg="dark" variant="dark" expand="md" fixed="top">
 				<Navbar.Brand href="/">Trigedasleng Dictionary</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav"/>
 				<Navbar.Collapse id="basic-navbar-nav">

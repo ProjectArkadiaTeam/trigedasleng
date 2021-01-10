@@ -28,7 +28,7 @@ function Translation(props) {
 			</Table>
 			{translation.audio !== "" ?
 				<audio controls preload="none">
-					<source src={ translation.audio } type="audio/mpeg" />
+					<source src={ '/' + translation.audio } type="audio/mpeg" />
 				</audio> : ''}
 		</div>
 	);

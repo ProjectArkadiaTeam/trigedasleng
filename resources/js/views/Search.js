@@ -95,11 +95,13 @@ class Search extends Component {
 									</Suspense>
 								</div>
 								<h2>Translations matching your search</h2>
-								{ this.props.isLoading ? "Loading" :
-									<Suspense fallback={<h3>Receving data from the ark...</h3>} >
-										{ this.renderTranslations() }
-									</Suspense>
-								}
+								<div className="translations">
+									{ this.props.isLoading ? "Loading" :
+										<Suspense fallback={<h3>Receving data from the ark...</h3>} >
+											{ this.renderTranslations() }
+										</Suspense>
+									}
+								</div>
 							</React.Fragment>
 							}
 					</div>

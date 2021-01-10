@@ -2,10 +2,6 @@ import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {Navbar, Nav, Form, FormControl} from 'react-bootstrap';
 import Autosuggest from 'react-autosuggest';
-import { isMobile } from "react-device-detect";
-
-import {searchDict} from './../../views/Dictionary/Dictionary';
-import {searchTranslations} from '../../views/Translations/Translations';
 
 class Header extends Component {
 
@@ -137,8 +133,7 @@ class Header extends Component {
 		if(newValue.length < 3)
 			newValue = "";
 
-		if(!isMobile)
-			onSearch(newValue);
+		onSearch(newValue);
 	};
 
 	handleSubmit = (e) => {

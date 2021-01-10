@@ -100,7 +100,7 @@ class Dictionary extends Component {
 			<React.Fragment>
 				<MobileView>
 					<Row xs={1} className="justify-content-md-center">
-						<Col key="showFilter" xl={1} lg={1} md={1}><Col md={12} as={Button} onClick={() => this.setState({showFilterButtons: !this.state.showFilterButtons})}>Filter</Col></Col>
+						<Col key="showFilter" xl={1} lg={1} md={1}><Col md={12} as={Button} variant="dark" onClick={() => this.setState({showFilterButtons: !this.state.showFilterButtons})}>Filter</Col></Col>
 					</Row>
 				</MobileView>
 				{this.state.showFilterButtons ?

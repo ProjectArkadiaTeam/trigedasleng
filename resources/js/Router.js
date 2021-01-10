@@ -11,6 +11,7 @@ const NotFound = lazy(() => import('./views/Errors/NotFound' /* webpackChunkName
 const WordView = lazy(() => import('./views/WordView' /* webpackChunkName: "js/WordView" */));
 const Dictionary = lazy(() => import('./views/Dictionary/Dictionary' /* webpackChunkName: "js/Dictionary" */));
 const Translations = lazy(() => import('./views/Translations/Translations' /* webpackChunkName: "js/Translations" */));
+const Search = lazy(() => import('./views/Search' /* webpackChunkName: "js/Search" */));
 
 // Load Static elements normally as they are required
 import Header from './components/Header/Header';
@@ -145,6 +146,17 @@ class Main extends Component {
 						/>
 						<Route exact path='/word' component={WordView}/>
 						<Route path='/word/:word' component={WordView}/>
+						<Route
+							path='/search/:query'
+							render={(props) => (
+								<Search {...props}
+										search = {this.state.search}
+										dictionary = {this.state.dictionary}
+										translations = {this.state.translations}
+										onSearch={this.updateSearch}
+										isLoading={this.state.isLoading} />
+							)}
+						/>
 						<Route component={NotFound} />
 					</Switch>
 				</Suspense>

@@ -132,7 +132,16 @@ class Header extends Component {
 		this.setState({
 			value: newValue
 		});
+
+		if(newValue.length < 3)
+			newValue = "";
+
 		onSearch(newValue);
+	};
+
+	handleSubmit = (e) => {
+		e.preventDefault();
+		this.props.history.push('/search/'+this.state.value)
 	};
 
 	/**
@@ -174,16 +183,7 @@ class Header extends Component {
 
 
 					}
-					<Form className="form-inline my-2">
-						{/*<FormControl className="mr-md-2"*/}
-						{/*			 type="search"*/}
-						{/*			 placeholder="Search"*/}
-						{/*			 aria-label="Search"*/}
-						{/*			 onChange={(e) => {*/}
-						{/*				 onSearch(e);*/}
-						{/*			 	//searchDict(e.target.value);*/}
-						{/*			 	//searchTranslations(e.target.value);*/}
-						{/*			 }}/>*/}
+					<Form className="form-inline my-2" onSubmit={this.handleSubmit}>
 						<Autosuggest
 							multiSection={true}
 							suggestions={suggestions}

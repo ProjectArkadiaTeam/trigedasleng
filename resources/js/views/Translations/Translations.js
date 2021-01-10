@@ -3,7 +3,7 @@ import { Row, Col, Button } from 'react-bootstrap/esm/index';
 import InfiniteScroll from 'react-infinite-scroller';
 
 // Lazy load translation component, since we have to wait for fetch anyway
-const Translation = lazy(() => import('../../components/Translation' /* webpackChunkName: "js/Translation" */))
+const Translation = lazy(() => import('../../components/Translation' /* webpackChunkName: "js/Translation" */));
 
 // Get season and episodelist, kept in different file to avoid bloat
 import {seasonList, episodeList} from "./data";

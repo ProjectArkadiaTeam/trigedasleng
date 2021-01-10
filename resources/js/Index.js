@@ -1,7 +1,7 @@
+import 'core-js';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
-
 
 import Main from './Router';
 class Index extends Component {

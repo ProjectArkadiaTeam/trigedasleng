@@ -1,5 +1,3 @@
-import 'core-js';
-
 window._ = require('lodash');
 
 

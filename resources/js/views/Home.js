@@ -3,6 +3,8 @@ import {Link} from "react-router-dom";
 import Translation from "../components/Translation";
 import Word from "../components/Word";
 
+import 'whatwg-fetch';
+
 class Home extends Component {
 	constructor(props) {
 		super(props);

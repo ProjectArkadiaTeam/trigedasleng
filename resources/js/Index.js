@@ -1,4 +1,8 @@
+import 'react-app-polyfill/ie9';
 import 'core-js';
+import 'core-js/features/map';
+import 'core-js/features/object/assign';
+
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';

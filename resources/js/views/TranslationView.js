@@ -25,7 +25,8 @@ class TranslationView extends Component {
 
 	render() {
 		let data = this.getTranslationInfo();
-		window.history.replaceState(null, null, `/translation/${data.id}/${slugify(data.trigedasleng, {lower: true, strict: true})}`);
+		if(data !== undefined)
+			window.history.replaceState(null, null, `/translation/${data.id}/${slugify(data.trigedasleng, {lower: true, strict: true})}`);
 		return (
 			<div className="content">
 				<div id="inner">

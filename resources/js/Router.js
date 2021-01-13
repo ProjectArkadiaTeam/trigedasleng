@@ -2,16 +2,17 @@ import React, { Suspense, lazy, Component } from 'react';
 import {Route, Switch, withRouter} from 'react-router-dom';
 
 // Everything is lazy loaded to allow for code splitting and faster initial load times
-const Home = lazy(() => import('./views/Home' /* webpackChunkName: "js/Home" */));
-const Login = lazy(() => import('./views/Login/Login' /* webpackChunkName: "js/Login" */));
-const Grammar = lazy(() => import('./views/Grammar' /* webpackChunkName: "js/Grammar" */));
-const Sources = lazy(() => import('./views/Sources' /* webpackChunkName: "js/Sources" */));
-const Register = lazy(() => import('./views/Register/Register' /* webpackChunkName: "js/Register" */));
-const NotFound = lazy(() => import('./views/Errors/NotFound' /* webpackChunkName: "js/NotFound" */));
-const WordView = lazy(() => import('./views/WordView' /* webpackChunkName: "js/WordView" */));
-const Dictionary = lazy(() => import('./views/Dictionary/Dictionary' /* webpackChunkName: "js/Dictionary" */));
-const Translations = lazy(() => import('./views/Translations/Translations' /* webpackChunkName: "js/Translations" */));
-const Search = lazy(() => import('./views/Search' /* webpackChunkName: "js/Search" */));
+const Home            = lazy(() => import('./views/Home'                      /* webpackChunkName: "js/Home" */));
+const Login           = lazy(() => import('./views/Login/Login'               /* webpackChunkName: "js/Login" */));
+const Grammar         = lazy(() => import('./views/Grammar'                   /* webpackChunkName: "js/Grammar" */));
+const Sources         = lazy(() => import('./views/Sources'                   /* webpackChunkName: "js/Sources" */));
+const Register        = lazy(() => import('./views/Register/Register'         /* webpackChunkName: "js/Register" */));
+const NotFound        = lazy(() => import('./views/Errors/NotFound'           /* webpackChunkName: "js/NotFound" */));
+const WordView        = lazy(() => import('./views/WordView'                  /* webpackChunkName: "js/WordView" */));
+const TranslationView = lazy(() => import('./views/TranslationView'           /* webpackChunkName: "js/TranslationView" */));
+const Dictionary      = lazy(() => import('./views/Dictionary/Dictionary'     /* webpackChunkName: "js/Dictionary" */));
+const Translations    = lazy(() => import('./views/Translations/Translations' /* webpackChunkName: "js/Translations" */));
+const Search          = lazy(() => import('./views/Search'                    /* webpackChunkName: "js/Search" */));
 
 // Load Static elements normally as they are required
 import Header from './components/Header/Header';
@@ -130,6 +131,10 @@ class Main extends Component {
 								/>
 							)}
 						/>
+						<Route path='/translation/:id'
+						   render={(props) => (
+							   <TranslationView {...props} isLoading={this.state.isLoading} translations={this.state.translations}/>
+						   )}/>
 						<Route exact path='/grammar' component={Grammar}/>
 						<Route exact path='/sources' component={Sources}/>
 						<Route
@@ -146,6 +151,17 @@ class Main extends Component {
 						/>
 						<Route exact path='/word' component={WordView}/>
 						<Route path='/word/:word' component={WordView}/>
+						<Route
+							exact path='/search'
+							render={(props) => (
+								<Search {...props}
+										search = {this.state.search}
+										dictionary = {this.state.dictionary}
+										translations = {this.state.translations}
+										onSearch={this.updateSearch}
+										isLoading={this.state.isLoading} />
+							)}
+						/>
 						<Route
 							path='/search/:query'
 							render={(props) => (

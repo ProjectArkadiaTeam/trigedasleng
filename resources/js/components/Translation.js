@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import slugify from "slugify";
 
 function Translation(props) {
 	const translation = props.translation;
@@ -8,7 +9,7 @@ function Translation(props) {
 			<Table striped size="sm" className="gloss">
 				<tbody>
 				<tr className="tgs_text">
-					<td colSpan="10"><a href="#">{ translation.trigedasleng }</a></td>
+					<td colSpan="10"><a href={`/translation/${translation.id}/${slugify(translation.trigedasleng, {lower: true, strict: true})}`}>{ translation.trigedasleng }</a></td>
 				</tr>
 				<tr className="tgs" style={{display: "table-row"}}>
 					{ translation.trigedasleng.split(' ').map((word , index) => <td key={index}>{word}</td>) }

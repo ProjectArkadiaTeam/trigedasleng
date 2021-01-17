@@ -1,7 +1,7 @@
 {
     "name": "Unofficial Trigedasleng Dictionary",
     "short_name": "Trig Dictionary",
-    "start_url": "/?source=pwa",
+    "start_url": "/",
     "icons": [
         {
             "src": "/img/ios180x180.png",
@@ -11,7 +11,8 @@
         {
             "src": "/img/pwa512x512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ],
     "theme_color": "#212529",

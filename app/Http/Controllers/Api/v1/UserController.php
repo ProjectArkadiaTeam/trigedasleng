@@ -27,8 +27,7 @@ class UserController extends Controller
         return response()->json(
             $user,
             200,
-            [],
-            JSON_PRETTY_PRINT
+            []
         );
     }
 

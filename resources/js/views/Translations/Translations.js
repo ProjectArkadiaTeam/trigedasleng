@@ -8,13 +8,6 @@ const Translation = lazy(() => import('../../components/Translation' /* webpackC
 // Get season and episodelist, kept in different file to avoid bloat
 import {seasonList, episodeList} from "./data";
 
-/**
- * Apple devices running an iOS version earlier than 10
- * does not support fetch, so we use a workaround.
- * TODO: Do old devices support axios?
- */
-import 'whatwg-fetch';
-
 class Translations extends Component {
 	constructor(props) {
 		super(props);

@@ -20,7 +20,9 @@ Route::namespace('Api')->group(function(){
     });
 
     // Legacy API
-    Route::prefix('legacy')->group(function () {
+    Route::prefix('legacy')
+        ->middleware('cache.headers:private;max_age=3600')
+        ->group(function () {
         Route::get('/dictionary', 'LegacyController@dictionary')->name('api.legacy.dictionary');
         Route::get('/search', 'LegacyController@search')->name('api.legacy.search');
         Route::get('/recent', 'LegacyController@recent')->name('api.legacy.recent');

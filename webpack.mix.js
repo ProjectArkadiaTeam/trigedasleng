@@ -1,6 +1,7 @@
 const mix = require('laravel-mix');
 require('laravel-mix-bundle-analyzer');
-require('laravel-mix-workbox');
+const { GenerateSW } = require('workbox-webpack-plugin');
+
 
 
 if (!mix.inProduction()) {
@@ -18,6 +19,35 @@ if (!mix.inProduction()) {
  |
  */
 
+const CompressionPlugin = require('compression-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin'); //brotli
+
 mix.react('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
-    .sourceMaps(false, 'source-map');
+    .sourceMaps(false, 'source-map')
+    .options({
+        //uglify: true,
+        //minimize: true
+    })
+    .webpackConfig({
+        plugins: [
+            new CompressionPlugin({
+                filename: '[path][base].gz',
+                algorithm: 'gzip',
+                test: /\.(js|css|html|svg)$/,
+                threshold: 8192,
+                minRatio: 0.8
+            }),
+            new BrotliPlugin({ //brotli plugin
+                asset: '[path].br',
+                test: /\.(js|css|html|svg)$/,
+                threshold: 10240,
+                minRatio: 0.8
+            }),
+            new GenerateSW({
+                modifyURLPrefix: {
+                    '//': '/',
+                },
+            }),
+        ],
+    });

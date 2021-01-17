@@ -1,11 +1,6 @@
 import React, { Component, Suspense, lazy } from 'react';
 import Translation from '../components/Translation';
 
-const Word = lazy(() => import('../components/Word'))
-
-// Apple devices running an iOS version earlier than 10
-// does not support fetch, so we use a workaround
-import 'whatwg-fetch';
 import {Link} from "react-router-dom";
 
 class WordView extends Component {

@@ -134,7 +134,7 @@ class Header extends Component {
 			value: newValue
 		});
 
-		if(newValue.length < 3)
+		if(newValue.length < 2)
 			newValue = "";
 
 		onSearch(newValue);

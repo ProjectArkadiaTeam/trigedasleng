@@ -29,7 +29,7 @@ class AuthController extends Controller
             'password' => 'required|string|confirmed',
         ]);
         if($validator->fails()) {
-            return response()->json($validator->messages(), 422, array(), JSON_PRETTY_PRINT);
+            return response()->json($validator->messages(), 422, array());
         }
 
         $user = new User([
@@ -127,8 +127,7 @@ class AuthController extends Controller
         return response()->json(
             User::with('group')->where('id', $request->user()->id)->first(),
             200,
-            [],
-            JSON_PRETTY_PRINT
+            []
         );
     }
 }

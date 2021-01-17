@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import Translation from "../components/Translation";
 import Word from "../components/Word";
 
-import 'whatwg-fetch';
 
 class Home extends Component {
 	constructor(props) {
@@ -89,13 +88,13 @@ class Home extends Component {
 						<div className="col-lg col-md-12 column">
 							<h3>Resources:</h3>
 							<ul id="resources">
-								<li><a href="//en.wikipedia.org/wiki/Trigedasleng" target="_blank">Trigedasleng on Wikipedia</a></li>
-								<li><a href="//dedalvs.tumblr.com/tagged/Trigedasleng"  target="_blank">Dedalvs Tumblr</a></li>
-								<li><a href="//dedalvs.com/work/the-100/trigedasleng_master_dialogue.pdf" target="_blank">Transcripts of Trig lines in the show</a></li>
-								<li><a href="//www.memrise.com/course/957902/trigedasleng/"  target="_blank">Memrise course</a></li>
-								<li><a href="//www.youtube.com/watch?v=JCoxlcHn7SQ&list=PLrk1St_BRZTFrhOYsz2KRS_fZ9ZzTavrq" target="_blank">Slakkru's Learn Trigedasleng videos </a></li>
-								<li><a href="//slakgedakru.tumblr.com/"  target="_blank">Slakgedakru</a></li>
-								<li><a href="//discord.gg/MFnCpEB" target="_blank">Slakgedakru Discord Server</a></li>
+								<li><a rel="noreferrer" href="//en.wikipedia.org/wiki/Trigedasleng" target="_blank">Trigedasleng on Wikipedia</a></li>
+								<li><a rel="noreferrer" href="//dedalvs.tumblr.com/tagged/Trigedasleng"  target="_blank">Dedalvs Tumblr</a></li>
+								<li><a rel="noreferrer" href="//dedalvs.com/work/the-100/trigedasleng_master_dialogue.pdf" target="_blank">Transcripts of Trig lines in the show</a></li>
+								<li><a rel="noreferrer" href="//www.memrise.com/course/957902/trigedasleng/"  target="_blank">Memrise course</a></li>
+								<li><a rel="noreferrer" href="//www.youtube.com/watch?v=JCoxlcHn7SQ&list=PLrk1St_BRZTFrhOYsz2KRS_fZ9ZzTavrq" target="_blank">Slakkru's Learn Trigedasleng videos </a></li>
+								<li><a rel="noreferrer" href="//slakgedakru.tumblr.com/"  target="_blank">Slakgedakru</a></li>
+								<li><a rel="noreferrer" href="//discord.gg/MFnCpEB" target="_blank">Slakgedakru Discord Server</a></li>
 							</ul>
 						</div>
 					</div>

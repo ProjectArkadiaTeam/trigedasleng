@@ -1,5 +1,4 @@
 import 'react-app-polyfill/ie9';
-import 'core-js';
 import 'core-js/features/map';
 import 'core-js/features/object/assign';
 

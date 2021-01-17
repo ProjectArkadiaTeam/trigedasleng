@@ -3,10 +3,9 @@ import React, { Component, lazy, Suspense } from 'react';
 const Word = lazy(() => import('../components/Word'));
 const Translation = lazy(() => import('../components/Translation'));
 
-// Apple devices running an iOS version earlier than 10
-// does not support fetch, so we use a workaround
-import 'whatwg-fetch';
-
+const sleep = (milliseconds) => {
+	return new Promise(resolve => setTimeout(resolve, milliseconds))
+};
 class Search extends Component {
 
 	constructor(props) {
@@ -16,15 +15,30 @@ class Search extends Component {
 		};
 	}
 
+	/**
+	 * When component is mounted check our url for a search query
+	 * This is needed for when someone directly accesses a search url
+	 * instead of manually searching using the search field
+	 */
 	componentDidMount() {
 		if(this.props.match.params.query === undefined) return;
 		if (this.props.search !== this.props.match.params.query){
 			this.props.onSearch(this.props.match.params.query);
-			console.log(this.props.match.params.query)
-			this.getSearchResults()
 		}
+
+		// Give backend time to load
+		// This is a hotfix and not a very nice one...
+		sleep(2000).then(() => {
+			this.props.onSearch(this.props.match.params.query);
+		})
 	}
 
+	/**
+	 * When the search value is updated, update the results array and url
+	 * @param prevProps
+	 * @param prevState
+	 * @param snapshot
+	 */
 	componentDidUpdate(prevProps, prevState, snapshot) {
 		if (prevProps.search !== this.props.search){
 			this.props.history.push('/search/'+this.props.search);
@@ -38,33 +52,37 @@ class Search extends Component {
 		const {dictionary, translations} = this.props;
 		let search = this.props.search;
 
-		function applySearch(entry){
+		function applySearch(entry, exact){
 			if(entry.word !== undefined) {
-				return entry.word.toLowerCase().includes(search.toLowerCase())
-					|| entry.translation.toLowerCase().includes(search.toLowerCase())
+				if (exact)
+					return entry.word.toLowerCase() === search.toLowerCase()
+						|| entry.translation.toLowerCase() === search.toLowerCase();
+				else
+					return entry.word.toLowerCase().includes(search.toLowerCase())
+						|| entry.translation.toLowerCase().includes(search.toLowerCase());
 			} else {
-				return entry.trigedasleng.toLowerCase().includes(search.toLowerCase())
-					|| entry.translation.toLowerCase().includes(search.toLowerCase())
+				if (exact)
+					return entry.trigedasleng.toLowerCase() === search.toLowerCase()
+						|| entry.translation.toLowerCase() === search.toLowerCase();
+				else
+					return entry.trigedasleng.toLowerCase().includes(search.toLowerCase())
+						|| entry.translation.toLowerCase().includes(search.toLowerCase())
 			}
 		}
 
 		let results = [];
-		if (search.length < 3){
-			results['words'] = [];
-			results['translations'] = [];
-			return results;
-		}
 
 		results['words'] = dictionary.filter(function (entry) {
-			return applySearch(entry)
+			return applySearch(entry, search.length < 3)
 		});
 
 		results['translations'] = translations.filter(function (entry) {
-			return applySearch(entry)
+			return applySearch(entry, search.length < 3)
 		});
 
 		// Update cache and return
 		this.setState({results: results} );
+		this.render();
 	}
 
 	/** Render list of words */
@@ -100,23 +118,31 @@ class Search extends Component {
 			<React.Fragment>
 				<div className="content">
 					<div id="inner">
-						{this.props.search.length < 3 ? <h2>Minimum requirement for search is atleast 3 characters</h2> :
+						{this.props.search.length < 2 ? <h2>Minimum requirement for search is atleast 2 characters</h2> :
 							!this.hasResults() ? <h2>Your search "{this.props.search}" did not match any words or translations</h2> :
 							<React.Fragment>
-								<h2>Words matching your search</h2>
-								<div className="dictionary">
-									<Suspense fallback={<h3>Receving data from the ark...</h3>} >
-										{ this.renderWords() }
-									</Suspense>
-								</div>
-								<h2>Translations matching your search</h2>
-								<div className="translations">
-									{ this.props.isLoading ? "Loading" :
+								{this.state.results['words'].length > 0 ?
+									<React.Fragment>
+									<h2>Words matching your search</h2>
+									<div className="dictionary">
 										<Suspense fallback={<h3>Receving data from the ark...</h3>} >
-											{ this.renderTranslations() }
+											{ this.renderWords() }
 										</Suspense>
-									}
-								</div>
+									</div>
+									</React.Fragment>
+								: "" }
+								{this.state.results['translations'].length > 0 ?
+									<React.Fragment>
+									<h2>Translations matching your search</h2>
+									<div className="translations">
+										{ this.props.isLoading ? "Loading" :
+											<Suspense fallback={<h3>Receving data from the ark...</h3>} >
+												{ this.renderTranslations() }
+											</Suspense>
+										}
+									</div>
+									</React.Fragment>
+								: "" }
 							</React.Fragment>
 							}
 					</div>

@@ -28,7 +28,7 @@ class LegacyController extends Controller
             $data['translations'] = $translations->toArray();
         }
 
-        return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
+        return response()->json($this->utf8ize($data), 200, array());
     }
 
     public function dictionary(Request $request){
@@ -45,14 +45,14 @@ class LegacyController extends Controller
             $data = $words->toArray();
         }
 
-        return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
+        return response()->json($this->utf8ize($data), 200, array());
     }
 
     public function translations(){
         $translations = DB::table('dict_translations');
         $data = $translations->get()->toArray();
 
-        return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
+        return response()->json($this->utf8ize($data), 200, array());
     }
 
     public function wordLookup(Request $request){
@@ -78,21 +78,21 @@ class LegacyController extends Controller
 //        $citation = DB::selectOne('SELECT * FROM `dict_sources` WHERE `id`=?', [$wordInfo->citations]);
 //        $data['source'] = $citation;
 
-        return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
+        return response()->json($this->utf8ize($data), 200, array());
     }
 
     public function recent(Request $request) {
         $limit = $request->input('limit') != "" ? $request->input('limit') : 10;
         $recentList = DB::select("SELECT * FROM `dict_words` ORDER BY id DESC LIMIT ?", [$limit]);
 
-        return response()->json($this->utf8ize($recentList), 200, array(), JSON_PRETTY_PRINT);
+        return response()->json($this->utf8ize($recentList), 200, array());
     }
 
     public function random(Request $request) {
         $data['word'] = DB::selectOne("SELECT * FROM `dict_words` ORDER BY RAND() LIMIT 1");
         $data['translation'] = DB::selectOne("SELECT * FROM `dict_translations` ORDER BY RAND() LIMIT 1");
 
-        return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
+        return response()->json($this->utf8ize($data), 200, array());
 
     }
 
@@ -100,7 +100,7 @@ class LegacyController extends Controller
         $sources = DB::table('dict_sources');
         $data = $sources->get()->toArray();
 
-        return response()->json($this->utf8ize($data), 200, array(), JSON_PRETTY_PRINT);
+        return response()->json($this->utf8ize($data), 200, array());
     }
 
     private function utf8ize($data) {

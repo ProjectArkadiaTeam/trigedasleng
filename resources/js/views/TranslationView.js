@@ -2,12 +2,6 @@ import React, { Component, Suspense, lazy } from 'react';
 import Translation from '../components/Translation';
 import slugify from "slugify";
 
-
-// Apple devices running an iOS version earlier than 10
-// does not support fetch, so we use a workaround
-import 'whatwg-fetch';
-import {Link} from "react-router-dom";
-
 class TranslationView extends Component {
 
 	constructor(props) {

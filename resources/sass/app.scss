@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
 @import 'variables';
@@ -52,9 +52,8 @@ button#play-button {
 body {
   background: var(--color-lighter-gray);
   margin: 0;
-  padding: 0;
   border: 0;
-  padding-top: 4rem;
+  padding: 4rem 0 0;
   height: 100%;
   width: 100%;
 }
@@ -93,6 +92,10 @@ iframe {
 p {
   font-family: 'Noto Sans', Arial, sans-serif;
   letter-spacing: .03em;
+}
+
+li {
+  line-height: 2em;
 }
 
 .small {
@@ -744,7 +747,6 @@ button:hover {
 }
 
 .topbar h2 {
-  float: right;
   margin-top: 20px;
   height: 30px;
   float: left;
@@ -1193,8 +1195,7 @@ ul.chapter-list li {
   position: absolute;
   top: 0;
   width: 250px;
-  margin: 0;
-  margin-top: 20px;
+  margin: 20px 0 0;
   padding: 0;
   list-style: none;
 }

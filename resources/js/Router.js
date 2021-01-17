@@ -165,12 +165,12 @@ class Main extends Component {
 						<Route
 							path='/search/:query'
 							render={(props) => (
-								<Search {...props}
+								this.state.dictionary.length > 0 && this.state.translations ? <Search {...props}
 										search = {this.state.search}
 										dictionary = {this.state.dictionary}
 										translations = {this.state.translations}
 										onSearch={this.updateSearch}
-										isLoading={this.state.isLoading} />
+										isLoading={this.state.isLoading} /> : "Loading"
 							)}
 						/>
 						<Route component={NotFound} />

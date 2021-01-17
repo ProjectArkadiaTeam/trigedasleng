@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Providers\RouteServiceProvider;
+use Cache;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 

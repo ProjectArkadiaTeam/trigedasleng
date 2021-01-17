@@ -5,10 +5,6 @@ import { isMobile, MobileView } from "react-device-detect";
 
 const Word = lazy(() => import('../../components/Word' /* webpackChunkName: "js/word" */))
 
-// Apple devices running an iOS version earlier than 10
-// does not support fetch, so we use a workaround
-import 'whatwg-fetch';
-
 const wordClasses = [
 	"all",
 	"noun",
@@ -65,8 +61,13 @@ class Dictionary extends Component {
 		let classFilter = this.state.classFilter;
 
 		function applySearch(entry){
-			return entry.word.toLowerCase().includes(search.toLowerCase())
-				|| entry.translation.toLowerCase().includes(search.toLowerCase())
+			if(search.length < 2) return true;
+			if(search.length < 3)
+				return entry.word.toLowerCase() === search.toLowerCase()
+					|| entry.translation.toLowerCase() === search.toLowerCase();
+			else
+				return entry.word.toLowerCase().includes(search.toLowerCase())
+					|| entry.translation.toLowerCase().includes(search.toLowerCase());
 		}
 
 		function applyClassFilter(entry){

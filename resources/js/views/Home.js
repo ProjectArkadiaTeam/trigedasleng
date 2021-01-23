@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Link} from "react-router-dom";
 import Translation from "../components/Translation";
 import Word from "../components/Word";
+import BuyMeACoffee from "../components/Misc/BuyMeACoffee";
 
 
 class Home extends Component {
@@ -52,6 +53,7 @@ class Home extends Component {
 
 	render() {
 		return (
+			<>
 			<div className="content">
 				<div id="inner">
 					<div className="row" style={{minHeight: "100%",	padding: "20px 0 20px 0"}}>
@@ -100,6 +102,8 @@ class Home extends Component {
 					</div>
 				</div>
 			</div>
+			<BuyMeACoffee />
+			</>
 		)
 	}
 }

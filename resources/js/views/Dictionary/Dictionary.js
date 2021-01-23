@@ -105,7 +105,7 @@ class Dictionary extends Component {
 					</Row>
 				</MobileView>
 				{this.state.showFilterButtons ?
-				<Row xs={2} sm={2} className="justify-content-md-center">
+				<Row xs={2} sm={2} className="justify-content-md-center" style={{ maxWidth: "100%" }}>
 					{
 						wordClasses.map(wordClass => {
 							return (

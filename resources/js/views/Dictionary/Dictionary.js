@@ -62,12 +62,12 @@ class Dictionary extends Component {
 
 		function applySearch(entry){
 			if(search.length < 2) return true;
-			if(search.length < 3)
-				return entry.word.toLowerCase() === search.toLowerCase()
-					|| entry.translation.toLowerCase() === search.toLowerCase();
-			else
-				return entry.word.toLowerCase().includes(search.toLowerCase())
-					|| entry.translation.toLowerCase().includes(search.toLowerCase());
+
+			let word        = entry.word.toLowerCase();
+			let translation = entry.translation.split(':')[1].toLowerCase();
+
+			if (search.length < 3) return word === search || translation === search;
+			else return word.includes(search) || translation.includes(search);
 		}
 
 		function applyClassFilter(entry){

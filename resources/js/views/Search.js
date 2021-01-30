@@ -47,27 +47,24 @@ class Search extends Component {
 	}
 
 
-	/** Get search results */
+	/**
+	 * Get search results
+	 *
+	 * TODO: This thing is getting painfull... need DB upgrade first before fixing
+	 */
 	getSearchResults() {
 		const {dictionary, translations} = this.props;
-		let search = this.props.search;
+		let search = this.props.search.toLowerCase();
 
 		function applySearch(entry, exact){
-			if(entry.word !== undefined) {
-				if (exact)
-					return entry.word.toLowerCase() === search.toLowerCase()
-						|| entry.translation.toLowerCase() === search.toLowerCase();
-				else
-					return entry.word.toLowerCase().includes(search.toLowerCase())
-						|| entry.translation.toLowerCase().includes(search.toLowerCase());
-			} else {
-				if (exact)
-					return entry.trigedasleng.toLowerCase() === search.toLowerCase()
-						|| entry.translation.toLowerCase() === search.toLowerCase();
-				else
-					return entry.trigedasleng.toLowerCase().includes(search.toLowerCase())
-						|| entry.translation.toLowerCase().includes(search.toLowerCase())
-			}
+			let isWord = (entry.word !== undefined);
+			let word = entry.word 				=== undefined ? undefined : entry.word.toLowerCase();
+			let trig = entry.trigedasleng       === undefined ? undefined : entry.trigedasleng.toLowerCase();
+			let translation = entry.translation === undefined ? undefined : isWord ? entry.translation.split(':')[1] : entry.translation;
+			    translation = translation       === undefined ? undefined : translation.toLowerCase();
+
+			if (exact) return (isWord ? word : trig) === search || translation === search;
+			else return (isWord ? word.includes(search) : trig.includes(search)) || translation.includes(search);
 		}
 
 		let results = [];

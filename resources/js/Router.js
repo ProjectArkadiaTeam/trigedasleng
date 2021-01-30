@@ -26,6 +26,7 @@ import PWAPrompt from 'react-ios-pwa-prompt';
 import PrivateRoute from './PrivateRoute'
 import AddTranslation from "./views/Admin/AddTranslation";
 import AddWord from "./views/Admin/AddWord";
+import Learn from "./views/Learn";
 
 let state = localStorage["appState"];
 let AppState = JSON.parse(state);
@@ -171,6 +172,12 @@ class Main extends Component {
 										translations = {this.state.translations}
 										onSearch={this.updateSearch}
 										isLoading={this.state.isLoading} /> : "Loading"
+							)}
+						/>
+						<Route
+							exact path='/learn'
+							render={(props) => (
+								<Learn {...props} dictionary={this.state.dictionary} />
 							)}
 						/>
 						<Route component={NotFound} />

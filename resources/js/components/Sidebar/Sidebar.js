@@ -50,6 +50,7 @@ class Sidebar extends Component {
 						<li><NavLink exact activeClassName="activeLink" to="/dictionary/noncanon">Noncanon Dictionary</NavLink></li>
 						<li><NavLink exact activeClassName="activeLink" to="/translations">Translations</NavLink></li>
 						<li><NavLink exact activeClassName="activeLink" to="/grammar">Grammar</NavLink></li>
+						<li><NavLink exact activeClassName="activeLink" to="/learn">Learn</NavLink></li>
 						<li><NavLink exact activeClassName="activeLink" to="/sources">Sources</NavLink></li>
 						{ this.state.isAdmin ?
 							<>

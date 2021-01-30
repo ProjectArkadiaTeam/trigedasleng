@@ -1232,6 +1232,126 @@ ul.chapter-list li {
   color: white !important;
 }
 
+.card  {
+  width: 30em;
+  height: 15em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  box-shadow: 2px 3px 23px rgba(0,0,0,.1);
+  padding: 1em 3em;
+  transform-style: preserve-3d;
+  transition: 0.2s;
+  margin-bottom: 3em;
+
+  &.back {
+
+  }
+
+  @media(max-width: 600px) {
+    width: 25em;
+  }
+
+  @media(max-height: 823px) {
+    //margin-top: 9em;
+  }
+}
+
+.card-flip-card {
+  position: absolute;
+  top: 4%;
+  right: 5%;
+  cursor: pointer;
+  color: #333;
+}
+
+
+.card-content-front {
+  animation: fadeInUp 0.5s;
+  font-weight: bold;
+}
+
+.card-content-back {
+  animation: fadeIn 0.6s;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+
+.card-container-icon {
+  position: fixed;
+  z-index: 100;
+  font-size: 1.5em;
+  top: 0.5em;
+  left: 94%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  color: #333;
+}
+
+.card-actions {
+  position: absolute;
+  bottom: 10%;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
+  left: 0;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.card-next-button {
+  margin-left: 0.5em;
+  cursor: pointer;
+  padding: 0.5em 2.75em;
+  background: #F1F1F1;
+  color: #444;
+  transition: 0.2s;
+
+  &:hover {
+    background: darken(#F1F1F1, 10%);
+  }
+}
+
+.card-prev-button {
+  margin-right: 0.5em;
+  cursor: pointer;
+  padding: 0.5em 0.75em;
+  background: #F1F1F1;
+  color: #444;
+  transition: 0.2s;
+
+  &:hover {
+    background: darken(#F1F1F1, 10%);
+  }
+}
+
+.card-container-dot {
+  margin: 0 1em;
+}
+
+.card-container-dots-wrapper {
+  padding: 1em 0em;
+  margin-top: 1em;
+  text-align: center;
+
+}
+
+.card-container-dot {
+  color: lightgray;
+  cursor: pointer;
+
+  &.active {
+    color: dodgerblue;
+    transition: 0.5s;
+  }
+}
+
 @media(min-width:768px) {
 
   .content {

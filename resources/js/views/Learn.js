@@ -36,6 +36,7 @@ class Card extends React.Component {
 				<div className={`card-content-${contentClass}`}>
 					{content}
 				</div>
+				{this.state.showAnswer ?
 				<div className={`card-actions ${actionClass}`}>
 					<div
 						className='card-next-button'
@@ -46,7 +47,7 @@ class Card extends React.Component {
 					>
 						Next
 					</div>
-				</div>
+				</div> : ""}
 			</div>
 		);
 	}

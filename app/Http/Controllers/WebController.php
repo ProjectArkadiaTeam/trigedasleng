@@ -233,13 +233,13 @@ class WebController extends Controller
             "0707" => "S7E07: The Queen's Gambit",
             "0708" => "S7E08: Anaconda",
             "0709" => "S7E09: The Flock",
-            "0710" => "S7E10: ",
-            "0711" => "S7E11: ",
-            "0712" => "S7E12: ",
-            "0713" => "S7E13: ",
-            "0714" => "S7E14: ",
-            "0715" => "S7E15: ",
-            "0716" => "S7E16: ",
+            "0710" => "S7E10: A Little Sacrifice",
+            "0711" => "S7E11: Etherea",
+            "0712" => "S7E12: The Stranger",
+            "0713" => "S7E13: Blood Giant",
+            "0714" => "S7E14: A Sort of Homecoming",
+            "0715" => "S7E15: The Dying of the Light",
+            "0716" => "S7E16: The Last War",
             "other" => "Other Translations"
         ];
         return view('translations', [
